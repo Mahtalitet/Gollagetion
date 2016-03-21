@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="post_dummy">Опа! Заглушечка!</string>
+    <string name="search_button_text">Заглянуть</string>
+	<string name="hint_for_users">Ник в Инсте</string>
+	<string name="collage_button_text">Давай коллаж</string>
+	<string name="share_button_text">Расшарить</string>
+	<string name="activity_post_title">Готовый коллаж</string>
+	<string name="image_button_home">Вернуться назад</string>
+	<string name="counter_of_images">&#160;из 4</string>
+	<string name="message_bad">Сорян, что-то сломалось :(</string>
+	<string name="toast_load">Коллаж на подходe&#8230;</string>
+	<string name="toast_null_nick">Ник-то введи!</string>
+	<string name="toast_bad_nick">Нету такого юзера&#8230;</string>
+	<string name="toast_space_nick">Ники с пробелами запрещены!</string>
+	<string name="toast_network_offline">Ты не в Сети!</string>
+	<string name="dialog_search_id_title">Сканируем ник&#8230;</string>
+	<string name="dialog_get_posts_title">Грузим посты&#8230;</string>
+	<string name="impicit_intent_title">Расшарить коллаж в:</string>
+</resources>

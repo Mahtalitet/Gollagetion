@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+	<include 
+		   android:id="@+id/fragment_collage_toolbar"
+		   layout="@layout/collage_toolbar_layout"
+		   android:layout_width="match_parent"
+		   android:layout_height="wrap_content"/>
+
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+		<com.rinekri.widget.SharegramButton 
+		    xmlns:app="http://schemas.android.com/apk/res/com.rinekri.collagetion"
+		    android:id="@+id/collage_button"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="bottom"
+		    android:text="@string/collage_button_text"
+		    android:layout_alignParentBottom="true"
+		    android:visibility="gone"
+		    app:fontCustom="roboto_medium" />
+
+		<android.support.v7.widget.ListViewCompat
+			android:id="@android:id/list"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:layout_above="@id/collage_button" 
+		    android:scrollbars="none"
+		    android:theme="@style/sharegram_listview" />
+		
+		<com.rinekri.widget.SharegramTextView
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:id="@android:id/empty"
+		    android:text="@string/message_bad"
+		    android:layout_gravity="center_horizontal"
+		    android:padding="40dp"
+		    android:textColor="@color/sharegram_hint" />
+
+	</RelativeLayout>
+</LinearLayout>
