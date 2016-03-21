@@ -1,5 +1,11 @@
 package com.rinekri.network;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
@@ -13,14 +19,14 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import okhttp3.HttpUrl;
+
 public class InstagramJSONWorker {
 	private static final String TAG = "InstagramJSONWorker";
 	
-	private static final String URL_MAIN = "api.instagram.com/v1/users";
-	private static final String URL_SEARCH = "search"; 
-	private static final String URL_MEDIA = "/media/recent";
+	private static final String URL_MAIN = "https://api.instagram.com/v1/users/";
 	private static final String URL_CLIENT_ID ="client_id=9734d32bcee14651829e7b2bed26b4c3";
-	
+
 	private String mInstagramNick;
 	private String mInstagramID;
 	private Context mContext;
@@ -32,7 +38,7 @@ public class InstagramJSONWorker {
 	
 	public String getId (String nick) {
 		mInstagramNick = nick;
-		
+
 		AsyncTask<Void, Void, String> requestID = new GetInstagramID().execute();
 		
 		String instagramId = null;
@@ -59,7 +65,7 @@ public class InstagramJSONWorker {
 		private static final String TAG_ID = "id";
 		
 		private AlertDialog alert;
-		
+
 		protected void onPreExecute() {
 			AlertDialog.Builder alertBuilder = new AlertDialog.Builder(mContext);
 			alertBuilder.setMessage(R.string.dialog_search_id_title);
@@ -69,31 +75,42 @@ public class InstagramJSONWorker {
 		}
 		   
 		protected String doInBackground(Void... arg0) {
-//			HttpUrl getIDurl = new HttpUrl.Builder()
-//					.scheme("https")
-//					.host(URL_MAIN)
-//					.addPathSegment(URL_SEARCH)
-//					.addQueryParameter("q", mInstagramNick)
-//					.addQueryParameter("&", URL_CLIENT_ID)
-//					.build();
-			
-//			Log.d(TAG, getIDurl.toString());
-			
-			
-	 
+			StringBuilder getIDurl = new StringBuilder();
+			getIDurl.append(URL_MAIN);
+			getIDurl.append("search?q=");
+			getIDurl.append(mInstagramNick);
+			getIDurl.append("&");
+			getIDurl.append(URL_CLIENT_ID);
+
+			Log.d(TAG, getIDurl.toString());
+
+			NetworkConnector connector = new NetworkConnector();
+			InputStream byteResponce = connector.getByteResponce(getIDurl.toString());
+			BufferedReader reader = new BufferedReader(new InputStreamReader(byteResponce));
+
+			String line = null;
+			try {
+				while ((line = reader.readLine()) != null) {
+					Log.d(TAG, "> " + line);
+                }
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+
 //	        String jsonStr = sh.makeServiceCall(getIDurl.toString(), ServiceHandler.GET);
-//	 
-//	        Log.d(TAG, "> " + jsonStr);
-//	 
+//
+
+//
 //	        if (jsonStr != null) {
 //	            try {
 //	                JSONObject jsonObj = new JSONObject(jsonStr);
-//	                     
+//
 //	                JSONArray usersData = jsonObj.getJSONArray(TAG_DATA);
-//	 
+//
 //	                for (int i = 0; i < usersData.length(); i++) {
 //	                	JSONObject c = usersData.getJSONObject(i);
-//	                         
+//
 //	                	String nick = c.getString(TAG_USERNAME);
 //	                	Log.e(TAG, "nick: "+nick);
 //	                    if (nick.equals(mInstagramNick)) {

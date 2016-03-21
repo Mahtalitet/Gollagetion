@@ -51,9 +51,9 @@ public class ShareFragment extends Fragment {
 							mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_space_nick));
 						} else {
 							Log.d(TAG, "Entered nick: "+instaNick);
-//							InstagramJSONWorker worker = new InstagramJSONWorker(getActivity());
-//							findedInstagramID = worker.getId(instaNick);
-							findedInstagramID = instaNick;
+							InstagramJSONWorker worker = new InstagramJSONWorker(getActivity());
+							findedInstagramID = worker.getId(instaNick);
+//							findedInstagramID = instaNick;
 							if (findedInstagramID != null) {
 								Log.d(TAG, "Finded ID: "+findedInstagramID);
 								Intent i = new Intent(getActivity(), CollageActivity.class);
