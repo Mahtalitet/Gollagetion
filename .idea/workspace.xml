@@ -81,40 +81,61 @@
       <file leaf-file-name="CollageFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/CollageFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+            <state vertical-scroll-proportion="-6.0740743">
+              <caret line="101" column="60" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list_item_post.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sharegram/src/main/res/layout/list_item_post.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.310345">
+              <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_post.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sharegram/src/main/res/layout/fragment_post.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.5172415">
+              <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="InstagramJSONWorker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/InstagramJSONWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.94086957">
-              <caret line="163" column="50" selection-start-line="163" selection-start-column="50" selection-end-line="163" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.42086956">
+              <caret line="184" column="43" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getId#0;class#InstagramJSONWorker#0" expanded="false" />
-                <element signature="class#GetInstagramID#0;class#InstagramJSONWorker#0" expanded="false" />
-                <element signature="e#1552#1583#0" expanded="true" />
-                <element signature="e#3021#3022#0" expanded="true" />
-                <element signature="e#3064#3065#0" expanded="true" />
-                <element signature="method#getPosts#0;class#InstagramJSONWorker#0" expanded="false" />
-                <element signature="e#4152#4183#0" expanded="true" />
-                <element signature="e#5004#5020#0" expanded="true" />
-                <element signature="e#6550#6551#0" expanded="true" />
-                <element signature="e#6593#6594#0" expanded="true" />
+                <element signature="e#1551#1582#0" expanded="true" />
+                <element signature="e#3020#3021#0" expanded="true" />
+                <element signature="e#3063#3064#0" expanded="true" />
+                <element signature="e#4415#4446#0" expanded="true" />
+                <element signature="e#5284#5299#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InstagramPosts.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/InstagramPosts.java">
+      <file leaf-file-name="InstagramPost.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/InstagramPost.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.9259257">
-              <caret line="11" column="85" selection-start-line="11" selection-start-column="85" selection-end-line="11" selection-end-column="85" />
+            <state vertical-scroll-proportion="-3.2962964">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -124,11 +145,11 @@
         <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/NetworkConnector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#922#923#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#729#730#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1819,7 +1840,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sharegram/src/main/res/layout/list_item_post.xml" />
         <option value="$PROJECT_DIR$/sharegram/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/sharegram/build.gradle" />
@@ -1828,9 +1848,11 @@
         <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/DirectoryReturner.java" />
         <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/ShareFragment.java" />
         <option value="$PROJECT_DIR$/sharegram/src/main/res/layout-v11/fragment_collage.xml" />
-        <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/NetworkConnector.java" />
-        <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/CollageFragment.java" />
         <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/InstagramPosts.java" />
+        <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/InstagramPost.java" />
+        <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/NetworkConnector.java" />
+        <option value="$PROJECT_DIR$/sharegram/src/main/res/layout/list_item_post.xml" />
+        <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/CollageFragment.java" />
         <option value="$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/InstagramJSONWorker.java" />
       </list>
     </option>
@@ -2448,16 +2470,11 @@
           <caret line="93" column="52" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getId#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="class#GetInstagramID#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="e#1552#1583#0" expanded="true" />
-            <element signature="e#3021#3022#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
-            <element signature="method#getPosts#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="e#4152#4183#0" expanded="true" />
-            <element signature="e#5004#5020#0" expanded="true" />
-            <element signature="e#6550#6551#0" expanded="true" />
-            <element signature="e#6593#6594#0" expanded="true" />
+            <element signature="e#1551#1582#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#3063#3064#0" expanded="true" />
+            <element signature="e#4415#4446#0" expanded="true" />
+            <element signature="e#5284#5299#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2485,9 +2502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2523,16 +2538,11 @@
           <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getId#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="class#GetInstagramID#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="e#1552#1583#0" expanded="true" />
-            <element signature="e#3021#3022#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
-            <element signature="method#getPosts#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="e#4152#4183#0" expanded="true" />
-            <element signature="e#5004#5020#0" expanded="true" />
-            <element signature="e#6550#6551#0" expanded="true" />
-            <element signature="e#6593#6594#0" expanded="true" />
+            <element signature="e#1551#1582#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#3063#3064#0" expanded="true" />
+            <element signature="e#4415#4446#0" expanded="true" />
+            <element signature="e#5284#5299#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2543,8 +2553,8 @@
           <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2562,17 +2572,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sharegram/src/main/res/layout/list_item_post.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2947977">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/import-summary.txt">
@@ -2648,9 +2647,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.034782607">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2692,18 +2689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/NetworkConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/ShareFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2714,38 +2699,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sharegram/src/main/res/layout/fragment_post.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5172415">
+          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharegram/src/main/res/layout/list_item_post.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.310345">
+          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/CollageFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        <state vertical-scroll-proportion="-6.0740743">
+          <caret line="101" column="60" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/InstagramPosts.java">
+    <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/NetworkConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.9259257">
-          <caret line="11" column="85" selection-start-line="11" selection-start-column="85" selection-end-line="11" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/collagetion/InstagramPost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2962964">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sharegram/src/main/java/com/rinekri/network/InstagramJSONWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94086957">
-          <caret line="163" column="50" selection-start-line="163" selection-start-column="50" selection-end-line="163" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.42086956">
+          <caret line="184" column="43" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getId#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="class#GetInstagramID#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="e#1552#1583#0" expanded="true" />
-            <element signature="e#3021#3022#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
-            <element signature="method#getPosts#0;class#InstagramJSONWorker#0" expanded="false" />
-            <element signature="e#4152#4183#0" expanded="true" />
-            <element signature="e#5004#5020#0" expanded="true" />
-            <element signature="e#6550#6551#0" expanded="true" />
-            <element signature="e#6593#6594#0" expanded="true" />
+            <element signature="e#1551#1582#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#3063#3064#0" expanded="true" />
+            <element signature="e#4415#4446#0" expanded="true" />
+            <element signature="e#5284#5299#0" expanded="true" />
           </folding>
         </state>
       </provider>

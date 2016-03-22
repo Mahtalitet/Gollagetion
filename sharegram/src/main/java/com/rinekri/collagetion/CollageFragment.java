@@ -1,10 +1,19 @@
 package com.rinekri.collagetion;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 import com.rinekri.network.InstagramJSONWorker;
+import com.rinekri.network.NetworkConnector;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.NavUtils;
@@ -16,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CollageFragment extends ListFragment {
@@ -27,7 +37,7 @@ public class CollageFragment extends ListFragment {
 	private TextView mCounterEditText;
 	private Button mCollageButton;
 	private int counter = 0;
-	private ArrayList<String> mPosts;;
+	private ArrayList<InstagramPost> mPosts;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,17 +46,12 @@ public class CollageFragment extends ListFragment {
 		if (mInstagramId != null) {
 			Log.d(TAG, "ID at CollageFragment: "+mInstagramId);
 			InstagramJSONWorker worker = new InstagramJSONWorker(getContext());
-			worker.getPosts(mInstagramId);
+			mPosts = worker.getPosts(mInstagramId);
 		}
-//		mPosts = new ArrayList<String>();
-//		mPosts.add("1post");
-//		mPosts.add("2post");
-//		mPosts.add("3post");
-//		mPosts.add("4post");
-//		mPosts.add("5post");
-//		mPosts.add("6post");
-//        PostAdapter adapter = new PostAdapter(mPosts);
-//        setListAdapter(adapter);
+
+
+        PostAdapter adapter = new PostAdapter(mPosts);
+        setListAdapter(adapter);
 	}
 	
 	@Override
@@ -83,9 +88,9 @@ public class CollageFragment extends ListFragment {
 		return v;
 	}
 	
-	public class PostAdapter extends ArrayAdapter<String> {
+	public class PostAdapter extends ArrayAdapter<InstagramPost> {
 
-		public PostAdapter(ArrayList<String> crimes) {
+		public PostAdapter(ArrayList<InstagramPost> crimes) {
 			super(getActivity(), 0, crimes);
 
 		}
@@ -97,11 +102,28 @@ public class CollageFragment extends ListFragment {
 				convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_post, null);
 			}
 			
-			String c = mPosts.get(position);
-			Log.d(TAG, c);
-			
+			InstagramPost instaPost = getItem(position);
+
+			ImageView instaPostImageView = (ImageView) convertView.findViewById(R.id.insta_post_image_imageVIew);
+			NetworkConnector imageReturner = new NetworkConnector(getContext());
+			Bitmap image = imageReturner.getBitmapFromURL(instaPost.getPostImageURL());
+			instaPostImageView.setImageBitmap(image);
+
+			TextView instaPostDate = (TextView) convertView.findViewById(R.id.insta_post_date_textView);
+			instaPostDate.setText(stringDate(instaPost.getPostDate()));
+
+			TextView instaPostTitle = (TextView) convertView.findViewById(R.id.insta_post_title_textView);
+			instaPostTitle.setText(instaPost.getPostTitle());
+
+			TextView instaPostLikes = (TextView) convertView.findViewById(R.id.insta_post_like_count_textView);
+			instaPostLikes.setText(Integer.toString(instaPost.getPostLikeCounts()));
+
 			return convertView;
 		}
+	}
+
+	private String stringDate(Date setdate) {
+		return new SimpleDateFormat("d MMM yyyy", Locale.getDefault()).format(setdate);
 	}
 	
 }

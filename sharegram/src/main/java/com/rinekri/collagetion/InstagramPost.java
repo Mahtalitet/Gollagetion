@@ -2,14 +2,14 @@ package com.rinekri.collagetion;
 
 import java.util.Date;
 
-public class InstagramPosts {
+public class InstagramPost {
 	private String mPostID;
 	private String mPostTitle;
 	private Date mPostDate;
 	private String mPostImageURL;
 	private int mPostLikeCounts;
 
-	public InstagramPosts(String postID, String postTitle, Date postDate, String postImageURL, int postLikeCounts) {
+	public InstagramPost(String postID, String postTitle, Date postDate, String postImageURL, int postLikeCounts) {
 		mPostID = postID;
 		mPostTitle = postTitle;
 		mPostDate = postDate;

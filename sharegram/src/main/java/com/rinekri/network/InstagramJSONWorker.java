@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.rinekri.collagetion.InstagramPosts;
+import com.rinekri.collagetion.InstagramPost;
 import com.rinekri.collagetion.R;
 
 import org.json.JSONArray;
@@ -107,21 +107,30 @@ public class InstagramJSONWorker {
 		}
 	}
 
-	public void getPosts (String id) {
+	public ArrayList<InstagramPost> getPosts (String id) {
 		mInstagramID = id;
-		AsyncTask<Void, Void, String> requestPosts = new GetInstagramPosts().execute();
+		AsyncTask<Void, Void, ArrayList<InstagramPost>> requestPosts = new GetInstagramPosts().execute();
 
+		ArrayList<InstagramPost> instagramPostList = null;
+
+		try {
+			instagramPostList = requestPosts.get();
+		} catch (InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		}
+
+		return instagramPostList;
 	}
 	
-	private class GetInstagramPosts extends AsyncTask<Void, Void, String> {
+	private class GetInstagramPosts extends AsyncTask<Void, Void, ArrayList<InstagramPost>> {
 		private static final String TAG_DATA = "data";
 		private static final String TAG_PAGINATION = "pagination";
 		private static final String TAG_PAGINATION_NEXT_URL = "next_url";
 		private static final String TAG_LIKES = "likes";
 		private static final String TAG_LIKES_COUNT = "count";
 		private static final String TAG_IMAGES = "images";
-		private static final String TAG_IMAGES_STANDART = "standard_resolution";
-		private static final String TAG_IMAGES_STANDART_URL = "url";
+		private static final String TAG_IMAGES_RESOLUTION = "low_resolution";
+		private static final String TAG_IMAGES_URL = "url";
 		private static final String TAG_CAPTION = "caption";
 		private static final String TAG_CAPTION_DATE = "created_time";
 		private static final String TAG_CAPTION_TEXT = "text";
@@ -137,7 +146,7 @@ public class InstagramJSONWorker {
 			alert.show();
 		}
 
-		protected String doInBackground(Void... arg0) {
+		protected ArrayList<InstagramPost> doInBackground(Void... arg0) {
 
 		StringBuilder getPOSTSurl = new StringBuilder()
 				.append(URL_MAIN)
@@ -157,7 +166,7 @@ public class InstagramJSONWorker {
 					JSONObject paginationJSONObj = allDataJSONObj.getJSONObject(TAG_PAGINATION);
 	                JSONArray postsDataArr = allDataJSONObj.getJSONArray(TAG_DATA);
 
-					ArrayList<InstagramPosts> instaPosts = new ArrayList<InstagramPosts>();
+					ArrayList<InstagramPost> instaPosts = new ArrayList<InstagramPost>();
 
 	                for (int i = 0; i < postsDataArr.length(); i++) {
 						Log.d(TAG, "IMAGE "+i);
@@ -168,22 +177,33 @@ public class InstagramJSONWorker {
 						Log.e(TAG, "Likes: "+likesCount);
 
 						JSONObject imageJSONObj = postJSONObj.getJSONObject(TAG_IMAGES);
-						JSONObject imageStandartJSONObj = imageJSONObj.getJSONObject(TAG_IMAGES_STANDART);
-						String imageURL = imageStandartJSONObj.getString(TAG_IMAGES_STANDART_URL);
+						JSONObject imageLowJSONObj = imageJSONObj.getJSONObject(TAG_IMAGES_RESOLUTION);
+						String imageURL = imageLowJSONObj.getString(TAG_IMAGES_URL);
 						Log.e(TAG, "URL: "+imageURL);
 
-						JSONObject captionJSONObj = postJSONObj.getJSONObject(TAG_CAPTION);
-						String captionTime = captionJSONObj.getString(TAG_CAPTION_DATE);
-						String captionTitle = captionJSONObj.getString(TAG_CAPTION_TEXT);
+						String captionTitle;
+						String captionTime;
+						try {
+							JSONObject captionJSONObj = postJSONObj.getJSONObject(TAG_CAPTION);
+							captionTime = captionJSONObj.getString(TAG_CAPTION_DATE);
+							captionTitle = captionJSONObj.getString(TAG_CAPTION_TEXT);
+						} catch(JSONException ex) {
+							Log.d(TAG, "Didn't find something");
+							captionTitle = "";
+							captionTime = "0";
+						}
+
 						Log.e(TAG, "Time: "+captionTime);
 						Log.e(TAG, "Title: "+captionTitle);
 
 						String id = postJSONObj.getString(TAG_ID);
 						Log.e(TAG, "ID: "+id);
 
-						InstagramPosts instaPost = new InstagramPosts(id,captionTitle, new Date(Integer.getInteger(captionTime)*1000), imageURL, Integer.getInteger(likesCount));
+						InstagramPost instaPost = new InstagramPost(id,captionTitle, new Date(Long.parseLong(captionTime)*1000), imageURL, Integer.parseInt(likesCount));
 						instaPosts.add(instaPost);
 	                }
+
+					return instaPosts;
 	            } catch (JSONException e) {
 	            	e.printStackTrace();
 		        	Log.i(TAG, "Didn't find something");
@@ -195,7 +215,7 @@ public class InstagramJSONWorker {
 	        return null;
 		}
 
-		protected void onPostExecute(String result) {
+		protected void onPostExecute(ArrayList<InstagramPost> result) {
 			if (alert != null) alert.dismiss();
 		}
 	}

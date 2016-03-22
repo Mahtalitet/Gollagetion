@@ -24,19 +24,17 @@
 	
 		    <FrameLayout
 		        android:id="@+id/insta_post_image_frameLayout"
-		        android:layout_width="wrap_content"
-		        android:layout_height="match_parent"
+		        android:layout_width="136dp"
+		        android:layout_height="136dp"
 		        android:layout_alignParentLeft="true"
-		        android:background="#0F000000"
-		        android:minHeight="136dp"
-		        android:minWidth="136dp" >
+		        android:background="#0F000000">
 	
 		        <ImageView
 		            android:id="@+id/insta_post_image_imageVIew"
-		            android:layout_width="match_parent"
-		            android:layout_height="match_parent"
+		            android:layout_width="136dp"
+		            android:layout_height="136dp"
 		            android:contentDescription="Image from post" 
-		            android:scaleType="centerCrop"/>
+		            android:scaleType="fitXY"/>
 		        <ImageView
 		            android:id="@+id/insta_post_check_false_image_imageView"
 		            android:layout_width="wrap_content"
