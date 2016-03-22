@@ -55,9 +55,8 @@
 	
 		    <LinearLayout
 		        android:layout_toRightOf="@id/insta_post_image_frameLayout"
-		        android:minHeight="136dp"
 		        android:layout_width="match_parent"
-		        android:layout_height="match_parent"
+		        android:layout_height="136dp"
 		        android:minWidth="208dp"
 		        android:orientation="vertical" 
 		        android:paddingLeft="@dimen/inner_paddings"
@@ -70,8 +69,6 @@
 		            android:layout_height="wrap_content"
 		            android:text="01 jan 2015"
 					android:theme="@style/sharegram_listview_item"
-		            android:lineSpacingExtra="@dimen/inner_paddings" 
-		            android:minHeight="@dimen/inner_paddings"
 		            android:layout_marginBottom="@dimen/inner_paddings"
 		            android:alpha="0.54"
 		            />
@@ -83,8 +80,6 @@
 		            android:layout_height="wrap_content"
 		            android:text="Post Title" 
 					android:theme="@style/sharegram_listview_item.big"
-		         	android:lineSpacingExtra="32dp" 
-		            android:minHeight="32dp"
 		            android:ellipsize="end"
 		            android:maxLines="1"
 		            android:layout_marginBottom="@dimen/inner_paddings"
@@ -101,8 +96,7 @@
 	            	android:drawableRight="@drawable/like_icon"
 	            	android:drawablePadding="@dimen/outer_paddings"
 	            	android:gravity="center_vertical"
-	            	android:minHeight="@dimen/inner_paddings"
-	            	android:layout_gravity="right"/>
+	            	android:layout_gravity="right|bottom"/>
 	
 		    </LinearLayout>
 	

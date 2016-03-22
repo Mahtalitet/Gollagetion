@@ -127,7 +127,6 @@ public class CollageFragment extends ListFragment {
 				instaPostTitle.setText(R.string.message_bad_title);
 			}
 
-
 			TextView instaPostLikes = (TextView) convertView.findViewById(R.id.insta_post_like_count_textView);
 			instaPostLikes.setText(Integer.toString(instaPost.getPostLikeCounts()));
 
