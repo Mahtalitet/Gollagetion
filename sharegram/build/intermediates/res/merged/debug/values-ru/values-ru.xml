@@ -28,6 +28,7 @@
     <string name="image_button_home">Вернуться назад</string>
     <string name="impicit_intent_title">Расшарить коллаж в:</string>
     <string name="message_bad">Сорян, что-то сломалось :(</string>
+    <string name="message_bad_title">Безымянный</string>
     <string name="post_dummy">Опа! Заглушечка!</string>
     <string name="search_button_text">Заглянуть</string>
     <string name="share_button_text">Расшарить</string>

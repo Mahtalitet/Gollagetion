@@ -110,10 +110,23 @@ public class CollageFragment extends ListFragment {
 			instaPostImageView.setImageBitmap(image);
 
 			TextView instaPostDate = (TextView) convertView.findViewById(R.id.insta_post_date_textView);
-			instaPostDate.setText(stringDate(instaPost.getPostDate()));
+
+			Date date = instaPost.getPostDate();
+			if (date != null) {
+				instaPostDate.setText(stringDate(instaPost.getPostDate()));
+			} else {
+				instaPostDate.setText("");
+			}
 
 			TextView instaPostTitle = (TextView) convertView.findViewById(R.id.insta_post_title_textView);
-			instaPostTitle.setText(instaPost.getPostTitle());
+
+			String title = instaPost.getPostTitle();
+			if (title != null) {
+				instaPostTitle.setText(title);
+			} else {
+				instaPostTitle.setText(R.string.message_bad_title);
+			}
+
 
 			TextView instaPostLikes = (TextView) convertView.findViewById(R.id.insta_post_like_count_textView);
 			instaPostLikes.setText(Integer.toString(instaPost.getPostLikeCounts()));

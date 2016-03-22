@@ -16,6 +16,14 @@ public class InstagramPost {
 		mPostImageURL = postImageURL;
 		mPostLikeCounts = postLikeCounts;
 	}
+
+	public InstagramPost(String postID, String postImageURL, int postLikeCounts) {
+		mPostID = postID;
+		mPostTitle = null;
+		mPostDate = null;
+		mPostImageURL = postImageURL;
+		mPostLikeCounts = postLikeCounts;
+	}
 	
 	public String getPostID() {
 		return mPostID;

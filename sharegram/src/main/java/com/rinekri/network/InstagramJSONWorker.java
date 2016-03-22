@@ -181,26 +181,25 @@ public class InstagramJSONWorker {
 						String imageURL = imageLowJSONObj.getString(TAG_IMAGES_URL);
 						Log.e(TAG, "URL: "+imageURL);
 
+						String id = postJSONObj.getString(TAG_ID);
+						Log.e(TAG, "ID: "+id);
+
+						InstagramPost instaPost;
 						String captionTitle;
 						String captionTime;
 						try {
 							JSONObject captionJSONObj = postJSONObj.getJSONObject(TAG_CAPTION);
-							captionTime = captionJSONObj.getString(TAG_CAPTION_DATE);
 							captionTitle = captionJSONObj.getString(TAG_CAPTION_TEXT);
+							captionTime = captionJSONObj.getString(TAG_CAPTION_DATE);
+							instaPost = new InstagramPost(id,captionTitle, new Date(Long.parseLong(captionTime)*1000), imageURL, Integer.parseInt(likesCount));
+							Log.e(TAG, "Time: "+captionTime);
+							Log.e(TAG, "Title: "+captionTitle);
 						} catch(JSONException ex) {
 							Log.d(TAG, "Didn't find something");
-							captionTitle = "";
-							captionTime = "0";
+							instaPost = new InstagramPost(id, imageURL, Integer.parseInt(likesCount));
 						}
 
-						Log.e(TAG, "Time: "+captionTime);
-						Log.e(TAG, "Title: "+captionTitle);
-
-						String id = postJSONObj.getString(TAG_ID);
-						Log.e(TAG, "ID: "+id);
-
-						InstagramPost instaPost = new InstagramPost(id,captionTitle, new Date(Long.parseLong(captionTime)*1000), imageURL, Integer.parseInt(likesCount));
-						instaPosts.add(instaPost);
+						if (instaPost!= null) instaPosts.add(instaPost);
 	                }
 
 					return instaPosts;
