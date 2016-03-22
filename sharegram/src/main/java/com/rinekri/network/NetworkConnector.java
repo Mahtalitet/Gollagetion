@@ -42,6 +42,29 @@ public class NetworkConnector {
 
             if (stringResponce != null) {
                 Log.e(TAG, "Response length: " + stringResponce.length());
+            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        return stringResponce;
+    }
+
+    public String getStatusResponce(String url) {
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        String stringResponce = null;
+        try {
+            Call call = client.newCall(request);
+            Response response = call.execute();
+            stringResponce = response.body().string();
+
+            if (stringResponce != null) {
+                Log.e(TAG, "Response length: " + stringResponce.length());
 //                Log.e(TAG, "Last part of response "+stringResponce.substring(stringResponce.length() - 500, stringResponce.length()));
             }
 
@@ -51,6 +74,8 @@ public class NetworkConnector {
 
         return stringResponce;
     }
+
+
 
     public Bitmap getBitmapFromURL(String url) {
         bitmapURL = url;

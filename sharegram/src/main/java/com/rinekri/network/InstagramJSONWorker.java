@@ -131,6 +131,7 @@ public class InstagramJSONWorker {
 		private static final String TAG_IMAGES = "images";
 		private static final String TAG_IMAGES_RESOLUTION = "low_resolution";
 		private static final String TAG_IMAGES_URL = "url";
+		private static final String TAG_IMAGES_NEXT_URL = "next_url";
 		private static final String TAG_CAPTION = "caption";
 		private static final String TAG_CAPTION_DATE = "created_time";
 		private static final String TAG_CAPTION_TEXT = "text";
@@ -148,29 +149,48 @@ public class InstagramJSONWorker {
 
 		protected ArrayList<InstagramPost> doInBackground(Void... arg0) {
 
-		StringBuilder getPOSTSurl = new StringBuilder()
-				.append(URL_MAIN)
-				.append(mInstagramID)
-				.append("/media/recent")
-				.append("?")
-				.append(URL_CLIENT_ID);
+			boolean haveRequest = true;
+			boolean firstRequest = true;
 
+			StringBuilder postsURL = null;
 			NetworkConnector connector = new NetworkConnector(mContext);
 
-			String allStringData = connector.getStringResponce(getPOSTSurl.toString());
+			ArrayList<InstagramPost> instaPosts = new ArrayList<InstagramPost>();
 
-	        if (allStringData != null) {
-	            try {
-	                JSONObject allDataJSONObj = new JSONObject(allStringData);
+			while (haveRequest) {
 
-					JSONObject paginationJSONObj = allDataJSONObj.getJSONObject(TAG_PAGINATION);
-	                JSONArray postsDataArr = allDataJSONObj.getJSONArray(TAG_DATA);
+				if (firstRequest) {
+					postsURL = new StringBuilder()
+							.append(URL_MAIN)
+							.append(mInstagramID)
+							.append("/media/recent")
+							.append("?")
+							.append(URL_CLIENT_ID);
+					firstRequest = false;
+				}
 
-					ArrayList<InstagramPost> instaPosts = new ArrayList<InstagramPost>();
+				String allStringData = connector.getStringResponce(postsURL.toString());
+				try {
+					JSONObject allDataJSONObj = new JSONObject(allStringData);
 
-	                for (int i = 0; i < postsDataArr.length(); i++) {
+					try {
+						JSONObject paginationJSONObj = allDataJSONObj.getJSONObject(TAG_PAGINATION);
+						String nextURL = paginationJSONObj.getString(TAG_IMAGES_NEXT_URL);
+						postsURL = postsURL.delete(0, postsURL.length()).append(nextURL);
+						int i= 0;
+						Log.i(TAG, "page"+i++);
+
+					} catch(JSONException e) {
+						e.printStackTrace();
+						Log.i(TAG, "Didn't have pages or didn't have posts");
+						haveRequest = false;
+					}
+
+					JSONArray postsDataArr = allDataJSONObj.getJSONArray(TAG_DATA);
+
+					for (int i = 0; i < postsDataArr.length(); i++) {
 						Log.d(TAG, "IMAGE "+i);
-	                	JSONObject postJSONObj = postsDataArr.getJSONObject(i);
+						JSONObject postJSONObj = postsDataArr.getJSONObject(i);
 
 						JSONObject likesJSONObj = postJSONObj.getJSONObject(TAG_LIKES);
 						String likesCount = likesJSONObj.getString(TAG_LIKES_COUNT);
@@ -195,23 +215,22 @@ public class InstagramJSONWorker {
 							Log.e(TAG, "Time: "+captionTime);
 							Log.e(TAG, "Title: "+captionTitle);
 						} catch(JSONException ex) {
-							Log.d(TAG, "Didn't find something");
+							Log.d(TAG, "Didn't find time and title for the post.");
 							instaPost = new InstagramPost(id, imageURL, Integer.parseInt(likesCount));
 						}
 
 						if (instaPost!= null) instaPosts.add(instaPost);
-	                }
 
-					return instaPosts;
-	            } catch (JSONException e) {
-	            	e.printStackTrace();
-		        	Log.i(TAG, "Didn't find something");
-	            }
-	        } else {
-	        	   Log.e(TAG, "Couldn't get any data from the url.");
-	        }
+					}
 
-	        return null;
+				} catch (JSONException e) {
+					e.printStackTrace();
+					Log.i(TAG, "Didn't find something");
+				}
+
+			}
+
+	        return instaPosts;
 		}
 
 		protected void onPostExecute(ArrayList<InstagramPost> result) {

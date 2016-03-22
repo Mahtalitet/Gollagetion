@@ -69,7 +69,6 @@
 		            android:layout_height="wrap_content"
 		            android:text="01 jan 2015"
 					android:theme="@style/sharegram_listview_item"
-
 		            android:layout_marginBottom="@dimen/inner_paddings"
 		            android:alpha="0.54"
 		            />
