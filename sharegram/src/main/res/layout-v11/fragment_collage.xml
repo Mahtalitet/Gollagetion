@@ -20,7 +20,7 @@
 		    android:layout_gravity="bottom"
 		    android:text="@string/collage_button_text"
 		    android:layout_alignParentBottom="true"
-		    android:visibility="visible"
+		    android:visibility="gone"
 		    app:fontCustom="roboto_medium" />
 
 		<ListView

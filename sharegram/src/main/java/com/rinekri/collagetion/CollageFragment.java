@@ -34,19 +34,19 @@ public class CollageFragment extends ListFragment {
 		super.onCreate(savedInstanceState);
 		mInstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
 		if (mInstagramId != null) {
-			Log.d(TAG, mInstagramId);
-//			InstagramJSONWorker worker = new InstagramJSONWorker(getContext());
-//			worker.getPosts(mInstagramId);
+			Log.d(TAG, "ID at CollageFragment: "+mInstagramId);
+			InstagramJSONWorker worker = new InstagramJSONWorker(getContext());
+			worker.getPosts(mInstagramId);
 		}
-		mPosts = new ArrayList<String>();
-		mPosts.add("1post");
-		mPosts.add("2post");
-		mPosts.add("3post");
-		mPosts.add("4post");
-		mPosts.add("5post");
-		mPosts.add("6post");
-        PostAdapter adapter = new PostAdapter(mPosts);
-        setListAdapter(adapter);
+//		mPosts = new ArrayList<String>();
+//		mPosts.add("1post");
+//		mPosts.add("2post");
+//		mPosts.add("3post");
+//		mPosts.add("4post");
+//		mPosts.add("5post");
+//		mPosts.add("6post");
+//        PostAdapter adapter = new PostAdapter(mPosts);
+//        setListAdapter(adapter);
 	}
 	
 	@Override

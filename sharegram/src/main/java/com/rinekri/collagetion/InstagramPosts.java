@@ -1,26 +1,23 @@
 package com.rinekri.collagetion;
 
 import java.util.Date;
-import java.util.UUID;
 
 public class InstagramPosts {
-	private UUID mPostID;
+	private String mPostID;
 	private String mPostTitle;
 	private Date mPostDate;
 	private String mPostImageURL;
-	private Long mPostLikeCounts;
-	
-	
-	public InstagramPosts(String postTitle, Date postDate, String postImageURL, Long postLikeCounts) {
-		mPostID = UUID.randomUUID();
-		
+	private int mPostLikeCounts;
+
+	public InstagramPosts(String postID, String postTitle, Date postDate, String postImageURL, int postLikeCounts) {
+		mPostID = postID;
 		mPostTitle = postTitle;
 		mPostDate = postDate;
 		mPostImageURL = postImageURL;
 		mPostLikeCounts = postLikeCounts;
 	}
 	
-	public UUID getPostID() {
+	public String getPostID() {
 		return mPostID;
 	} 
 	
@@ -36,8 +33,12 @@ public class InstagramPosts {
 		return mPostImageURL;
 	}
 	
-	public Long getPostLikeCounts() {
+	public int getPostLikeCounts() {
 		return mPostLikeCounts;
+	}
+
+	public void setmPostID(String postID) {
+		mPostID = postID;
 	}
 	
 	public void setPostTitle(String postTitle) {
@@ -52,7 +53,7 @@ public class InstagramPosts {
 		mPostImageURL = postImageURL;
 	}
 	
-	public void setPostLikeCounts(Long postLikeCounts) {
+	public void setPostLikeCounts(int postLikeCounts) {
 		mPostLikeCounts = postLikeCounts;
 	}
 
