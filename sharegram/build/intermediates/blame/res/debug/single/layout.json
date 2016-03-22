@@ -96,12 +96,12 @@
         "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_toolbar.xml"
-    },
-    {
         "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
         "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar_layout.xml",
@@ -172,11 +172,11 @@
         "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\src\\main\\res\\layout\\list_item_post.xml"
     },
     {
-        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
         "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
     }
 ]

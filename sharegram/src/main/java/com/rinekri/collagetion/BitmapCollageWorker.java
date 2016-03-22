@@ -38,8 +38,9 @@ public class BitmapCollageWorker {
 		fullBitmapName.append(".");
 		fullBitmapName.append(bFormat.toString());
 		mBitmapName = fullBitmapName.toString();
-		
-		mCollageDirectory = returnCollageDirectory();
+
+		DirectoryReturner dirReturner = new DirectoryReturner(c);
+		mCollageDirectory = dirReturner.returnFolderDirectory(COLLAGE_FOLDER, mBitmapName);
 	}
 	
 	
@@ -87,30 +88,4 @@ public class BitmapCollageWorker {
 		return shareIntent;
 	}
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	private File returnCollageDirectory() {
-		
-		File directory = null;
-		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-			directory = innerDirectory(); 
-		} else {
-			if (Environment.isExternalStorageEmulated() == true) {
-				directory = outerDirectory(); 
-			} else {
-				directory = innerDirectory(); 
-			}
-		}
-		Log.d(TAG, directory.toString());
-		return directory;
-	}
-	
-	private File innerDirectory() {
-		File f = new File(mContext.getDir(COLLAGE_FOLDER,Context.MODE_PRIVATE), mBitmapName);
-		f.setReadable(true, false);
-		return f;
-	}
-	
-	private File outerDirectory() {
-		return new File(mContext.getExternalFilesDir(COLLAGE_FOLDER), mBitmapName);
-	}
 }

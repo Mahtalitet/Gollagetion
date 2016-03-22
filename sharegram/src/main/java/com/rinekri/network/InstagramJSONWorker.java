@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
@@ -75,27 +76,77 @@ public class InstagramJSONWorker {
 		}
 		   
 		protected String doInBackground(Void... arg0) {
-			StringBuilder getIDurl = new StringBuilder();
-			getIDurl.append(URL_MAIN);
-			getIDurl.append("search?q=");
-			getIDurl.append(mInstagramNick);
-			getIDurl.append("&");
-			getIDurl.append(URL_CLIENT_ID);
+//			StringBuilder getIDurl = new StringBuilder()
+//					.append(URL_MAIN)
+//					.append("search?q=")
+//			        .append(mInstagramNick)
+//					.append("&")
+//					.append(URL_CLIENT_ID);
 
-			Log.d(TAG, getIDurl.toString());
+			StringBuilder getPOSTSurl = new StringBuilder()
+					.append(URL_MAIN)
+					.append("2261843945")
+					.append("/media/recent")
+					.append("?")
+					.append(URL_CLIENT_ID);
 
-			NetworkConnector connector = new NetworkConnector();
-			InputStream byteResponce = connector.getByteResponce(getIDurl.toString());
-			BufferedReader reader = new BufferedReader(new InputStreamReader(byteResponce));
-
-			String line = null;
+			NetworkConnector connector = new NetworkConnector(mContext);
 			try {
-				while ((line = reader.readLine()) != null) {
-					Log.d(TAG, "> " + line);
-                }
+//				connector.getByteResponce(getIDurl.toString());
+				connector.getByteResponce(getPOSTSurl.toString());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+
+//			HttpURLConnection urlConnection = null;
+//			BufferedReader reader = null;
+//			String resultJson;
+//
+//			try {
+//				URL url = new URL(getIDurl.toString());
+//
+//				urlConnection = (HttpURLConnection) url.openConnection();
+//				urlConnection.setRequestMethod("GET");
+//				urlConnection.connect();
+//
+//				InputStream inputStream = urlConnection.getInputStream();
+//				StringBuffer buffer = new StringBuffer();
+//
+//				reader = new BufferedReader(new InputStreamReader(inputStream));
+//
+//				String line;
+//				while ((line = reader.readLine()) != null) {
+//					buffer.append(line);
+//					Log.d(TAG, buffer.toString());
+//				}
+//
+//				resultJson = buffer.toString();
+//
+//				Log.d(TAG,resultJson.toString());
+//
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+
+
+//			Log.d(TAG, getIDurl.toString());
+//
+//			NetworkConnector connector = new NetworkConnector();
+//			try {
+//				connector.getByteResponce(getIDurl.toString());
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//			BufferedReader reader = new BufferedReader(new InputStreamReader(byteResponce));
+//
+//			String line = null;
+//			try {
+//				while ((line = reader.readLine()) != null) {
+//					Log.d(TAG, "> " + line);
+//                }
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
 
 
 //	        String jsonStr = sh.makeServiceCall(getIDurl.toString(), ServiceHandler.GET);
