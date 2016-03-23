@@ -3,6 +3,8 @@ package com.rinekri.network;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -104,6 +106,16 @@ public class NetworkConnector {
                 e.printStackTrace();
             }
             return photo;
+        }
+    }
+
+    public static boolean checkConnection(Context c) {
+        ConnectivityManager conMgr = (ConnectivityManager) c.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
+        if (activeNetwork != null && activeNetwork.isConnected()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.rinekri.collagetion;
+package com.rinekri.utility;
 
 import android.annotation.TargetApi;
 import android.content.Context;

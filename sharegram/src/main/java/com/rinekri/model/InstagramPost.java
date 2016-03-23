@@ -1,4 +1,4 @@
-package com.rinekri.collagetion;
+package com.rinekri.model;
 
 import java.util.Date;
 

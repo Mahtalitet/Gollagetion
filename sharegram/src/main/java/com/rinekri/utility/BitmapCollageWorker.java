@@ -1,19 +1,17 @@
-package com.rinekri.collagetion;
+package com.rinekri.utility;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.util.Log;
 import android.view.ViewGroup;
+
+import com.rinekri.collagetion.R;
 
 public class BitmapCollageWorker {
 	public static final String TAG = "BitmapCollageWorker";

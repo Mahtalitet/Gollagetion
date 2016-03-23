@@ -1,9 +1,8 @@
 package com.rinekri.collagetion;
 
-import com.rinekri.network.CheckConnection;
-import com.rinekri.network.InstagramJSONWorker;
+import com.rinekri.json.InstagramJSONWorker;
+import com.rinekri.network.NetworkConnector;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -43,7 +42,7 @@ public class ShareFragment extends Fragment {
 				
 				if ((mInstaIDEditText.getText() != null) && (mInstaIDEditText.length() != 0)) {
 					Toast toastOffline = Toast.makeText(getContext(), R.string.toast_network_offline, Toast.LENGTH_SHORT);
-					if (CheckConnection.check(getContext())) {
+					if (NetworkConnector.checkConnection(getContext())) {
 						toastOffline.cancel();
 						String instaNick = mInstaIDEditText.getText().toString();
 						

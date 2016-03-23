@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import com.rinekri.network.InstagramJSONWorker;
+import com.rinekri.json.InstagramJSONWorker;
+import com.rinekri.model.InstagramPost;
 import com.rinekri.network.NetworkConnector;
 
 import android.content.Intent;
@@ -100,7 +101,7 @@ public class CollageFragment extends ListFragment {
 				startActivity(i);
 			}
 		});
-		setCollageButton();
+		setCollageButton(4);
 		
 		return v;
 	}
@@ -175,7 +176,7 @@ public class CollageFragment extends ListFragment {
 		}
 		mSelectedPostsCounterEditText.setText(Integer.toString(checkedPostsCounter));
 
-		setCollageButton();
+		setCollageButton(4);
 
 		Log.e(TAG, "Posts counter: " + checkedPostsCounter);
 	}
@@ -184,11 +185,15 @@ public class CollageFragment extends ListFragment {
 		return new SimpleDateFormat("d MMM yyyy", Locale.getDefault()).format(setdate);
 	}
 
-	private void setCollageButton() {
-		if ((checkedPostsCounter > 0) && (mCollageButton.getVisibility() == View.GONE)) {
+	private void setCollageButton(int minPosts) {
+		if (minPosts == 0) {
 			mCollageButton.setVisibility(View.VISIBLE);
-		} else if ((checkedPostsCounter == 0) && (mCollageButton.getVisibility() == View.VISIBLE)) {
-			mCollageButton.setVisibility(View.GONE);
+		} else {
+			if ((checkedPostsCounter >= minPosts) && (mCollageButton.getVisibility() == View.GONE)) {
+				mCollageButton.setVisibility(View.VISIBLE);
+			} else if ((checkedPostsCounter < minPosts) && (mCollageButton.getVisibility() == View.VISIBLE)) {
+				mCollageButton.setVisibility(View.GONE);
+			}
 		}
 	}
 }

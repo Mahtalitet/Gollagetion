@@ -1,12 +1,13 @@
-package com.rinekri.network;
+package com.rinekri.json;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.rinekri.collagetion.InstagramPost;
+import com.rinekri.model.InstagramPost;
 import com.rinekri.collagetion.R;
+import com.rinekri.network.NetworkConnector;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -109,6 +110,7 @@ public class InstagramJSONWorker {
 
 	public ArrayList<InstagramPost> getPosts (String id) {
 		mInstagramID = id;
+
 		AsyncTask<Void, Void, ArrayList<InstagramPost>> requestPosts = new GetInstagramPosts().execute();
 
 		ArrayList<InstagramPost> instagramPostList = null;
