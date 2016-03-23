@@ -2,6 +2,7 @@ package com.rinekri.collagetion;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
@@ -46,7 +47,7 @@ public class CollageFragment extends ListFragment {
 		mInstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
 		if (mInstagramId != null) {
 			Log.d(TAG, "ID at CollageFragment: "+mInstagramId);
-			mPosts = InstagramPostsFactory.getFactory(getContext(), mInstagramId).getInstagramPosts();
+			mPosts = InstagramPostsFactory.getFactory(getContext(), mInstagramId).getSortedForLikesInstagramPosts();
 		}
 
 		if (savedInstanceState != null) {
@@ -62,7 +63,6 @@ public class CollageFragment extends ListFragment {
 		super.onSaveInstanceState(outState);
 		outState.putInt(KEY_POSTS_COUNTER, checkedPostsCounter);
 	}
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -113,8 +113,9 @@ public class CollageFragment extends ListFragment {
 				startActivity(intent);
 			}
 		});
+
 		setCollageButton(4);
-		
+
 		return v;
 	}
 	

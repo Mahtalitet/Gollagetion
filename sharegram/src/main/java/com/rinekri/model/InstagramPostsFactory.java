@@ -5,6 +5,7 @@ import android.content.Context;
 import com.rinekri.json.InstagramJSONWorker;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class InstagramPostsFactory {
     public static final String TAG = "InstagramPostsFactory";
@@ -34,6 +35,11 @@ public class InstagramPostsFactory {
     }
 
     public ArrayList<InstagramPost> getInstagramPosts() {
+        return mInstagramPosts;
+    }
+
+    public ArrayList<InstagramPost> getSortedForLikesInstagramPosts() {
+        Collections.sort(mInstagramPosts);
         return mInstagramPosts;
     }
 

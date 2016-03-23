@@ -99,10 +99,9 @@ public class InstagramJSONWorker {
 	        } else {
 	        	   Log.e(TAG, "Couldn't get any data from the url.");
 	        }
-
 			return null;
 		}
-	        
+
 		protected void onPostExecute(String result) {
 			if (alert != null) alert.dismiss();
 		}
@@ -231,14 +230,12 @@ public class InstagramJSONWorker {
 
 						}
 
-
 					} else if (metaCode.equals("400")) {
 						haveRequest = false;
 						Log.d(TAG, "Don't have access to this account.");
 					} else {
 						haveRequest = false;
 						Log.d(TAG, "Was something else.");
-
 					}
 
 				} catch (JSONException e) {
@@ -255,5 +252,4 @@ public class InstagramJSONWorker {
 			if (alert != null) alert.dismiss();
 		}
 	}
-
 }

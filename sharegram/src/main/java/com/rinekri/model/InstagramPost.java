@@ -2,7 +2,7 @@ package com.rinekri.model;
 
 import java.util.Date;
 
-public class InstagramPost {
+public class InstagramPost implements Comparable<InstagramPost> {
 	private String mPostID;
 	private String mPostTitle;
 	private Date mPostDate;
@@ -65,4 +65,13 @@ public class InstagramPost {
 		mPostLikeCounts = postLikeCounts;
 	}
 
+	@Override
+	public int compareTo(InstagramPost another) {
+		if (mPostLikeCounts > another.getPostLikeCounts()) {
+			return -1;
+		} else if(mPostLikeCounts < another.getPostLikeCounts()) {
+			return 1;
+		}
+		return 0;
+	}
 }
