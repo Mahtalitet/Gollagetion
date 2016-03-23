@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -52,30 +53,6 @@ public class NetworkConnector {
 
         return stringResponce;
     }
-
-    public String getStatusResponce(String url) {
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        String stringResponce = null;
-        try {
-            Call call = client.newCall(request);
-            Response response = call.execute();
-            stringResponce = response.body().string();
-
-            if (stringResponce != null) {
-                Log.e(TAG, "Response length: " + stringResponce.length());
-            }
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-        return stringResponce;
-    }
-
 
 
     public Bitmap getBitmapFromURL(String url) {
