@@ -17,6 +17,7 @@ import android.support.v4.app.ListFragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,7 +85,7 @@ public class CollageFragment extends ListFragment {
 		mSelectedPostsCounterEditText.setText(Integer.toString(checkedPostsCounter));
 
 
-		ListView listView = (ListView) v.findViewById(android.R.id.list);
+		final ListView listView = (ListView) v.findViewById(android.R.id.list);
 		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
 		
@@ -94,11 +95,22 @@ public class CollageFragment extends ListFragment {
 			@Override
 			public void onClick(View v) {
 
+				SparseBooleanArray checkedPostsPositions = listView.getCheckedItemPositions();
+				Log.d(TAG, "Positions of checked posts: " + checkedPostsPositions.toString());
 
+				ArrayList<String> checkedPostsIDs = new ArrayList<String>();
 
+				Intent intent = new Intent(getActivity(), PostActivity.class);
+				for (int i = 0; i < checkedPostsPositions.size(); i++) {
+					int position = checkedPostsPositions.keyAt(i);
+					InstagramPost currPost = (InstagramPost) listView.getItemAtPosition(position);
+					String ID = currPost.getPostID();
+					checkedPostsIDs.add(ID);
+				}
 
-				Intent i = new Intent(getActivity(), PostActivity.class);
-				startActivity(i);
+				Log.d(TAG, "Finded IDs: " + checkedPostsIDs.toString());
+				intent.putExtra(PostFragment.EXTRA_IMAGES_IDS, checkedPostsIDs);
+				startActivity(intent);
 			}
 		});
 		setCollageButton(4);

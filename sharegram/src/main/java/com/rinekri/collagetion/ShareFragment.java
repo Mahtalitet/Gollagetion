@@ -23,8 +23,8 @@ public class ShareFragment extends Fragment {
 	private EditText mInstaIDEditText;
 	
 	private String findedInstagramID = null;
-	
-	
+
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_share, container, false);

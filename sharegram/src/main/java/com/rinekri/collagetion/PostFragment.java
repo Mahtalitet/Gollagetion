@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,10 @@ import android.widget.Toast;
 
 import com.rinekri.utility.BitmapCollageWorker;
 
+import java.util.ArrayList;
+
 public class PostFragment extends Fragment {
+	public static final String EXTRA_IMAGES_IDS = "com.rinekri.images_ids";
 	public static final String TAG = "PostFragment";
 	private static final String BITMAP_NAME = "PostCollage";
 	
@@ -28,7 +32,16 @@ public class PostFragment extends Fragment {
 	private RelativeLayout mCommonCollageLayout;
 	private ImageView mBlockOneImageView;
 	private BitmapCollageWorker mBitmapWorker;
-	
+	private ArrayList<String> mCheckedImagesIDs;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		mCheckedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
+		Log.e(TAG, mCheckedImagesIDs.toString());
+
+	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

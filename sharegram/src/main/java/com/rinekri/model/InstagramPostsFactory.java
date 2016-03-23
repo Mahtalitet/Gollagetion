@@ -37,9 +37,9 @@ public class InstagramPostsFactory {
         return mInstagramPosts;
     }
 
-    public InstagramPost getInstagramPost(String postID) {
+    public InstagramPost getInstagramPost(String imageID) {
         for(InstagramPost post : mInstagramPosts) {
-            if (post.getPostID().equals(postID)) return post;
+            if (post.getPostID().equals(imageID)) return post;
         }
         return null;
     }
