@@ -29,7 +29,9 @@
 		    android:layout_height="match_parent"
 		    android:layout_above="@id/collage_button" 
 		    android:scrollbars="none"
-		    android:theme="@style/sharegram_listview" />
+		    android:theme="@style/sharegram_listview"
+			android:choiceMode="multipleChoice"
+			/>
 		
 		<com.rinekri.widget.SharegramTextView
 		    android:layout_width="match_parent"

@@ -1,8 +1,5 @@
 package com.rinekri.collagetion;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +10,6 @@ import com.rinekri.network.NetworkConnector;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.NavUtils;
@@ -26,17 +22,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class CollageFragment extends ListFragment {
-	private static final String TAG = "CollageFragment";
 	public static final String EXTRA_INSTAGRAM_ID = "com.rinelri.instagram_id";
-	
+	private static final String KEY_POSTS_COUNTER = "checkedPostsCounter";
+	private static final String TAG = "CollageFragment";
+
 	private String mInstagramId;
 	private ImageButton mBackImageButton;
-	private TextView mCounterEditText;
+	private TextView mSelectedPostsCounterEditText;
 	private Button mCollageButton;
-	private int counter = 0;
+	private int checkedPostsCounter = 0;
 	private ArrayList<InstagramPost> mPosts;
 	
 	@Override
@@ -49,11 +47,21 @@ public class CollageFragment extends ListFragment {
 			mPosts = worker.getPosts(mInstagramId);
 		}
 
+		if (savedInstanceState != null) {
+			checkedPostsCounter = savedInstanceState.getInt(TAG);
+		}
 
         PostAdapter adapter = new PostAdapter(mPosts);
         setListAdapter(adapter);
 	}
-	
+
+	@Override
+	public void onSaveInstanceState (Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt(TAG, checkedPostsCounter);
+	}
+
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_collage, container, false);
@@ -71,12 +79,17 @@ public class CollageFragment extends ListFragment {
 				}
 			}
 		});
-		mCounterEditText = (TextView) v.findViewById(R.id.counter_text_view);
-		mCounterEditText.setText(Integer.toString(counter));
+		mSelectedPostsCounterEditText = (TextView) v.findViewById(R.id.counter_text_view);
+		mSelectedPostsCounterEditText.setText(Integer.toString(checkedPostsCounter));
+
+
+		ListView listView = (ListView) v.findViewById(android.R.id.list);
+		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
 		
 		mCollageButton = (Button) v.findViewById(R.id.collage_button);
 		mCollageButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(getActivity(), PostActivity.class);
@@ -98,16 +111,22 @@ public class CollageFragment extends ListFragment {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			
-			if (convertView == null) {
-				convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_post, null);
-			}
-			
+			convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_post, null);
+
 			InstagramPost instaPost = getItem(position);
 
 			ImageView instaPostImageView = (ImageView) convertView.findViewById(R.id.insta_post_image_imageVIew);
 			NetworkConnector imageReturner = new NetworkConnector(getContext());
 			Bitmap image = imageReturner.getBitmapFromURL(instaPost.getPostImageURL());
 			instaPostImageView.setImageBitmap(image);
+
+			ImageView instaPostCheckImageView = (ImageView) convertView.findViewById(R.id.insta_post_check_true_image_imageView);
+
+			if (getListView().isItemChecked(position)) {
+				instaPostCheckImageView.setVisibility(View.VISIBLE);
+			} else {
+				instaPostCheckImageView.setVisibility(View.GONE);
+			}
 
 			TextView instaPostDate = (TextView) convertView.findViewById(R.id.insta_post_date_textView);
 
@@ -132,6 +151,28 @@ public class CollageFragment extends ListFragment {
 
 			return convertView;
 		}
+	}
+
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		ImageView checkMark = (ImageView) v.findViewById(R.id.insta_post_check_true_image_imageView);
+		checkMark.setVisibility(View.GONE);
+		Boolean itemIsChecked = l.isItemChecked(position);
+		Log.d(TAG, "Checkstate of "+position+" is "+itemIsChecked);
+		Log.d(TAG, "Raw is "+id);
+
+		if (itemIsChecked) {
+			checkMark.setVisibility(View.VISIBLE);
+			checkedPostsCounter++;
+
+		} else {
+			checkMark.setVisibility(View.GONE);
+			checkedPostsCounter--;
+		}
+		mSelectedPostsCounterEditText.setText(Integer.toString(checkedPostsCounter));
+
+		Log.e(TAG, "Posts counter: "+checkedPostsCounter);
+
 	}
 
 	private String stringDate(Date setdate) {
