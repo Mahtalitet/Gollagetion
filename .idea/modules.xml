@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cardviewv7/cardviewv7.iml" filepath="$PROJECT_DIR$/cardviewv7/cardviewv7.iml" />
       <module fileurl="file://$PROJECT_DIR$/cardviewv7/cardviewv7.iml" filepath="$PROJECT_DIR$/cardviewv7/cardviewv7.iml" />
       <module fileurl="file://$PROJECT_DIR$/collagetion.iml" filepath="$PROJECT_DIR$/collagetion.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sharegram/sharegram.iml" filepath="$PROJECT_DIR$/sharegram/sharegram.iml" />
     </modules>
   </component>
 </project>

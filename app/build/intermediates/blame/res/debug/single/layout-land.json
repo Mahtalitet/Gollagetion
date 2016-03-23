@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_post.xml",
+        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\sharegram\\src\\main\\res\\layout-land\\fragment_post.xml"
+    },
+    {
+        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_publish.xml",
+        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\layout-land\\fragment_publish.xml"
+    }
+]
