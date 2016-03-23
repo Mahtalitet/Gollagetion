@@ -48,7 +48,7 @@ public class CollageFragment extends ListFragment {
 		}
 
 		if (savedInstanceState != null) {
-			checkedPostsCounter = savedInstanceState.getInt(TAG);
+			checkedPostsCounter = savedInstanceState.getInt(KEY_POSTS_COUNTER);
 		}
 
         PostAdapter adapter = new PostAdapter(mPosts);
@@ -58,7 +58,7 @@ public class CollageFragment extends ListFragment {
 	@Override
 	public void onSaveInstanceState (Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putInt(TAG, checkedPostsCounter);
+		outState.putInt(KEY_POSTS_COUNTER, checkedPostsCounter);
 	}
 
 
@@ -96,6 +96,7 @@ public class CollageFragment extends ListFragment {
 				startActivity(i);
 			}
 		});
+		setCollageButton();
 		
 //		mCollageButton.setVisibility(View.VISIBLE);
 		return v;
@@ -158,8 +159,8 @@ public class CollageFragment extends ListFragment {
 		ImageView checkMark = (ImageView) v.findViewById(R.id.insta_post_check_true_image_imageView);
 		checkMark.setVisibility(View.GONE);
 		Boolean itemIsChecked = l.isItemChecked(position);
-		Log.d(TAG, "Checkstate of "+position+" is "+itemIsChecked);
-		Log.d(TAG, "Raw is "+id);
+		Log.d(TAG, "Checkstate of " + position + " is " + itemIsChecked);
+		Log.d(TAG, "Raw is " + id);
 
 		if (itemIsChecked) {
 			checkMark.setVisibility(View.VISIBLE);
@@ -171,12 +172,21 @@ public class CollageFragment extends ListFragment {
 		}
 		mSelectedPostsCounterEditText.setText(Integer.toString(checkedPostsCounter));
 
-		Log.e(TAG, "Posts counter: "+checkedPostsCounter);
+		setCollageButton();
 
+		Log.e(TAG, "Posts counter: " + checkedPostsCounter);
 	}
 
 	private String stringDate(Date setdate) {
 		return new SimpleDateFormat("d MMM yyyy", Locale.getDefault()).format(setdate);
 	}
-	
+
+	private void setCollageButton() {
+		if ((checkedPostsCounter > 0) && (mCollageButton.getVisibility() == View.GONE)) {
+			mCollageButton.setVisibility(View.VISIBLE);
+		} else if ((checkedPostsCounter == 0) && (mCollageButton.getVisibility() == View.VISIBLE)) {
+			mCollageButton.setVisibility(View.GONE);
+		}
+
+	}
 }
