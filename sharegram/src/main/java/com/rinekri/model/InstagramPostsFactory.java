@@ -10,22 +10,25 @@ public class InstagramPostsFactory {
     public static final String TAG = "InstagramPostsFactory";
 
     private static InstagramPostsFactory sInstagramPostsFactory;
+    private static String sUserID;
     private Context mAppContext;
 
     private ArrayList<InstagramPost> mInstagramPosts;
     private InstagramJSONWorker JSONworker;
 
-    private InstagramPostsFactory(Context c, String userID) {
 
-        JSONworker = new InstagramJSONWorker(c);
-        mInstagramPosts = JSONworker.getPosts(userID);
-
+    private InstagramPostsFactory(Context c) {
         mAppContext = c;
+
+        JSONworker = new InstagramJSONWorker(mAppContext);
+        mInstagramPosts = JSONworker.getPosts(sUserID);
     }
 
-    public static InstagramPostsFactory getFactory(Context c, String userID) {
-        if (sInstagramPostsFactory == null) {
-            sInstagramPostsFactory = new InstagramPostsFactory(c, userID);
+    public static InstagramPostsFactory getFactory(Context c, String id) {
+
+        if (((sInstagramPostsFactory == null) && (sUserID == null)) || ((sInstagramPostsFactory != null) && (!sUserID.equals(id))) ) {
+            sUserID = id;
+            sInstagramPostsFactory = new InstagramPostsFactory(c);
         }
         return sInstagramPostsFactory;
     }

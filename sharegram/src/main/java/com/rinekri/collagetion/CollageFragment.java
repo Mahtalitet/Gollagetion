@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import com.rinekri.json.InstagramJSONWorker;
 import com.rinekri.model.InstagramPost;
+import com.rinekri.model.InstagramPostsFactory;
 import com.rinekri.network.NetworkConnector;
 
 import android.content.Intent;
@@ -44,8 +45,7 @@ public class CollageFragment extends ListFragment {
 		mInstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
 		if (mInstagramId != null) {
 			Log.d(TAG, "ID at CollageFragment: "+mInstagramId);
-			InstagramJSONWorker worker = new InstagramJSONWorker(getContext());
-			mPosts = worker.getPosts(mInstagramId);
+			mPosts = InstagramPostsFactory.getFactory(getContext(), mInstagramId).getInstagramPosts();
 		}
 
 		if (savedInstanceState != null) {
