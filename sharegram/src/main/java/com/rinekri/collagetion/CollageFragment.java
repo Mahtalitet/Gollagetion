@@ -92,13 +92,16 @@ public class CollageFragment extends ListFragment {
 
 			@Override
 			public void onClick(View v) {
+
+
+
+
 				Intent i = new Intent(getActivity(), PostActivity.class);
 				startActivity(i);
 			}
 		});
 		setCollageButton();
 		
-//		mCollageButton.setVisibility(View.VISIBLE);
 		return v;
 	}
 	
@@ -133,7 +136,7 @@ public class CollageFragment extends ListFragment {
 
 			Date date = instaPost.getPostDate();
 			if (date != null) {
-				instaPostDate.setText(stringDate(instaPost.getPostDate()));
+				instaPostDate.setText(convertDateToString(instaPost.getPostDate()));
 			} else {
 				instaPostDate.setText("");
 			}
@@ -177,7 +180,7 @@ public class CollageFragment extends ListFragment {
 		Log.e(TAG, "Posts counter: " + checkedPostsCounter);
 	}
 
-	private String stringDate(Date setdate) {
+	private String convertDateToString(Date setdate) {
 		return new SimpleDateFormat("d MMM yyyy", Locale.getDefault()).format(setdate);
 	}
 
@@ -187,6 +190,5 @@ public class CollageFragment extends ListFragment {
 		} else if ((checkedPostsCounter == 0) && (mCollageButton.getVisibility() == View.VISIBLE)) {
 			mCollageButton.setVisibility(View.GONE);
 		}
-
 	}
 }

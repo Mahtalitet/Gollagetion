@@ -65,7 +65,6 @@ public class NetworkConnector {
 
             if (stringResponce != null) {
                 Log.e(TAG, "Response length: " + stringResponce.length());
-//                Log.e(TAG, "Last part of response "+stringResponce.substring(stringResponce.length() - 500, stringResponce.length()));
             }
 
         } catch (IOException ex) {
@@ -98,7 +97,7 @@ public class NetworkConnector {
             Bitmap photo = null;
             try {
                 URL url  = new URL(bitmapURL);
-                 photo = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                photo = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
