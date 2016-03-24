@@ -20,16 +20,16 @@ class Myclass
 
         printCombinations(sInstagramImgsCombination, 0, sInstagramImgsCombination.size(), sInstagramImgsCombinations);
 
-        int i = 0;
-        for(ArrayList<String> combination : sInstagramImgsCombinations){
-            i++;
-            System.out.println("Combination "+i+" :");
-
-            for(String id : combination) {
-                System.out.println("Id: " +id);
-            }
-            System.out.println();
-        }
+//        int i = 0;
+//        for(ArrayList<String> combination : sInstagramImgsCombinations){
+//            i++;
+//            System.out.println("Combination "+i+" :");
+//
+//            for(String id : combination) {
+//                System.out.println("Id: " +id);
+//            }
+//            System.out.println();
+//        }
 
     }
 
