@@ -12,11 +12,13 @@ public class InstagramPostsFactory {
 
     private static InstagramPostsFactory sInstagramPostsFactory;
     private static String sUserID;
-    private Context mAppContext;
+    private static ArrayList<String> sInstagramImgsCombination;
+    private static ArrayList<ArrayList<String>> sInstagramImgsCombinations;
+    private static int sCurrentInstagramImgsCombination;
 
+    private Context mAppContext;
     private ArrayList<InstagramPost> mInstagramPosts;
     private InstagramJSONWorker JSONworker;
-
 
     private InstagramPostsFactory(Context c) {
         mAppContext = c;
@@ -58,6 +60,23 @@ public class InstagramPostsFactory {
         return null;
     }
 
+
+    public ArrayList<String> getCombinationImages(ArrayList<String> postsIds) {
+
+        if (sInstagramImgsCombination == null) {
+            sInstagramImgsCombination = postsIds;
+        }
+
+        if (sInstagramImgsCombination.size() == 4) {
+            getPermutation();
+
+        } else if (postsIds.size() > 4) {
+            getShuffle();
+        }
+
+        return sInstagramImgsCombination;
+    }
+
     public void addInstagramPost(InstagramPost post) {
         mInstagramPosts.add(post);
     }
@@ -65,4 +84,22 @@ public class InstagramPostsFactory {
     public void deleteInstagramPost(InstagramPost post) {
         mInstagramPosts.remove(post);
     }
+
+
+    private void getPermutation() {
+
+        for (int i = 0; i < sInstagramImgsCombination.size(); i++) {
+            String appendID = sInstagramImgsCombination.get(i);
+
+
+
+
+        }
+
+    }
+
+    private void getShuffle() {
+
+    }
+
 }

@@ -35,25 +35,24 @@ public class PublishFragment extends Fragment {
 	private RelativeLayout mCommonCollageLayout;
 	private ImageView mBlockOneImageView;
 	private BitmapCollageWorker mBitmapWorker;
-//	private ArrayList<String> mCheckedImagesIDs;
-	private ArrayList<Bitmap> mCheckedImagesBitmap = new ArrayList<Bitmap>();
+	private ArrayList<String> mCheckedImagesIDs;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		ArrayList<String> mCheckedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
+		mCheckedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
 		Log.e(TAG, mCheckedImagesIDs.toString());
 
-		NetworkConnector imageReturner = new NetworkConnector(getContext());
-		for(int i = 0; i < mCheckedImagesIDs.size(); i++) {
-
-			String currentID =  mCheckedImagesIDs.get(i);
-			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
-			Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
-			mCheckedImagesBitmap.add(image);
-		}
-
-		Log.d(TAG, "Bitmap at array: "+mCheckedImagesBitmap.size());
+//		NetworkConnector imageReturner = new NetworkConnector(getContext());
+//		for(int i = 0; i < mCheckedImagesIDs.size(); i++) {
+//
+//			String currentID =  mCheckedImagesIDs.get(i);
+//			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
+//			Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
+//			mCheckedImagesBitmap.add(image);
+//		}
+//
+//		Log.d(TAG, "Bitmap at array: "+mCheckedImagesBitmap.size());
 	}
 
 	@Override
@@ -65,13 +64,13 @@ public class PublishFragment extends Fragment {
 		
 		mCommonCollageLayout = (RelativeLayout) v.findViewById(R.id.common_collage);
 
-		int childViewCounter = mCommonCollageLayout.getChildCount();
-
-		for(int i = 0; i < childViewCounter; i++) {
-			ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(i);
-			partCollage.setImageBitmap(mCheckedImagesBitmap.get(i));
-
-		}
+//		int childViewCounter = mCommonCollageLayout.getChildCount();
+//
+//		for(int i = 0; i < childViewCounter; i++) {
+//			ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(i);
+//			partCollage.setImageBitmap(mCheckedImagesBitmap.get(i));
+//
+//		}
 
 		mBackImageButton = (ImageButton) v.findViewById(R.id.back_image_button);
 		mBackImageButton.setOnClickListener(new View.OnClickListener() {
