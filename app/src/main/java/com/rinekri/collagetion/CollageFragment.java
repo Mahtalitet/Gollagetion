@@ -92,21 +92,9 @@ public class CollageFragment extends ListFragment {
 
 			@Override
 			public void onClick(View v) {
-
-				SparseBooleanArray checkedPostsPositions = listView.getCheckedItemPositions();
-				Log.d(TAG, "Positions of checked posts: " + checkedPostsPositions.toString());
-
-				ArrayList<String> checkedPostsIDs = new ArrayList<String>();
-
+				SparseBooleanArray checkedPostsPositions = positionsOnlyCheckedItems(listView.getCheckedItemPositions());
+				ArrayList<String> checkedPostsIDs = returnIdsCheckedItems(checkedPostsPositions);
 				Intent intent = new Intent(getActivity(), PublishActivity.class);
-				for (int i = 0; i < checkedPostsPositions.size(); i++) {
-					int position = checkedPostsPositions.keyAt(i);
-					InstagramPost currPost = (InstagramPost) listView.getItemAtPosition(position);
-					String ID = currPost.getPostID();
-					checkedPostsIDs.add(ID);
-				}
-
-				Log.d(TAG, "Finded IDs: " + checkedPostsIDs.toString());
 				intent.putExtra(PublishFragment.EXTRA_IMAGES_IDS, checkedPostsIDs);
 				startActivity(intent);
 			}
@@ -206,5 +194,43 @@ public class CollageFragment extends ListFragment {
 				mCollageButton.setVisibility(View.GONE);
 			}
 		}
+	}
+
+	private SparseBooleanArray positionsOnlyCheckedItems(SparseBooleanArray checkedItemPositions) {
+		Log.d(TAG, "Positions of checked posts (before): " + checkedItemPositions.toString());
+		Log.d(TAG, "Size: " + checkedItemPositions.size());
+		ArrayList<Integer> uncheckedKey = new ArrayList<Integer>();
+		for (int i = 0; i < checkedItemPositions.size(); i++) {
+			int currentKey = checkedItemPositions.keyAt(i);
+			boolean keyIsChecked = checkedItemPositions.get(currentKey);
+			if (!keyIsChecked) {
+				uncheckedKey.add(currentKey);
+			}
+		}
+		if (uncheckedKey.size() > 0) {
+			Log.d(TAG, "Deleting positions :" + uncheckedKey.toString());
+			for (int i = 0; i < uncheckedKey.size(); i++) {
+				int deletingKey = uncheckedKey.get(i);
+				checkedItemPositions.delete(deletingKey);
+			}
+		}
+		Log.d(TAG, "Positions of checked posts (after): " + checkedItemPositions.toString());
+		Log.d(TAG, "Size: " + checkedItemPositions.size());
+
+		return checkedItemPositions;
+	}
+
+	private ArrayList<String> returnIdsCheckedItems(SparseBooleanArray imgsPositions) {
+
+		ArrayList<String> ids = new ArrayList<String>();
+
+		for (int i = 0; i < imgsPositions.size(); i++) {
+			int position = imgsPositions.keyAt(i);
+			InstagramPost currPost = (InstagramPost) getListView().getItemAtPosition(position);
+			String ID = currPost.getPostID();
+			ids.add(ID);
+		}
+		Log.d(TAG, "Finded IDs: " + ids.toString());
+		return ids;
 	}
 }

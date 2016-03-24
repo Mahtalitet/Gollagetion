@@ -18,6 +18,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.rinekri.model.InstagramPost;
+import com.rinekri.model.InstagramPostsFactory;
+import com.rinekri.network.NetworkConnector;
 import com.rinekri.utility.BitmapCollageWorker;
 
 import java.util.ArrayList;
@@ -32,14 +35,25 @@ public class PublishFragment extends Fragment {
 	private RelativeLayout mCommonCollageLayout;
 	private ImageView mBlockOneImageView;
 	private BitmapCollageWorker mBitmapWorker;
-	private ArrayList<String> mCheckedImagesIDs;
+//	private ArrayList<String> mCheckedImagesIDs;
+	private ArrayList<Bitmap> mCheckedImagesBitmap = new ArrayList<Bitmap>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mCheckedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
+		ArrayList<String> mCheckedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
 		Log.e(TAG, mCheckedImagesIDs.toString());
 
+		NetworkConnector imageReturner = new NetworkConnector(getContext());
+		for(int i = 0; i < mCheckedImagesIDs.size(); i++) {
+
+			String currentID =  mCheckedImagesIDs.get(i);
+			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
+			Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
+			mCheckedImagesBitmap.add(image);
+		}
+
+		Log.d(TAG, "Bitmap at array: "+mCheckedImagesBitmap.size());
 	}
 
 	@Override
@@ -54,8 +68,8 @@ public class PublishFragment extends Fragment {
 		int childViewCounter = mCommonCollageLayout.getChildCount();
 
 		for(int i = 0; i < childViewCounter; i++) {
-
 			ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(i);
+			partCollage.setImageBitmap(mCheckedImagesBitmap.get(i));
 
 		}
 

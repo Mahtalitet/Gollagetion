@@ -34,6 +34,14 @@ public class InstagramPostsFactory {
         return sInstagramPostsFactory;
     }
 
+    public static InstagramPostsFactory getFactory(Context c) {
+
+        if (sInstagramPostsFactory == null) {
+            sInstagramPostsFactory = new InstagramPostsFactory(c);
+        }
+        return sInstagramPostsFactory;
+    }
+
     public ArrayList<InstagramPost> getInstagramPosts() {
         return mInstagramPosts;
     }
