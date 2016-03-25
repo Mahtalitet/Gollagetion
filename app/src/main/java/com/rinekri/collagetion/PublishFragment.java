@@ -1,8 +1,11 @@
 package com.rinekri.collagetion;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,11 +25,13 @@ import com.rinekri.model.InstagramPost;
 import com.rinekri.model.InstagramPostsFactory;
 import com.rinekri.network.NetworkConnector;
 import com.rinekri.utility.BitmapCollageWorker;
+import com.rinekri.utility.ShakeEventListener;
 
 import java.util.ArrayList;
 
 public class PublishFragment extends Fragment {
 	public static final String EXTRA_IMAGES_IDS = "com.rinekri.images_ids";
+	private static final String KEY_CURRENT_COMBINATION = "currentCombinations";
 	public static final String TAG = "PublishFragment";
 	private static final String BITMAP_NAME = "PostCollage";
 	
@@ -35,7 +40,11 @@ public class PublishFragment extends Fragment {
 	private RelativeLayout mCommonCollageLayout;
 	private ImageView mBlockOneImageView;
 	private BitmapCollageWorker mBitmapWorker;
-	private ArrayList<Bitmap> mCheckedImagesBitmap = new ArrayList<Bitmap>();
+	private ArrayList<Bitmap> mCheckedImagesBitmap;
+
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeEventListener mSensorListener;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,12 +52,49 @@ public class PublishFragment extends Fragment {
 		ArrayList<String> checkedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
 		Log.e(TAG, "Got IDs from: "+checkedImagesIDs.toString());
 		NetworkConnector imageReturner = new NetworkConnector(getContext());
+
+		mCheckedImagesBitmap = new ArrayList<Bitmap>();
 		for(int i = 0; i < checkedImagesIDs.size(); i++) {
 			String currentID = checkedImagesIDs.get(i);
 			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
 			Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
 			mCheckedImagesBitmap.add(image);
 		}
+
+		mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mSensorListener = new ShakeEventListener();
+
+		mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
+
+			@Override
+			public void onShake(int count) {
+				Toast.makeText(getContext(), "Shae it", Toast.LENGTH_SHORT).show();
+			}
+		});
+
+//		if (savedInstanceState != null) {
+//			mCheckedImagesBitmap = (ArrayList<Bitmap>) getActivity().getIntent().getSerializableExtra(KEY_CURRENT_COMBINATION);
+//		}
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		mSensorManager.registerListener(mSensorListener, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+
+	}
+
+	@Override
+	public void onPause() {
+		mSensorManager.unregisterListener(mSensorListener);
+		super.onPause();
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putSerializable(KEY_CURRENT_COMBINATION, mCheckedImagesBitmap);
 	}
 
 	@Override
@@ -101,5 +147,7 @@ public class PublishFragment extends Fragment {
 		
 		return v;
 	}
+
+
 	
 }

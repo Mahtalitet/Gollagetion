@@ -38,7 +38,7 @@ public class CollageFragment extends ListFragment {
 	private Button mCollageButton;
 	private int checkedPostsCounter = 0;
 	private ArrayList<InstagramPost> mPosts;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
