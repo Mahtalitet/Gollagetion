@@ -57,6 +57,12 @@ public class CollageFragment extends ListFragment {
 	}
 
 	@Override
+	public void onResume() {
+		super.onResume();
+		InstagramPostsFactory.getFactory(getContext(), mInstagramId).resetCurrentCombination();
+	}
+
+	@Override
 	public void onSaveInstanceState (Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt(KEY_POSTS_COUNTER, checkedPostsCounter);

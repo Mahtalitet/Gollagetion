@@ -35,7 +35,6 @@ public class PublishFragment extends Fragment {
 	private RelativeLayout mCommonCollageLayout;
 	private ImageView mBlockOneImageView;
 	private BitmapCollageWorker mBitmapWorker;
-	private ArrayList<String> mGeneratedCheckedImagesIDs;
 	private ArrayList<Bitmap> mCheckedImagesBitmap = new ArrayList<Bitmap>();
 
 	@Override
@@ -43,19 +42,13 @@ public class PublishFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		ArrayList<String> checkedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
 		Log.e(TAG, "Got IDs from: "+checkedImagesIDs.toString());
-		mGeneratedCheckedImagesIDs = InstagramPostsFactory.getFactory(getContext()).getCombinationImages(checkedImagesIDs);
-		Log.e(TAG, "Got Combinations: "+mGeneratedCheckedImagesIDs.toString());
-
 		NetworkConnector imageReturner = new NetworkConnector(getContext());
-		for(int i = 0; i < mGeneratedCheckedImagesIDs.size(); i++) {
-
-			String currentID =  mGeneratedCheckedImagesIDs.get(i);
+		for(int i = 0; i < checkedImagesIDs.size(); i++) {
+			String currentID = checkedImagesIDs.get(i);
 			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
 			Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
 			mCheckedImagesBitmap.add(image);
 		}
-
-		Log.d(TAG, "Bitmap at array: "+mCheckedImagesBitmap.size());
 	}
 
 	@Override
