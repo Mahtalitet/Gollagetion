@@ -56,11 +56,6 @@ public class CollageFragment extends ListFragment {
         setListAdapter(adapter);
 	}
 
-//	@Override
-//	public void onResume() {
-//		super.onResume();
-//		InstagramPostsFactory.getFactory(getContext(), mInstagramId).resetCurrentCombination();
-//	}
 
 	@Override
 	public void onSaveInstanceState (Bundle outState) {
@@ -99,7 +94,7 @@ public class CollageFragment extends ListFragment {
 			@Override
 			public void onClick(View v) {
 				SparseBooleanArray checkedPostsPositions = positionsOnlyCheckedItems(listView.getCheckedItemPositions());
-				ArrayList<String> checkedPostsIDs = returnIdsCheckedItems(checkedPostsPositions);
+				String[] checkedPostsIDs = returnIdsCheckedItems(checkedPostsPositions);
 				Intent intent = new Intent(getActivity(), PublishActivity.class);
 				intent.putExtra(PublishFragment.EXTRA_IMAGES_IDS, checkedPostsIDs);
 				startActivity(intent);
@@ -226,17 +221,18 @@ public class CollageFragment extends ListFragment {
 		return checkedItemPositions;
 	}
 
-	private ArrayList<String> returnIdsCheckedItems(SparseBooleanArray imgsPositions) {
+	private String[] returnIdsCheckedItems(SparseBooleanArray imgsPositions) {
 
-		ArrayList<String> ids = new ArrayList<String>();
+		String[] ids = new String[imgsPositions.size()];
 
 		for (int i = 0; i < imgsPositions.size(); i++) {
 			int position = imgsPositions.keyAt(i);
 			InstagramPost currPost = (InstagramPost) getListView().getItemAtPosition(position);
 			String ID = currPost.getPostID();
-			ids.add(ID);
+			ids[i] = ID;
+			Log.d(TAG, "IDs: " + ID);
 		}
-		Log.d(TAG, "Finded IDs: " + ids.toString());
+
 		return ids;
 	}
 }

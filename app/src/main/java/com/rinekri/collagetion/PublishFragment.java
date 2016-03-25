@@ -50,7 +50,12 @@ public class PublishFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		firstCheckedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
+		String[] get = (String[]) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
+		firstCheckedImagesIDs = new ArrayList<String>();
+
+		for (String s : get) {
+			firstCheckedImagesIDs.add(s);
+		}
 
 		if (savedInstanceState != null) {
 			generatedCheckedImagesIDs = (ArrayList<String>) savedInstanceState.getSerializable(KEY_CURRENT_COMBINATION);
@@ -96,7 +101,6 @@ public class PublishFragment extends Fragment {
 				}
 			}
 		});
-
 	}
 
 	@Override

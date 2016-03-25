@@ -93,28 +93,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ShareFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShareFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/ShareFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3252174">
-              <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <element signature="e#1287#2586#0" expanded="true" />
-                <element signature="e#1510#1540#0" expanded="true" />
-                <element signature="e#2506#2569#0" expanded="true" />
-                <element signature="e#2585#2586#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InstagramJSONWorker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/json/InstagramJSONWorker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="53.51852">
-              <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-              <folding>
-                <element signature="e#4186#4217#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1211#2510#0" expanded="true" />
+                <element signature="e#1434#1464#0" expanded="true" />
+                <element signature="e#2430#2493#0" expanded="true" />
+                <element signature="e#2509#2510#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,24 +112,31 @@
       <file leaf-file-name="CollageFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/CollageFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-              <folding />
+            <state vertical-scroll-proportion="-4.5555553">
+              <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
+              <folding>
+                <element signature="e#2571#2782#0" expanded="true" />
+                <element signature="e#2781#2782#0" expanded="true" />
+                <element signature="e#3188#3628#0" expanded="true" />
+                <element signature="e#3627#3628#0" expanded="true" />
+                <element signature="e#7002#7011#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PublishFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PublishFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/PublishFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.037037">
-              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.37956205">
+              <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
               <folding>
-                <element signature="e#3095#3983#0" expanded="true" />
-                <element signature="e#3982#3983#0" expanded="true" />
+                <element signature="e#3191#4079#0" expanded="true" />
+                <element signature="e#4078#4079#0" expanded="true" />
                 <element signature="method#onResume#0;class#PublishFragment#0" expanded="false" />
-                <element signature="e#5732#5751#0" expanded="true" />
-                <element signature="e#6105#6173#0" expanded="true" />
+                <element signature="method#onPause#0;class#PublishFragment#0" expanded="false" />
+                <element signature="e#5827#5846#0" expanded="true" />
+                <element signature="e#6200#6268#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1984,13 +1980,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/utility/PermutationsGenerator.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/utility/GetRandomImageIds.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/CollageFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/model/InstagramPostsFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/utility/ShakeEventListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/PublishFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/ShareFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/json/InstagramJSONWorker.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/model/InstagramUserFactory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/ShareFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/CollageFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/PublishFragment.java" />
       </list>
     </option>
   </component>
@@ -2830,14 +2826,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -2876,7 +2872,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2928,10 +2924,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="70" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
           <folding>
-            <element signature="e#1287#2586#0" expanded="true" />
-            <element signature="e#1510#1540#0" expanded="true" />
-            <element signature="e#2506#2569#0" expanded="true" />
-            <element signature="e#2585#2586#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1211#2510#0" expanded="true" />
+            <element signature="e#1434#1464#0" expanded="true" />
+            <element signature="e#2430#2493#0" expanded="true" />
+            <element signature="e#2509#2510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2948,11 +2945,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
           <folding>
-            <element signature="e#3348#3797#0" expanded="false" />
-            <element signature="e#3796#3797#0" expanded="false" />
-            <element signature="e#5362#5388#0" expanded="false" />
-            <element signature="e#7171#7180#0" expanded="false" />
-            <element signature="e#7974#7982#0" expanded="false" />
+            <element signature="e#3188#3628#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <element signature="e#5193#5219#0" expanded="false" />
+            <element signature="e#7002#7011#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2997,10 +2993,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
           <folding>
-            <element signature="e#1287#2586#0" expanded="true" />
-            <element signature="e#1510#1540#0" expanded="true" />
-            <element signature="e#2506#2569#0" expanded="true" />
-            <element signature="e#2585#2586#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1211#2510#0" expanded="true" />
+            <element signature="e#1434#1464#0" expanded="true" />
+            <element signature="e#2430#2493#0" expanded="true" />
+            <element signature="e#2509#2510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3017,11 +3014,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
           <folding>
-            <element signature="e#3348#3797#0" expanded="false" />
-            <element signature="e#3796#3797#0" expanded="false" />
-            <element signature="e#5362#5388#0" expanded="false" />
-            <element signature="e#7171#7180#0" expanded="false" />
-            <element signature="e#7974#7982#0" expanded="false" />
+            <element signature="e#3188#3628#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <element signature="e#5193#5219#0" expanded="false" />
+            <element signature="e#7002#7011#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3272,14 +3268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/CollageFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/utility/ShakeEventListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20695652">
@@ -3287,20 +3275,6 @@
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="class#OnShakeListener#0;class#ShakeEventListener#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/PublishFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.037037">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-          <folding>
-            <element signature="e#3095#3983#0" expanded="true" />
-            <element signature="e#3982#3983#0" expanded="true" />
-            <element signature="method#onResume#0;class#PublishFragment#0" expanded="false" />
-            <element signature="e#5732#5751#0" expanded="true" />
-            <element signature="e#6105#6173#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3324,16 +3298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/json/InstagramJSONWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="53.51852">
-          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-          <folding>
-            <element signature="e#4186#4217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/model/InstagramUserFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0036630037">
@@ -3344,15 +3308,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/json/InstagramJSONWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3029197">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding>
+            <element signature="e#4186#4217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/ShareFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3252174">
-          <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="e#1287#2586#0" expanded="true" />
-            <element signature="e#1510#1540#0" expanded="true" />
-            <element signature="e#2506#2569#0" expanded="true" />
-            <element signature="e#2585#2586#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1211#2510#0" expanded="true" />
+            <element signature="e#1434#1464#0" expanded="true" />
+            <element signature="e#2430#2493#0" expanded="true" />
+            <element signature="e#2509#2510#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/CollageFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5555553">
+          <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
+          <folding>
+            <element signature="e#2571#2782#0" expanded="true" />
+            <element signature="e#2781#2782#0" expanded="true" />
+            <element signature="e#3188#3628#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <element signature="e#7002#7011#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rinekri/collagetion/PublishFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37956205">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#3191#4079#0" expanded="true" />
+            <element signature="e#4078#4079#0" expanded="true" />
+            <element signature="method#onResume#0;class#PublishFragment#0" expanded="false" />
+            <element signature="method#onPause#0;class#PublishFragment#0" expanded="false" />
+            <element signature="e#5827#5846#0" expanded="true" />
+            <element signature="e#6200#6268#0" expanded="true" />
           </folding>
         </state>
       </provider>
