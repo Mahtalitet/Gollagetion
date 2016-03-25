@@ -56,11 +56,11 @@ public class CollageFragment extends ListFragment {
         setListAdapter(adapter);
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		InstagramPostsFactory.getFactory(getContext(), mInstagramId).resetCurrentCombination();
-	}
+//	@Override
+//	public void onResume() {
+//		super.onResume();
+//		InstagramPostsFactory.getFactory(getContext(), mInstagramId).resetCurrentCombination();
+//	}
 
 	@Override
 	public void onSaveInstanceState (Bundle outState) {

@@ -34,28 +34,36 @@ public class PublishFragment extends Fragment {
 	private static final String KEY_CURRENT_COMBINATION = "currentCombinations";
 	public static final String TAG = "PublishFragment";
 	private static final String BITMAP_NAME = "PostCollage";
-	
-	private ImageButton mBackImageButton;
-	private Button mPostButton;
-	private RelativeLayout mCommonCollageLayout;
-	private ImageView mBlockOneImageView;
-	private BitmapCollageWorker mBitmapWorker;
-	private ArrayList<Bitmap> mCheckedImagesBitmap;
 
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
 	private ShakeEventListener mSensorListener;
 
+	private ImageButton mBackImageButton;
+	private Button mPostButton;
+	private RelativeLayout mCommonCollageLayout;
+	private BitmapCollageWorker mBitmapWorker;
+	private ArrayList<String> generatedCheckedImagesIDs;
+	private ArrayList<String> firstCheckedImagesIDs;
+	private ArrayList<Bitmap> mCheckedImagesBitmap;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		ArrayList<String> checkedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
-		Log.e(TAG, "Got IDs from: "+checkedImagesIDs.toString());
-		NetworkConnector imageReturner = new NetworkConnector(getContext());
+		firstCheckedImagesIDs = (ArrayList<String>) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS );
 
+		if (savedInstanceState != null) {
+			generatedCheckedImagesIDs = (ArrayList<String>) savedInstanceState.getSerializable(KEY_CURRENT_COMBINATION);
+			Log.e(TAG, "Got IDs afrer restore this activity: " + generatedCheckedImagesIDs.toString());
+		} else {
+			generatedCheckedImagesIDs = InstagramPostsFactory.getFactory(getContext()).getFirstCombinationImages(firstCheckedImagesIDs);
+			Log.e(TAG, "Got IDs from second activity: " + generatedCheckedImagesIDs.toString());
+		}
+
+		final NetworkConnector imageReturner = new NetworkConnector(getContext());
 		mCheckedImagesBitmap = new ArrayList<Bitmap>();
-		for(int i = 0; i < checkedImagesIDs.size(); i++) {
-			String currentID = checkedImagesIDs.get(i);
+		for(int i = 0; i < generatedCheckedImagesIDs.size(); i++) {
+			String currentID = generatedCheckedImagesIDs.get(i);
 			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
 			Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
 			mCheckedImagesBitmap.add(image);
@@ -69,13 +77,26 @@ public class PublishFragment extends Fragment {
 
 			@Override
 			public void onShake(int count) {
-				Toast.makeText(getContext(), "Shae it", Toast.LENGTH_SHORT).show();
+				generatedCheckedImagesIDs = InstagramPostsFactory.getFactory(getContext()).getCombinationImages(firstCheckedImagesIDs);
+
+				mCheckedImagesBitmap = new ArrayList<Bitmap>();
+				for(int i = 0; i < generatedCheckedImagesIDs.size(); i++) {
+					String currentID = generatedCheckedImagesIDs.get(i);
+					InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
+					Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
+					mCheckedImagesBitmap.add(image);
+
+					int childViewCounter = mCommonCollageLayout.getChildCount();
+
+					for(int d = 0; d < childViewCounter; d++) {
+						ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(i);
+						partCollage.setImageBitmap(mCheckedImagesBitmap.get(i));
+
+					}
+				}
 			}
 		});
 
-//		if (savedInstanceState != null) {
-//			mCheckedImagesBitmap = (ArrayList<Bitmap>) getActivity().getIntent().getSerializableExtra(KEY_CURRENT_COMBINATION);
-//		}
 	}
 
 	@Override
@@ -94,7 +115,7 @@ public class PublishFragment extends Fragment {
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putSerializable(KEY_CURRENT_COMBINATION, mCheckedImagesBitmap);
+		outState.putSerializable(KEY_CURRENT_COMBINATION, generatedCheckedImagesIDs);
 	}
 
 	@Override

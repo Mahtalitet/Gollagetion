@@ -4,7 +4,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.FloatMath;
 import android.util.Log;
 
 import java.util.Date;
@@ -12,8 +11,7 @@ import java.util.Date;
 public class ShakeEventListener implements SensorEventListener {
     public static final String TAG ="ShakeEventListener";
 
-    private static final float SHAKE_THRESHOLD_GRAVITY = 2.7F;
-    private static final int SHAKE_SLOP_TIME_MS = 300;
+    private static final float SHAKE_THRESHOLD_GRAVITY = 1.7F;
     private static final int SHAKE_COUNT_RESET_TIME_MS = 3000;
     private static final int SHAKE_TIME_MS = 5000;
 

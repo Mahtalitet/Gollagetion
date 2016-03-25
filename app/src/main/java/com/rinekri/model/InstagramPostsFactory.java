@@ -63,7 +63,6 @@ public class InstagramPostsFactory {
         return null;
     }
 
-
     public ArrayList<String> getCombinationImages(ArrayList<String> postsIds) {
 
         if ((sInstagramImgsCombination == null)) {
@@ -99,6 +98,32 @@ public class InstagramPostsFactory {
         return sInstagramImgsCombinations[sCurrentInstagramImgsCombination];
     }
 
+    public ArrayList<String> getFirstCombinationImages(ArrayList<String> postsIds) {
+
+        if ((sInstagramImgsCombination == null)) {
+            sInstagramImgsCombination = postsIds;
+            generateCombinations();
+
+        } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() != postsIds.size())) {
+            sInstagramImgsCombination = postsIds;
+            generateCombinations();
+
+        } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() == postsIds.size())) {
+
+            for (int i = 0; i < sInstagramImgsCombination.size(); i++) {
+                String id = sInstagramImgsCombination.get(i);
+                if (!id.equals(postsIds.get(i))) {
+                    sInstagramImgsCombination = postsIds;
+                    generateCombinations();
+                    break;
+                }
+            }
+        }
+        resetCurrentCombination();
+        Log.e(TAG, "First instagramPosts combination " + sCurrentInstagramImgsCombination);
+        return sInstagramImgsCombinations[sCurrentInstagramImgsCombination];
+    }
+
     public void resetCurrentCombination() {
         sCurrentInstagramImgsCombination = 0;
     }
@@ -117,4 +142,5 @@ public class InstagramPostsFactory {
         sInstagramImgsCombinations = new ArrayList[combinations.size()];
         combinations.toArray(sInstagramImgsCombinations);
     }
+
 }

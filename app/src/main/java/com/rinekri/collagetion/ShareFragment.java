@@ -1,12 +1,14 @@
 package com.rinekri.collagetion;
 
 import com.rinekri.json.InstagramJSONWorker;
+import com.rinekri.model.InstagramUserFactory;
 import com.rinekri.network.NetworkConnector;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.text.GetChars;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +24,6 @@ public class ShareFragment extends Fragment {
 	private Button mSearchButton;
 	private EditText mInstaIDEditText;
 	
-	private String findedInstagramID = null;
-
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_share, container, false);
@@ -50,8 +49,7 @@ public class ShareFragment extends Fragment {
 							mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_space_nick));
 						} else {
 							Log.d(TAG, "Entered nick: "+instaNick);
-							InstagramJSONWorker worker = new InstagramJSONWorker(getActivity());
-							findedInstagramID = worker.getId(instaNick);
+							String findedInstagramID = InstagramUserFactory.getFactory(getContext()).getID(instaNick);
 							if (findedInstagramID != null) {
 								Log.d(TAG, "Finded ID: "+findedInstagramID);
 								Intent i = new Intent(getActivity(), CollageActivity.class);

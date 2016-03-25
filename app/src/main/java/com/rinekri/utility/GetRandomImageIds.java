@@ -5,8 +5,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-class Myclass
-{
+class GetRandomImagesIds {
     private static final int ELEMENTS = 4;
     private static ArrayList<String> sInstagramImgsCombination = new ArrayList<String>();
     private static HashSet<ArrayList<String>> sInstagramImgsCombinations = new HashSet<ArrayList<String>>();

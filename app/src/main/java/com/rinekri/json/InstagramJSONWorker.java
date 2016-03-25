@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.rinekri.model.InstagramPost;
 import com.rinekri.collagetion.R;
@@ -52,16 +53,6 @@ public class InstagramJSONWorker {
 		private static final String TAG_USERNAME = "username";
 		private static final String TAG_ID = "id";
 		
-		private AlertDialog alert;
-
-		protected void onPreExecute() {
-			AlertDialog.Builder alertBuilder = new AlertDialog.Builder(mContext);
-			alertBuilder.setMessage(R.string.dialog_search_id_title);
-			alertBuilder.setCancelable(false);
-			alert = alertBuilder.create();
-			alert.show();
-		}
-		   
 		protected String doInBackground(Void... arg0) {
 
 			StringBuilder getIDurl = new StringBuilder()
@@ -102,9 +93,6 @@ public class InstagramJSONWorker {
 			return null;
 		}
 
-		protected void onPostExecute(String result) {
-			if (alert != null) alert.dismiss();
-		}
 	}
 
 	public ArrayList<InstagramPost> getPosts (String id) {
