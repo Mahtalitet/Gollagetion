@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.rinekri.json.InstagramJSONWorker;
+import com.rinekri.utility.PermutationsGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -68,25 +69,32 @@ public class InstagramPostsFactory {
         if ((sInstagramImgsCombination == null)) {
             sInstagramImgsCombination = postsIds;
             generateCombinations();
-            sCurrentInstagramImgsCombination = 0;
+            resetCurrentCombination();
             Log.e(TAG, "First initialization of get IDs: " + sInstagramImgsCombination.toString());
-            Log.d(TAG, "All combinations for the first initialization:");
-            returnLog();
+            Log.d(TAG, "Size of array with combinations: " + sInstagramImgsCombinations.length);
+            Log.d(TAG, "Last combination:");
+            ArrayList<String> lastComb = sInstagramImgsCombinations[sInstagramImgsCombinations.length-1];
+            for (String a : lastComb) {
+                Log.d(TAG,"ID: "+a);
+            }
 
         } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() != postsIds.size())) {
             sInstagramImgsCombination = postsIds;
             generateCombinations();
-            sCurrentInstagramImgsCombination = 0;
-            Log.e(TAG, "Another initialization of get IDs: "+sInstagramImgsCombination.toString());
-            Log.d(TAG, "All combinations for the another initialization: ");
-            returnLog();
+            resetCurrentCombination();
+            Log.e(TAG, "Another initialization of get IDs: " + sInstagramImgsCombination.toString());
+            Log.d(TAG, "Size of array with combinations: " + sInstagramImgsCombinations.length);
+            ArrayList<String> lastComb = sInstagramImgsCombinations[sInstagramImgsCombinations.length-1];
+            for (String a : lastComb) {
+                Log.d(TAG,"ID: "+a);
+            }
 
         } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() == postsIds.size())) {
 
             if (sCurrentInstagramImgsCombination != (sInstagramImgsCombinations.length-1)) {
                 sCurrentInstagramImgsCombination++;
             } else {
-                sCurrentInstagramImgsCombination = 0;
+                resetCurrentCombination();
             }
 
             for (int i = 0; i < sInstagramImgsCombination.size(); i++) {
@@ -96,15 +104,22 @@ public class InstagramPostsFactory {
                     generateCombinations();
                     sCurrentInstagramImgsCombination = 0;
                     Log.e(TAG, "New initialization of IDs: " + sInstagramImgsCombination.toString());
-                    Log.d(TAG, "All combinations for the first initialization:");
-                    returnLog();
+                    Log.d(TAG, "Size of array with combinations: " + sInstagramImgsCombinations.length);
+                    ArrayList<String> lastComb = sInstagramImgsCombinations[sInstagramImgsCombinations.length-1];
+                    for (String a : lastComb) {
+                        Log.d(TAG,"ID: "+a);
+                    }
                     break;
                 }
             }
         }
-        Log.e(TAG, "Current instagram combination "+sCurrentInstagramImgsCombination);
+        Log.e(TAG, "Current instagram combination " + sCurrentInstagramImgsCombination);
 
         return sInstagramImgsCombinations[sCurrentInstagramImgsCombination];
+    }
+
+    public void resetCurrentCombination() {
+        sCurrentInstagramImgsCombination = 0;
     }
 
     public void addInstagramPost(InstagramPost post) {
@@ -116,41 +131,16 @@ public class InstagramPostsFactory {
     }
 
     private void generateCombinations() {
-        if (sInstagramImgsCombination.size() == 4) {
-            HashSet<ArrayList<String>> combinations = new HashSet<ArrayList<String>>();
-            getCombinations(sInstagramImgsCombination, 0, sInstagramImgsCombination.size(), combinations);
-            Log.e(TAG, "Generated IDs at HasSet: " + combinations.toString());
-            sInstagramImgsCombinations = new ArrayList[combinations.size()];
-            combinations.toArray(sInstagramImgsCombinations);
-
-        } else if (sInstagramImgsCombination.size() > 4) {
-
-        }
+        HashSet<ArrayList<String>> combinations = new HashSet<ArrayList<String>>();
+        PermutationsGenerator.getCombinations(sInstagramImgsCombination, 0, sInstagramImgsCombination.size(), combinations);
+//        Log.e(TAG, "Generated IDs at HasSet: " + combinations.toString());
+        sInstagramImgsCombinations = new ArrayList[combinations.size()];
+        combinations.toArray(sInstagramImgsCombinations);
     }
 
-    private static void getCombinations(ArrayList<String> str, int k, int n, HashSet<ArrayList<String>> resultSet){
-        for(int i = k; i < n; i++){
-            ArrayList<String> temp = modifyString(str, i, k);
-            resultSet.add(temp);
-            getCombinations(temp, k + 1, n, resultSet);
-        }
-    }
-
-    private static ArrayList<String> modifyString(ArrayList<String> str, int x, int y){
-        String[] arr = new String[str.size()];
-        str.toArray(arr);
-        String t =  arr[x];
-        arr[x] = arr[y];
-        arr[y] = t;
-        ArrayList<String> s = new ArrayList<String>();
-        for(String id : arr) {
-            s.add(id);
-        }
-        return s;
-    }
 
     private void returnLog() {
-        int i = 0;
+        int i = 1;
         for(ArrayList<String> combination : sInstagramImgsCombinations) {
             Log.d(TAG, "Combination "+i++);
 

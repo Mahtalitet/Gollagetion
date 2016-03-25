@@ -7,6 +7,7 @@ import java.util.Set;
 
 class Myclass
 {
+    private static final int ELEMENTS = 4;
     private static ArrayList<String> sInstagramImgsCombination = new ArrayList<String>();
     private static HashSet<ArrayList<String>> sInstagramImgsCombinations = new HashSet<ArrayList<String>>();
     static Set<String> resultSet = new HashSet<String>();
@@ -17,26 +18,34 @@ class Myclass
         sInstagramImgsCombination.add("1148012811326957685_2261843945");
         sInstagramImgsCombination.add("1159398661465942227_2261843945");
         sInstagramImgsCombination.add("1172335632467208654_2261843945");
+        sInstagramImgsCombination.add("1142029029092469260_2261843945");
+        sInstagramImgsCombination.add("1136484808893770298_2261843945");
 
         printCombinations(sInstagramImgsCombination, 0, sInstagramImgsCombination.size(), sInstagramImgsCombinations);
 
-//        int i = 0;
-//        for(ArrayList<String> combination : sInstagramImgsCombinations){
-//            i++;
-//            System.out.println("Combination "+i+" :");
-//
-//            for(String id : combination) {
-//                System.out.println("Id: " +id);
-//            }
-//            System.out.println();
-//        }
+        int i = 0;
+        for(ArrayList<String> combination : sInstagramImgsCombinations){
+            i++;
+            System.out.println("Combination "+i+" :");
+
+            for(String id : combination) {
+                System.out.println("Id: " +id);
+            }
+            System.out.println();
+        }
 
     }
 
     public static void printCombinations(ArrayList<String> str, int k, int n, HashSet<ArrayList<String>> resultSet){
         for(int i = k; i < n; i++){
             ArrayList<String> temp = modifyString(str, i, k);
-            resultSet.add(temp);
+            ArrayList<String> result = new ArrayList<String>();
+            String[] arr = new String[temp.size()];
+            temp.toArray(arr);
+            for (int g = 0; g < ELEMENTS; g++) {
+                result.add(arr[g]);
+            }
+            resultSet.add(result);
             printCombinations(temp, k+1, n, resultSet);
         }
     }
