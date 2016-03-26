@@ -2,12 +2,13 @@ package com.rinekri.model;
 
 import android.content.Context;
 import com.rinekri.json.InstagramJSONWorker;
+import com.rinekri.network.NetworkConnector;
 
 public class InstagramUserFactory {
 
     public static InstagramUserFactory sInstagramUserFactory;
-    public static String sID;
-    public static String sNick;
+    public String sID;
+    public String sNick;
 
     private Context mContext;
     private InstagramJSONWorker worker;
@@ -27,9 +28,11 @@ public class InstagramUserFactory {
 
     public String getID(String nick) {
 
-        if ((sNick == null) || ((sNick != null) && !sNick.equals(nick))) {
-            sNick = nick;
-            sID = worker.getId(sNick);
+        if (NetworkConnector.isConnection(mContext)) {
+            if ((sNick == null) || ((sNick != null) && !sNick.equals(nick))) {
+                sNick = nick;
+                sID = worker.getId(sNick);
+            }
         }
 
         return sID;

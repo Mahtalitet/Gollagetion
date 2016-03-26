@@ -9,15 +9,15 @@ public class PermutationsGenerator {
     private static final String TAG = "PermutationsGenerator";
     private static final int ELEMENTS = 4;
 
-    private static HashSet<String> combinations;
-    private static int combinationsSize;
-
+    private HashSet<String> combinations;
+    private int combinationsSize;
+    private GenerateExecutor executor;
 
     public HashSet<String> getCombinations(int size) {
         combinationsSize = size;
         combinations = new HashSet<String>();
 
-        GenerateExecutor executor = new GenerateExecutor();
+        executor = new GenerateExecutor();
         executor.execute(new RunnableForGenerateExecutor());
 
         while (true) {
@@ -27,13 +27,14 @@ public class PermutationsGenerator {
         }
     }
 
-
     private class GenerateExecutor implements Executor {
 
         public void execute(Runnable r) {
             new Thread(r).start();
         }
+
     }
+
 
     private class RunnableForGenerateExecutor implements Runnable {
 
@@ -49,8 +50,7 @@ public class PermutationsGenerator {
         }
     }
 
-
-    public static void generate(String str, int k, int n, HashSet<String> resultSet){
+    private static void generate(String str, int k, int n, HashSet<String> resultSet){
         for(int i = k; i < n; i++){
 
             String temp = modifyString(str, i, k);
@@ -67,7 +67,7 @@ public class PermutationsGenerator {
         }
     }
 
-    public static String modifyString(String str, int x, int y){
+    private static String modifyString(String str, int x, int y){
         char[] arr = str.toCharArray();
 
         char t =  arr[x];

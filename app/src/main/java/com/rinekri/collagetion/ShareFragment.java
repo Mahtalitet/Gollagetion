@@ -38,7 +38,7 @@ public class ShareFragment extends Fragment {
 				
 				if ((mInstaIDEditText.getText() != null) && (mInstaIDEditText.length() != 0)) {
 					Toast toastOffline = Toast.makeText(getContext(), R.string.toast_network_offline, Toast.LENGTH_SHORT);
-					if (NetworkConnector.checkConnection(getContext())) {
+					if (NetworkConnector.isConnection(getContext())) {
 						toastOffline.cancel();
 						String instaNick = mInstaIDEditText.getText().toString();
 						
