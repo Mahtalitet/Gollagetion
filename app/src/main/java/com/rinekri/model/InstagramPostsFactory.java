@@ -9,13 +9,14 @@ import com.rinekri.utility.PermutationsGenerator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class InstagramPostsFactory {
     public static final String TAG = "InstagramPostsFactory";
 
     private static InstagramPostsFactory sInstagramPostsFactory;
     private static String sUserID;
-    private static HashSet<String> sInstagramImgsCombinations;
+    private static TreeSet<String> sInstagramImgsCombinations;
     private static int sCurrentInstagramImgsCombinationSize;
     private static int sCurrentInstagramImgsCombination;
 
