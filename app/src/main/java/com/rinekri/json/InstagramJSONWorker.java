@@ -228,6 +228,7 @@ public class InstagramJSONWorker {
 
 				} catch (JSONException e) {
 					e.printStackTrace();
+					haveRequest = false;
 					Log.i(TAG, "Didn't find something.");
 				}
 				pageCounter++;

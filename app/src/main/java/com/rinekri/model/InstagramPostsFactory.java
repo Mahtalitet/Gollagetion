@@ -15,7 +15,7 @@ public class InstagramPostsFactory {
 
     private static InstagramPostsFactory sInstagramPostsFactory;
     private static String sUserID;
-    private static String[] sInstagramImgsCombinations;
+    private static HashSet<String> sInstagramImgsCombinations;
     private static int sCurrentInstagramImgsCombinationSize;
     private static int sCurrentInstagramImgsCombination;
 
@@ -77,7 +77,7 @@ public class InstagramPostsFactory {
 
         } else if ((sInstagramImgsCombinations != null) && (sCurrentInstagramImgsCombinationSize == size)) {
 
-            if (sCurrentInstagramImgsCombination != (sInstagramImgsCombinations.length-1)) {
+            if (sCurrentInstagramImgsCombination != (sInstagramImgsCombinations.size()-1)) {
                 sCurrentInstagramImgsCombination++;
             } else {
                 resetCurrentCombination();
@@ -85,9 +85,10 @@ public class InstagramPostsFactory {
 
         }
 
-        Log.e(TAG, "Current instagram combination " +sCurrentInstagramImgsCombination);
+        Log.e(TAG, "Current instagram combination " + sCurrentInstagramImgsCombination);
 
-        return parseCharToNumbers(sInstagramImgsCombinations[sCurrentInstagramImgsCombination].toCharArray());
+
+        return parseCharToNumbers(getCombination().toCharArray());
     }
 
     public int[] getFirstCombinationImages(int size) {
@@ -105,23 +106,16 @@ public class InstagramPostsFactory {
         resetCurrentCombination();
 
 
-        return parseCharToNumbers(sInstagramImgsCombinations[sCurrentInstagramImgsCombination].toCharArray());
+        return parseCharToNumbers(getCombination().toCharArray());
     }
 
     public void resetCurrentCombination() {
         sCurrentInstagramImgsCombination = 0;
     }
 
-    public void addInstagramPost(InstagramPost post) {
-        mInstagramPosts.add(post);
-    }
-
-    public void deleteInstagramPost(InstagramPost post) {
-        mInstagramPosts.remove(post);
-    }
-
     private void generateCombinations(int size) {
-        sInstagramImgsCombinations = PermutationsGenerator.getCombinations(size);
+        PermutationsGenerator permutationsGenerator = new PermutationsGenerator();
+        sInstagramImgsCombinations = permutationsGenerator.getCombinations(size);
     }
 
     private int[] parseCharToNumbers(char[] character) {
@@ -134,4 +128,23 @@ public class InstagramPostsFactory {
         return numbers;
     }
 
+    private String getCombination() {
+
+        int i = 0;
+        for (String s : sInstagramImgsCombinations) {
+            if (sCurrentInstagramImgsCombination == i) {
+                return s;
+            }
+            i++;
+        }
+        return null;
+    }
+
+    public void addInstagramPost(InstagramPost post) {
+        mInstagramPosts.add(post);
+    }
+
+    public void deleteInstagramPost(InstagramPost post) {
+        mInstagramPosts.remove(post);
+    }
 }
