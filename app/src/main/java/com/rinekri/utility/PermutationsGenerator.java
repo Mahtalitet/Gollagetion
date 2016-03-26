@@ -3,27 +3,27 @@ package com.rinekri.utility;
 import android.util.Log;
 
 import java.util.HashSet;
-import java.util.TreeSet;
 import java.util.concurrent.Executor;
 
 public class PermutationsGenerator {
     private static final String TAG = "PermutationsGenerator";
     private static final int ELEMENTS = 4;
 
-    private TreeSet<String> combinations;
-    private int combinationsSize;
-    private GenerateExecutor executor;
+    private static Thread sThread;
+    private HashSet<String> mCombinations;
+    private int mCombinationsSize;
 
-    public TreeSet<String> getCombinations(int size) {
-        combinationsSize = size;
-        combinations = new TreeSet<String>();
+    public HashSet<String> getCombinations(int size) {
+        mCombinationsSize = size;
+        mCombinations = new HashSet<String>();
 
-        executor = new GenerateExecutor();
-        executor.execute(new RunnableForGenerateExecutor());
+        GenerateExecutor mExecutor = new GenerateExecutor();
+        mExecutor.execute(new RunnableForGenerateExecutor());
 
         while (true) {
-          if (combinations.size() > 0) {
-              return combinations;
+          if (mCombinations.size() > 0) {
+              return mCombinations;
+
           }
         }
     }
@@ -31,11 +31,15 @@ public class PermutationsGenerator {
     private class GenerateExecutor implements Executor {
 
         public void execute(Runnable r) {
-            new Thread(r).start();
+            if (sThread != null) {
+                sThread.interrupt();
+                Log.e(TAG, "Back generation of mCombinations was interrupted!");
+            }
+            Log.e(TAG, "New generation of mCombinations!");
+            sThread = new Thread(r);
+            sThread.start();
         }
-
     }
-
 
     private class RunnableForGenerateExecutor implements Runnable {
 
@@ -43,15 +47,15 @@ public class PermutationsGenerator {
         public void run() {
             StringBuilder numbers = new StringBuilder();
 
-            for (int i = 0; i < combinationsSize; i++) {
+            for (int i = 0; i < mCombinationsSize; i++) {
                 numbers.append(i);
             }
-            generate(numbers.toString(), 0, combinationsSize, combinations);
-            Log.d(TAG,"Combinations count: "+combinations.size() );
+            generate(numbers.toString(), 0, mCombinationsSize, mCombinations);
+            Log.d(TAG, "Combinations count: " + mCombinations.size());
         }
     }
 
-    private static void generate(String str, int k, int n, TreeSet<String> resultSet){
+    private static void generate(String str, int k, int n, HashSet<String> resultSet){
         for(int i = k; i < n; i++){
 
             String temp = modifyString(str, i, k);
@@ -62,7 +66,7 @@ public class PermutationsGenerator {
             for (int g = 0; g < ELEMENTS; g++) {
                 result.append(arr[g]);
             }
-            Log.d(TAG,"Combination:"+result.toString());
+//            Log.d(TAG,"Combination:"+result.toString());
             resultSet.add(result.toString());
             generate(temp, k + 1, n, resultSet);
         }
