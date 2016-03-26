@@ -7,58 +7,73 @@ import java.util.Set;
 
 class GetRandomImagesIds {
     private static final int ELEMENTS = 4;
-    private static ArrayList<String> sInstagramImgsCombination = new ArrayList<String>();
-    private static HashSet<ArrayList<String>> sInstagramImgsCombinations = new HashSet<ArrayList<String>>();
     static Set<String> resultSet = new HashSet<String>();
 
     public static void main(String[] args){
+        ArrayList<String> sInstagramImgsCombination = new ArrayList<String>();
 
         sInstagramImgsCombination.add("1136456667756342109_2261843945");
         sInstagramImgsCombination.add("1148012811326957685_2261843945");
         sInstagramImgsCombination.add("1159398661465942227_2261843945");
         sInstagramImgsCombination.add("1172335632467208654_2261843945");
-        sInstagramImgsCombination.add("1142029029092469260_2261843945");
-        sInstagramImgsCombination.add("1136484808893770298_2261843945");
+//        sInstagramImgsCombination.add("1142029029092469260_2261843945");
+//        sInstagramImgsCombination.add("1136484808893770298_2261843945");
 
-        printCombinations(sInstagramImgsCombination, 0, sInstagramImgsCombination.size(), sInstagramImgsCombinations);
+        StringBuilder numbers = new StringBuilder();
+
+        for (int k = 0; k < sInstagramImgsCombination.size(); k++) {
+            numbers.append(k);
+        }
+                System.out.println("Initial string:"+numbers.toString());
+
+        HashSet<String> sInstagramImgsCombinations = new HashSet<String>();
+        printCombinations(numbers.toString(), 0, sInstagramImgsCombination.size(), sInstagramImgsCombinations);
+
+
+        String[] finalCombinations = new String[sInstagramImgsCombinations.size()];
+        sInstagramImgsCombinations.toArray(finalCombinations);
+
 
         int i = 0;
-        for(ArrayList<String> combination : sInstagramImgsCombinations){
+        for(String combination : finalCombinations){
             i++;
-            System.out.println("Combination "+i+" :");
-
-            for(String id : combination) {
-                System.out.println("Id: " +id);
+            System.out.println("Combination "+i+" :"+combination);
+            char[] chare = combination.toCharArray();
+            for(char c: chare) {
+                System.out.println("Char"+c);
             }
+
             System.out.println();
         }
 
+
+
+
     }
 
-    public static void printCombinations(ArrayList<String> str, int k, int n, HashSet<ArrayList<String>> resultSet){
+    public static void printCombinations(String str, int k, int n, HashSet<String> resultSet){
         for(int i = k; i < n; i++){
-            ArrayList<String> temp = modifyString(str, i, k);
-            ArrayList<String> result = new ArrayList<String>();
-            String[] arr = new String[temp.size()];
-            temp.toArray(arr);
+
+            String temp = modifyString(str, i, k);
+
+            char[] arr = temp.toCharArray();
+
+            StringBuilder result = new StringBuilder();
             for (int g = 0; g < ELEMENTS; g++) {
-                result.add(arr[g]);
+                result.append(arr[g]);
             }
-            resultSet.add(result);
+            resultSet.add(result.toString());
             printCombinations(temp, k+1, n, resultSet);
         }
     }
 
-    public static ArrayList<String> modifyString(ArrayList<String> str, int x, int y){
-        String[] arr = new String[str.size()];
-        str.toArray(arr);
-        String t =  arr[x];
+    public static String modifyString(String str, int x, int y){
+        char[] arr = str.toCharArray();
+
+        char t =  arr[x];
         arr[x] = arr[y];
         arr[y] = t;
-        ArrayList<String> s = new ArrayList<String>();
-        for(String id : arr) {
-            s.add(id);
-        }
-        return s;
+
+        return new String(arr);
     }
 }

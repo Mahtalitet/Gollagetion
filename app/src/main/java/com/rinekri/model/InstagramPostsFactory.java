@@ -15,8 +15,8 @@ public class InstagramPostsFactory {
 
     private static InstagramPostsFactory sInstagramPostsFactory;
     private static String sUserID;
-    private static ArrayList<String> sInstagramImgsCombination;
-    private static ArrayList<String>[] sInstagramImgsCombinations;
+    private static String[] sInstagramImgsCombinations;
+    private static int sCurrentInstagramImgsCombinationSize;
     private static int sCurrentInstagramImgsCombination;
 
     private Context mAppContext;
@@ -63,19 +63,19 @@ public class InstagramPostsFactory {
         return null;
     }
 
-    public ArrayList<String> getCombinationImages(ArrayList<String> postsIds) {
+    public int[] getCombinationImages(int size) {
 
-        if ((sInstagramImgsCombination == null)) {
-            sInstagramImgsCombination = postsIds;
-            generateCombinations();
+        if ((sInstagramImgsCombinations == null)) {
+            sCurrentInstagramImgsCombinationSize = size;
+            generateCombinations(sCurrentInstagramImgsCombinationSize);
             resetCurrentCombination();
 
-        } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() != postsIds.size())) {
-            sInstagramImgsCombination = postsIds;
-            generateCombinations();
+        } else if ((sInstagramImgsCombinations != null) && (sCurrentInstagramImgsCombinationSize != size)) {
+            sCurrentInstagramImgsCombinationSize = size;
+            generateCombinations(sCurrentInstagramImgsCombinationSize);
             resetCurrentCombination();
 
-        } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() == postsIds.size())) {
+        } else if ((sInstagramImgsCombinations != null) && (sCurrentInstagramImgsCombinationSize == size)) {
 
             if (sCurrentInstagramImgsCombination != (sInstagramImgsCombinations.length-1)) {
                 sCurrentInstagramImgsCombination++;
@@ -83,45 +83,29 @@ public class InstagramPostsFactory {
                 resetCurrentCombination();
             }
 
-            for (int i = 0; i < sInstagramImgsCombination.size(); i++) {
-                String id = sInstagramImgsCombination.get(i);
-                if (!id.equals(postsIds.get(i))) {
-                    sInstagramImgsCombination = postsIds;
-                    generateCombinations();
-                    resetCurrentCombination();
-                    break;
-                }
-            }
         }
-        Log.e(TAG, "Current instagram combination " + sCurrentInstagramImgsCombination);
 
-        return sInstagramImgsCombinations[sCurrentInstagramImgsCombination];
+        Log.e(TAG, "Current instagram combination " +sCurrentInstagramImgsCombination);
+
+        return parseCharToNumbers(sInstagramImgsCombinations[sCurrentInstagramImgsCombination].toCharArray());
     }
 
-    public ArrayList<String> getFirstCombinationImages(ArrayList<String> postsIds) {
+    public int[] getFirstCombinationImages(int size) {
 
-        if ((sInstagramImgsCombination == null)) {
-            sInstagramImgsCombination = postsIds;
-            generateCombinations();
+        if ((sInstagramImgsCombinations == null)) {
+            sCurrentInstagramImgsCombinationSize = size;
+            generateCombinations(sCurrentInstagramImgsCombinationSize);
 
-        } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() != postsIds.size())) {
-            sInstagramImgsCombination = postsIds;
-            generateCombinations();
+        } else if ((sInstagramImgsCombinations != null) && (sCurrentInstagramImgsCombinationSize != size)) {
+            sCurrentInstagramImgsCombinationSize = size;
+            generateCombinations(sCurrentInstagramImgsCombinationSize);
 
-        } else if ((sInstagramImgsCombination != null) && (sInstagramImgsCombination.size() == postsIds.size())) {
-
-            for (int i = 0; i < sInstagramImgsCombination.size(); i++) {
-                String id = sInstagramImgsCombination.get(i);
-                if (!id.equals(postsIds.get(i))) {
-                    sInstagramImgsCombination = postsIds;
-                    generateCombinations();
-                    break;
-                }
-            }
         }
+
         resetCurrentCombination();
-        Log.e(TAG, "First instagramPosts combination " + sCurrentInstagramImgsCombination);
-        return sInstagramImgsCombinations[sCurrentInstagramImgsCombination];
+
+
+        return parseCharToNumbers(sInstagramImgsCombinations[sCurrentInstagramImgsCombination].toCharArray());
     }
 
     public void resetCurrentCombination() {
@@ -136,11 +120,18 @@ public class InstagramPostsFactory {
         mInstagramPosts.remove(post);
     }
 
-    private void generateCombinations() {
-        HashSet<ArrayList<String>> combinations = new HashSet<ArrayList<String>>();
-        PermutationsGenerator.getCombinations(sInstagramImgsCombination, 0, sInstagramImgsCombination.size(), combinations);
-        sInstagramImgsCombinations = new ArrayList[combinations.size()];
-        combinations.toArray(sInstagramImgsCombinations);
+    private void generateCombinations(int size) {
+        sInstagramImgsCombinations = PermutationsGenerator.getCombinations(size);
+    }
+
+    private int[] parseCharToNumbers(char[] character) {
+
+        int[] numbers = new int[character.length];
+
+        for (int i = 0; i < character.length; i++) {
+            numbers[i] = Character.getNumericValue(character[i]);
+        }
+        return numbers;
     }
 
 }
