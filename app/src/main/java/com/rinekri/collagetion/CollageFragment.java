@@ -11,6 +11,7 @@ import com.rinekri.network.NetworkConnector;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.NavUtils;
@@ -32,7 +33,6 @@ public class CollageFragment extends ListFragment {
 	private static final String KEY_POSTS_COUNTER = "checkedPostsCounter";
 	private static final String TAG = "CollageFragment";
 
-	private String mInstagramId;
 	private ImageButton mBackImageButton;
 	private TextView mSelectedPostsCounterEditText;
 	private Button mCollageButton;
@@ -42,18 +42,14 @@ public class CollageFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mInstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
+		String mInstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
 		if (mInstagramId != null) {
-			Log.d(TAG, "ID at CollageFragment: "+mInstagramId);
-			mPosts = InstagramPostsFactory.getFactory(getContext(), mInstagramId).getSortedForLikesInstagramPosts();
+			new getPostsTask().execute(mInstagramId);
 		}
 
 		if (savedInstanceState != null) {
 			checkedPostsCounter = savedInstanceState.getInt(KEY_POSTS_COUNTER);
 		}
-
-        PostAdapter adapter = new PostAdapter(mPosts);
-        setListAdapter(adapter);
 	}
 
 
@@ -234,5 +230,22 @@ public class CollageFragment extends ListFragment {
 		}
 
 		return ids;
+	}
+
+	private class getPostsTask extends AsyncTask<String, Void, Void> {
+
+		@Override
+		protected Void doInBackground(String... params) {
+			Log.d(TAG, "ID at CollageFragment: "+params[0]);
+			mPosts = InstagramPostsFactory.getFactory(getContext(), params[0]).getSortedForLikesInstagramPosts();
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			PostAdapter adapter = new PostAdapter(mPosts);
+			setListAdapter(adapter);
+		}
+
 	}
 }

@@ -3,6 +3,7 @@ package com.rinekri.utility;
 import android.util.Log;
 
 import java.util.HashSet;
+import java.util.Timer;
 import java.util.concurrent.Executor;
 
 public class PermutationsGenerator {
@@ -20,11 +21,17 @@ public class PermutationsGenerator {
         GenerateExecutor mExecutor = new GenerateExecutor();
         mExecutor.execute(new RunnableForGenerateExecutor());
 
-        while (true) {
-          if (mCombinations.size() > 0) {
-              return mCombinations;
+       while (true) {
+            Log.e(TAG, "Size of comnbinations"+mCombinations.size());
+            if (mCombinations.size() >= 24) {
+                try {
+                    sThread.wait(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return mCombinations;
 
-          }
+            }
         }
     }
 

@@ -3,6 +3,7 @@ package com.rinekri.collagetion;
 import com.rinekri.model.InstagramUserFactory;
 import com.rinekri.network.NetworkConnector;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
@@ -46,15 +47,9 @@ public class ShareFragment extends Fragment {
 							mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_space_nick));
 						} else {
 							Log.d(TAG, "Entered nick: "+instaNick);
-							String findedInstagramID = InstagramUserFactory.getFactory(getContext()).getID(instaNick);
-							if (findedInstagramID != null) {
-								Log.d(TAG, "Finded ID: "+findedInstagramID);
-								Intent i = new Intent(getActivity(), CollageActivity.class);
-								i.putExtra(CollageFragment.EXTRA_INSTAGRAM_ID, findedInstagramID);
-								startActivity(i);
-							} else {
-								mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_bad_nick));
-							}
+
+							new getIdTask().execute(instaNick);
+
 						}
 					} else {
 						toastOffline.show();
@@ -66,4 +61,26 @@ public class ShareFragment extends Fragment {
 		});
 		return v;
 	}
+
+	private class getIdTask extends AsyncTask<String, Void, String> {
+
+		@Override
+		protected String doInBackground(String... params) {
+			return InstagramUserFactory.getFactory(getContext()).getID(params[0]);
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			if (result != null) {
+				Log.d(TAG, "Finded ID: "+result);
+				Intent i = new Intent(getActivity(), CollageActivity.class);
+				i.putExtra(CollageFragment.EXTRA_INSTAGRAM_ID, result);
+				startActivity(i);
+			} else {
+				mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_bad_nick));
+			}
+		}
+
+	}
+
 }

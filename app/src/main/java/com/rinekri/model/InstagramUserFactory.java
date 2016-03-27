@@ -31,7 +31,7 @@ public class InstagramUserFactory {
         if (NetworkConnector.isConnection(mContext)) {
             if ((sNick == null) || ((sNick != null) && !sNick.equals(nick))) {
                 sNick = nick;
-                sID = worker.getId(sNick);
+                sID = worker.getID(sNick);
             }
         }
 
