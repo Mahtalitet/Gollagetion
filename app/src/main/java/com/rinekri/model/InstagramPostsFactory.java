@@ -19,18 +19,7 @@ public class InstagramPostsFactory {
 
     private InstagramPostsFactory(Context c) {
         mAppContext = c;
-
         JSONworker = new InstagramJSONWorker(mAppContext);
-        mInstagramPosts = JSONworker.getPosts(sUserID);
-    }
-
-    public static InstagramPostsFactory getFactory(Context c, String id) {
-
-        if (((sInstagramPostsFactory == null) && (sUserID == null)) || ((sInstagramPostsFactory != null) && (!sUserID.equals(id))) ) {
-            sUserID = id;
-            sInstagramPostsFactory = new InstagramPostsFactory(c);
-        }
-        return sInstagramPostsFactory;
     }
 
     public static InstagramPostsFactory getFactory(Context c) {
@@ -41,15 +30,30 @@ public class InstagramPostsFactory {
         return sInstagramPostsFactory;
     }
 
-    public ArrayList<InstagramPost> getInstagramPosts() {
-        if (mInstagramPosts == null) {
-            mInstagramPosts = new ArrayList<InstagramPost>();
+    public ArrayList<InstagramPost> getInstagramPosts(String id) {
+        if ((sUserID == null) || (!sUserID.equals(id))) {
+            sUserID = id;
+            mInstagramPosts = JSONworker.getPosts(sUserID);
         }
         return mInstagramPosts;
     }
 
-    public ArrayList<InstagramPost> getSortedForLikesInstagramPosts() {
-        Collections.sort(mInstagramPosts);
+    public boolean getInstagramPostsStatus(String id) {
+        if (sUserID == null) {
+            return false;
+        }
+
+        if (sUserID.equals(id)) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public ArrayList<InstagramPost> getSortedForLikesInstagramPosts(ArrayList<InstagramPost> unsortedPosts) {
+        Collections.sort(unsortedPosts);
+        mInstagramPosts = unsortedPosts;
         return mInstagramPosts;
     }
 

@@ -53,15 +53,17 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		mInputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-//		mInputManager.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 		setRetainInstance(true);
 
 		mPosts = new ArrayList<InstagramPost>();
 		String gotIstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
 		if (gotIstagramId != null) {
-			mGetPostsTask = new GetPostsTask(this);
-			mGetPostsTask.execute(gotIstagramId);
+			if (!InstagramPostsFactory.getFactory(getContext()).getInstagramPostsStatus(gotIstagramId)) {
+				mGetPostsTask = new GetPostsTask(this);
+				mGetPostsTask.execute(gotIstagramId);
+			} else {
+				mPosts = InstagramPostsFactory.getFactory(getContext()).getInstagramPosts(gotIstagramId);
+			}
 		}
 
 		if (savedInstanceState != null) {
@@ -306,8 +308,9 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		@Override
 		protected ArrayList<InstagramPost> doInBackground(String... params) {
 			Log.d(TAG, "ID at CollageFragment: " + params[0]);
-			ArrayList<InstagramPost> getPosts = InstagramPostsFactory.getFactory(getContext(), params[0]).getSortedForLikesInstagramPosts();
-			return getPosts;
+			ArrayList<InstagramPost> getPosts = InstagramPostsFactory.getFactory(getContext()).getInstagramPosts(params[0]);
+			ArrayList<InstagramPost> soretedPosts =  InstagramPostsFactory.getFactory(getContext()).getSortedForLikesInstagramPosts(getPosts);
+			return soretedPosts;
 		}
 
 		@Override
