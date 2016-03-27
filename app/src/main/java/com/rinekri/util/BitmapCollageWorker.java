@@ -1,4 +1,4 @@
-package com.rinekri.utility;
+package com.rinekri.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

@@ -2,7 +2,7 @@ package com.rinekri.model;
 
 import android.content.Context;
 import com.rinekri.json.InstagramJSONWorker;
-import com.rinekri.network.NetworkConnector;
+import com.rinekri.net.NetworkConnector;
 
 public class InstagramUserFactory {
 

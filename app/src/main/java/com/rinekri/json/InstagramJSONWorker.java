@@ -1,14 +1,11 @@
 package com.rinekri.json;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.rinekri.model.InstagramPost;
-import com.rinekri.collagetion.R;
-import com.rinekri.network.NetworkConnector;
+import com.rinekri.net.NetworkConnector;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,7 +13,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.concurrent.ExecutionException;
 
 public class InstagramJSONWorker {
 	private static final String TAG = "InstagramJSONWorker";

@@ -1,4 +1,4 @@
-package com.rinekri.utility;
+package com.rinekri.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;

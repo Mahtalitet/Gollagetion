@@ -23,9 +23,9 @@ import android.widget.Toast;
 
 import com.rinekri.model.InstagramPost;
 import com.rinekri.model.InstagramPostsFactory;
-import com.rinekri.network.NetworkConnector;
-import com.rinekri.utility.BitmapCollageWorker;
-import com.rinekri.utility.ShakeEventListener;
+import com.rinekri.net.NetworkConnector;
+import com.rinekri.util.BitmapCollageWorker;
+import com.rinekri.util.ShakeEventListener;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.rinekri.network;
+package com.rinekri.net;
 
 import android.content.Context;
 import android.graphics.Bitmap;

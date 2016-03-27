@@ -1,7 +1,7 @@
 package com.rinekri.collagetion;
 
 import com.rinekri.model.InstagramUserFactory;
-import com.rinekri.network.NetworkConnector;
+import com.rinekri.net.NetworkConnector;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class ShareFragment extends Fragment {
 	private static final String TAG = "ShareFragment";
-	private static final String KEY_ID = "id";
+	private static final String STATE_ID_SEARCH_IN_PROGRESS = "com.rinkeri.id_search_in_progress";
 	
 	private Button mSearchButton;
 	private EditText mInstaIDEditText;
@@ -72,7 +72,7 @@ public class ShareFragment extends Fragment {
 		@Override
 		protected void onPostExecute(String result) {
 			if (result != null) {
-				Log.d(TAG, "Finded ID: "+result);
+				Log.d(TAG, "Finded ID: " + result);
 				Intent i = new Intent(getActivity(), CollageActivity.class);
 				i.putExtra(CollageFragment.EXTRA_INSTAGRAM_ID, result);
 				startActivity(i);

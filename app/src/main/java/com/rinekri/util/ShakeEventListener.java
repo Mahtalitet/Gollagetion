@@ -1,4 +1,4 @@
-package com.rinekri.utility;
+package com.rinekri.util;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

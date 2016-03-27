@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.rinekri.json.InstagramJSONWorker;
-import com.rinekri.utility.PermutationsGenerator;
+import com.rinekri.util.PermutationsGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,6 +48,9 @@ public class InstagramPostsFactory {
     }
 
     public ArrayList<InstagramPost> getInstagramPosts() {
+        if (mInstagramPosts == null) {
+            mInstagramPosts = new ArrayList<InstagramPost>();
+        }
         return mInstagramPosts;
     }
 
