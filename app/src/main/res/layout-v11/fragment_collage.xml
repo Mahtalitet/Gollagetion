@@ -29,18 +29,16 @@
 		    android:layout_height="match_parent"
 		    android:layout_above="@id/collage_button"
 		    android:scrollbars="none"
-		    android:theme="@style/sharegram_listview"/>
+		    android:theme="@style/sharegram_listview" />
 		
 		<com.rinekri.widget.SharegramTextView
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:gravity="center"
 		    android:id="@android:id/empty"
-		    android:text="@string/message_bad"
 		    android:layout_gravity="center_horizontal"
 		    android:padding="40dp"
-		    android:textColor="@color/sharegram_hint"
-			android:visibility="gone"/>
+		    android:textColor="@color/sharegram_hint" />
 
 	</RelativeLayout>
 </LinearLayout>

@@ -39,11 +39,9 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 
 	private GetPostsTask mGetPostsTask;
 	private ProgressDialog progressDialog;
-	private InputMethodManager mInputManager;
-
-//	private boolean isGetPostsTaskRunning = false;
 
 	private ImageButton mBackImageButton;
+	private TextView mWarningTextView;
 	private TextView mSelectedPostsCounterEditText;
 	private Button mCollageButton;
 	private int checkedPostsCounter = 0;
@@ -94,14 +92,12 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 
 	@Override
 	public void onGetPostsTaskStarted() {
-//		isGetPostsTaskRunning = true;
 		Log.e(TAG, "Error dialog was opened!");
 		progressDialog = ProgressDialog.show(getActivity(), "Loading", "Please wait a moment!");
 	}
 
 	@Override
 	public void onGetPostsTaskFinished(ArrayList<InstagramPost> result) {
-//		isGetPostsTaskRunning = false;
 		if (progressDialog != null) {
 			progressDialog.dismiss();
 		}
@@ -157,6 +153,10 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 				startActivity(intent);
 			}
 		});
+
+		mWarningTextView = (TextView) v.findViewById(android.R.id.empty);
+		mWarningTextView.setVisibility(View.GONE);
+		mWarningTextView.setText("Xaxa!");
 
 		setCollageButton(4);
 
