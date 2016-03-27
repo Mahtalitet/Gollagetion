@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.rinekri.model.InstagramCollageFactory;
 import com.rinekri.model.InstagramPost;
 import com.rinekri.model.InstagramPostsFactory;
 import com.rinekri.net.NetworkConnector;
@@ -64,7 +65,7 @@ public class PublishFragment extends Fragment {
 //			Log.e(TAG, "Got IDs afrer restore this activity: " + mCombination.toString());
 
 		} else {
-			mCombination = InstagramPostsFactory.getFactory(getContext()).getFirstCombinationImages(mGetCheckedImagesIDs.length);
+			mCombination = InstagramCollageFactory.getFactory(getContext()).getFirstCombinationImages(mGetCheckedImagesIDs.length);
 //			Log.e(TAG, "Got IDs from second activity: " + mCombination.toString());
 		}
 
@@ -90,7 +91,7 @@ public class PublishFragment extends Fragment {
 
 			@Override
 			public void onShake(int count) {
-				mCombination = InstagramPostsFactory.getFactory(getContext()).getCombinationImages(mGetCheckedImagesIDs.length);
+				mCombination = InstagramCollageFactory.getFactory(getContext()).getCombinationImages(mGetCheckedImagesIDs.length);
 
 				mCheckedImagesBitmap = new ArrayList<Bitmap>();
 				for(int i = 0; i < mCombination.length; i++) {

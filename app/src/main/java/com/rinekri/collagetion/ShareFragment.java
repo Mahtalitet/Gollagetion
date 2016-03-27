@@ -2,15 +2,19 @@ package com.rinekri.collagetion;
 
 import com.rinekri.model.InstagramUserFactory;
 import com.rinekri.net.NetworkConnector;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +22,7 @@ import android.widget.Toast;
 public class ShareFragment extends Fragment {
 	private static final String TAG = "ShareFragment";
 	private static final String STATE_ID_SEARCH_IN_PROGRESS = "com.rinkeri.id_search_in_progress";
-	
+
 	private Button mSearchButton;
 	private EditText mInstaIDEditText;
 	
@@ -46,8 +50,7 @@ public class ShareFragment extends Fragment {
 						if (instaNick.contains(" ")) {
 							mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_space_nick));
 						} else {
-							Log.d(TAG, "Entered nick: "+instaNick);
-
+							Log.d(TAG, "Entered nick: " + instaNick);
 							new getIdTask().execute(instaNick);
 
 						}
@@ -73,6 +76,8 @@ public class ShareFragment extends Fragment {
 		protected void onPostExecute(String result) {
 			if (result != null) {
 				Log.d(TAG, "Finded ID: " + result);
+				IBinder token = mInstaIDEditText.getWindowToken();
+				((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(token, 0);
 				Intent i = new Intent(getActivity(), CollageActivity.class);
 				i.putExtra(CollageFragment.EXTRA_INSTAGRAM_ID, result);
 				startActivity(i);

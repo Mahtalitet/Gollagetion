@@ -1,6 +1,5 @@
 package com.rinekri.collagetion;
 
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,6 +9,8 @@ import com.rinekri.model.InstagramPost;
 import com.rinekri.model.InstagramPostsFactory;
 import com.rinekri.net.NetworkConnector;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -22,6 +23,8 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -29,13 +32,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class CollageFragment extends ListFragment {
+public class CollageFragment extends ListFragment implements GetPostsTaskListener {
 	public static final String EXTRA_INSTAGRAM_ID = "com.rinelri.instagram_id";
 	private static final String KEY_POSTS_COUNTER = "checkedPostsCounter";
 	private static final String TAG = "CollageFragment";
-	private static final String STATE_POSTS_SEARCH_IN_PROGRESS = "com.rinkeri.posts_search_in_progress";
 
-	private static getPostsTask mGetPostsTask;
+	private GetPostsTask mGetPostsTask;
+	private ProgressDialog progressDialog;
+	private InputMethodManager mInputManager;
+
+//	private boolean isGetPostsTaskRunning = false;
+
 	private ImageButton mBackImageButton;
 	private TextView mSelectedPostsCounterEditText;
 	private Button mCollageButton;
@@ -46,29 +53,63 @@ public class CollageFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		String mInstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
+//		mInputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+//		mInputManager.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		setRetainInstance(true);
 
-		mPosts = InstagramPostsFactory.getFactory(getContext()).getInstagramPosts();
-		if (mInstagramId != null) {
-			if ((mGetPostsTask == null) || (mGetPostsTask.getStatus() != AsyncTask.Status.RUNNING)) {
-				mGetPostsTask = new getPostsTask();
-				mGetPostsTask.execute(mInstagramId);
-			}
+		mPosts = new ArrayList<InstagramPost>();
+		String gotIstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
+		if (gotIstagramId != null) {
+			mGetPostsTask = new GetPostsTask(this);
+			mGetPostsTask.execute(gotIstagramId);
 		}
 
 		if (savedInstanceState != null) {
 			checkedPostsCounter = savedInstanceState.getInt(KEY_POSTS_COUNTER);
 		}
 
-
 		adapter = new PostAdapter(mPosts);
 		setListAdapter(adapter);
 	}
 
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		if ((mGetPostsTask!= null) && (mGetPostsTask.getStatus() == AsyncTask.Status.RUNNING)) {
+			progressDialog = ProgressDialog.show(getActivity(), "Loading", "Please wait a moment!");
+		}
+	}
 
+	@Override
+	public void onDetach() {
+		if (progressDialog != null && progressDialog.isShowing()) {
+			progressDialog.dismiss();
+		}
+		super.onDetach();
+	}
+
+	@Override
+	public void onGetPostsTaskStarted() {
+//		isGetPostsTaskRunning = true;
+		Log.e(TAG, "Error dialog was opened!");
+		progressDialog = ProgressDialog.show(getActivity(), "Loading", "Please wait a moment!");
+	}
+
+	@Override
+	public void onGetPostsTaskFinished(ArrayList<InstagramPost> result) {
+//		isGetPostsTaskRunning = false;
+		if (progressDialog != null) {
+			progressDialog.dismiss();
+		}
+		Log.e(TAG, "Error dialog was disabled!");
+
+		adapter.clear();
+		for (InstagramPost post : result) {
+			adapter.add(post);
+		}
+		adapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -119,7 +160,7 @@ public class CollageFragment extends ListFragment {
 
 		return v;
 	}
-	
+
 	public class PostAdapter extends ArrayAdapter<InstagramPost> {
 
 		public PostAdapter(ArrayList<InstagramPost> crimes) {
@@ -169,10 +210,6 @@ public class CollageFragment extends ListFragment {
 
 			return convertView;
 		}
-
-//		@Override
-//		public void notifyDataSetChanged() {
-//		}
 	}
 
 	@Override
@@ -253,7 +290,18 @@ public class CollageFragment extends ListFragment {
 		return ids;
 	}
 
-	private class getPostsTask extends AsyncTask<String, Void, ArrayList<InstagramPost>> {
+	private class GetPostsTask extends AsyncTask<String, Void, ArrayList<InstagramPost>> {
+
+		private final GetPostsTaskListener listener;
+
+		public GetPostsTask(GetPostsTaskListener listener) {
+			this.listener = listener;
+		}
+
+		@Override
+		protected void onPreExecute() {
+			listener.onGetPostsTaskStarted();
+		}
 
 		@Override
 		protected ArrayList<InstagramPost> doInBackground(String... params) {
@@ -264,38 +312,8 @@ public class CollageFragment extends ListFragment {
 
 		@Override
 		protected void onPostExecute(ArrayList<InstagramPost> result) {
-			adapter.clear();
-			for (InstagramPost post : result) {
-				adapter.add(post);
-			}
-			adapter.notifyDataSetChanged();
+			listener.onGetPostsTaskFinished(result);
 		}
 	}
 
-//	private void saveGetPostsTask(Bundle outState) {
-//		final getPostsTask task = mGetPostsTask;
-//		if (task != null && task.getStatus() != AsyncTask.Status.FINISHED) {
-//			task.cancel(true);
-//			outState.putBoolean(STATE_IMPORT_IN_PROGRESS, true);
-//			outState.putStringArrayList(STATE_IMPORT_BOOKS, task.mBooks);
-//			outState.putInt(STATE_IMPORT_INDEX, task.mImportCount.get());
-//
-//			mImportTask = null;
-//		}
-//	}
-//
-//	private void restoreGetPostsTask(Bundle savedInstanceState) {
-//		if (savedInstanceState.getBoolean(STATE_IMPORT_IN_PROGRESS)) {
-//			ArrayList<String> books = savedInstanceState.getStringArrayList(STATE_IMPORT_BOOKS);
-//			int index = savedInstanceState.getInt(STATE_IMPORT_INDEX);
-//
-//			if (books != null) {
-//				if (index < books.size()) {
-//					mImportTask = (ImportTask) new ImportTask(books, index).execute();
-//				}
-//			} else {
-//				mImportTask = (ImportTask) new ImportTask().execute();
-//			}
-//		}
-//	}
 }

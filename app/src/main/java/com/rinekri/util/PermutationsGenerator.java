@@ -23,6 +23,11 @@ public class PermutationsGenerator {
        while (true) {
             Log.e(TAG, "Size of comnbinations"+mCombinations.size());
             if (mCombinations.size() >= 24) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 return mCombinations;
             }
         }
