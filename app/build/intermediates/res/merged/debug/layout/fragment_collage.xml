@@ -39,6 +39,7 @@
 		    android:id="@android:id/empty"
 		    android:layout_gravity="center_horizontal"
 		    android:padding="40dp"
-		    android:textColor="@color/sharegram_hint" />
+		    android:textColor="@color/sharegram_hint"
+			android:text="XAXA"/>
 	</RelativeLayout>
 </LinearLayout>

@@ -23,6 +23,16 @@
 		    android:visibility="gone"
 		    app:fontCustom="roboto_medium" />
 
+		<com.rinekri.widget.SharegramTextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:id="@android:id/empty"
+			android:layout_gravity="center_horizontal"
+			android:padding="40dp"
+			android:textColor="@color/sharegram_hint"
+			android:text="XAXA"/>
+
 		<android.support.v7.widget.ListViewCompat
 			android:id="@android:id/list"
 		    android:layout_width="match_parent"
@@ -31,14 +41,6 @@
 		    android:scrollbars="none"
 		    android:theme="@style/sharegram_listview"
 			android:choiceMode="multipleChoice" />
-		
-		<com.rinekri.widget.SharegramTextView
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:gravity="center"
-		    android:id="@android:id/empty"
-		    android:layout_gravity="center_horizontal"
-		    android:padding="40dp"
-		    android:textColor="@color/sharegram_hint" />
+
 	</RelativeLayout>
 </LinearLayout>

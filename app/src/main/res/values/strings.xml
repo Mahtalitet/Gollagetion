@@ -23,4 +23,5 @@
 	<string name="dialog_loading_text">Please wait a moment!</string>
 	<string name="impicit_intent_title">Share collage using:</string>
 	<string name="message_bad">Sorry, happened something bad :(</string>
+	<string name="menu_fragment_collage_refresh_posts">Refresh posts</string>
 </resources>

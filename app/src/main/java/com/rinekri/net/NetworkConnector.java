@@ -7,6 +7,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.rinekri.collagetion.R;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -83,11 +87,15 @@ public class NetworkConnector {
     }
 
     public static boolean isConnection (Context c) {
+        Toast toastOffline = Toast.makeText(c, R.string.toast_network_offline, Toast.LENGTH_SHORT);
+
         ConnectivityManager conMgr = (ConnectivityManager) c.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
         if (activeNetwork != null && activeNetwork.isConnected()) {
+            toastOffline.cancel();
             return true;
         } else {
+            toastOffline.show();
             return false;
         }
     }

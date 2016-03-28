@@ -1751,12 +1751,16 @@ containing a value of this type.
         public static final int check_1_icon=0x7f02004d;
         public static final int exmaple=0x7f02004e;
         public static final int ic_launcher=0x7f02004f;
-        public static final int like_icon=0x7f020050;
-        public static final int notification_template_icon_bg=0x7f020055;
-        public static final int sharegram_button_default=0x7f020051;
-        public static final int sharegram_button_default_shape=0x7f020052;
-        public static final int sharegram_list_item_post_layout=0x7f020053;
-        public static final int sharegram_toast_parent_layout=0x7f020054;
+        public static final int internet_off_icon=0x7f020050;
+        public static final int like_icon=0x7f020051;
+        public static final int locked_media_icon=0x7f020052;
+        public static final int notification_template_icon_bg=0x7f020059;
+        public static final int refresh_icon=0x7f020053;
+        public static final int sharegram_button_default=0x7f020054;
+        public static final int sharegram_button_default_shape=0x7f020055;
+        public static final int sharegram_list_item_post_layout=0x7f020056;
+        public static final int sharegram_toast_parent_layout=0x7f020057;
+        public static final int without_media_icon=0x7f020058;
     }
     public static final class id {
         public static final int action0=0x7f0b006a;
@@ -1826,6 +1830,7 @@ containing a value of this type.
         public static final int listMode=0x7f0b000c;
         public static final int list_item=0x7f0b002b;
         public static final int media_actions=0x7f0b006d;
+        public static final int menu_item_refresh_posts=0x7f0b0077;
         public static final int middle=0x7f0b001e;
         public static final int multiply=0x7f0b0017;
         public static final int never=0x7f0b0022;
@@ -1933,6 +1938,9 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f03002b;
         public static final int toolbar_layout=0x7f03002c;
     }
+    public static final class menu {
+        public static final int fragment_collage=0x7f0c0000;
+    }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f050000;
         public static final int abc_action_bar_home_description_format=0x7f050001;
@@ -1957,7 +1965,7 @@ containing a value of this type.
         public static final int api_message_network_gone=0x7f050015;
         public static final int api_message_secure_account=0x7f050016;
         public static final int api_message_without_posts=0x7f050017;
-        public static final int app_name=0x7f050029;
+        public static final int app_name=0x7f05002a;
         public static final int collage_button_text=0x7f050018;
         public static final int counter_of_images=0x7f050019;
         public static final int dialog_loading_text=0x7f05001a;
@@ -1965,17 +1973,18 @@ containing a value of this type.
         public static final int hint_for_users=0x7f05001c;
         public static final int image_button_home=0x7f05001d;
         public static final int impicit_intent_title=0x7f05001e;
-        public static final int message_bad=0x7f05001f;
-        public static final int message_bad_title=0x7f050020;
-        public static final int post_dummy=0x7f050021;
-        public static final int search_button_text=0x7f050022;
-        public static final int share_button_text=0x7f050023;
+        public static final int menu_fragment_collage_refresh_posts=0x7f05001f;
+        public static final int message_bad=0x7f050020;
+        public static final int message_bad_title=0x7f050021;
+        public static final int post_dummy=0x7f050022;
+        public static final int search_button_text=0x7f050023;
+        public static final int share_button_text=0x7f050024;
         public static final int status_bar_notification_info_overflow=0x7f050013;
-        public static final int toast_bad_nick=0x7f050024;
-        public static final int toast_load=0x7f050025;
-        public static final int toast_network_offline=0x7f050026;
-        public static final int toast_null_nick=0x7f050027;
-        public static final int toast_space_nick=0x7f050028;
+        public static final int toast_bad_nick=0x7f050025;
+        public static final int toast_load=0x7f050026;
+        public static final int toast_network_offline=0x7f050027;
+        public static final int toast_null_nick=0x7f050028;
+        public static final int toast_space_nick=0x7f050029;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080087;

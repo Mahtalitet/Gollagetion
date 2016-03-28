@@ -64,6 +64,10 @@
         "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable-xhdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png"
     },
     {
+        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\refresh_icon.png",
+        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\drawable-xhdpi\\refresh_icon.png"
+    },
+    {
         "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
         "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },

@@ -20,6 +20,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -53,6 +56,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
+		setHasOptionsMenu(true);
 
 		if (savedInstanceState != null) {
 			checkedPostsCounter = savedInstanceState.getInt(KEY_POSTS_COUNTER);
@@ -72,6 +76,27 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		adapter = new PostAdapter(mPosts);
 		setListAdapter(adapter);
 		adapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.fragment_collage, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		switch (item.getItemId()) {
+			case R.id.menu_item_refresh_posts:
+				if (NetworkConnector.isConnection(getContext())) {
+					mGetPostsTask = new GetPostsTask(this);
+					mGetPostsTask.execute(mGotIstagramId);
+				}
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 
 	@Override
@@ -151,6 +176,10 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 			adapter.add(post);
 		}
 		adapter.notifyDataSetChanged();
+
+		if(mWarningTextView != null) {
+			mWarningTextView.setText("xaxa");
+		}
 	}
 
 

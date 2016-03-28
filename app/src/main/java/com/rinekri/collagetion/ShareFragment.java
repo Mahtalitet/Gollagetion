@@ -42,9 +42,7 @@ public class ShareFragment extends Fragment {
 			public void onClick(View v) {
 				
 				if ((mInstaIDEditText.getText() != null) && (mInstaIDEditText.length() != 0)) {
-					Toast toastOffline = Toast.makeText(getContext(), R.string.toast_network_offline, Toast.LENGTH_SHORT);
 					if (NetworkConnector.isConnection(getContext())) {
-						toastOffline.cancel();
 						String instaNick = mInstaIDEditText.getText().toString();
 						
 						if (instaNick.contains(" ")) {
@@ -54,8 +52,6 @@ public class ShareFragment extends Fragment {
 							new getIdTask().execute(instaNick);
 
 						}
-					} else {
-						toastOffline.show();
 					}
 				} else {
 					mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_null_nick));
