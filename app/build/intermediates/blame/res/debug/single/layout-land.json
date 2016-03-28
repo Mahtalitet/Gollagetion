@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_collage.xml",
+        "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\layout-land\\fragment_collage.xml"
+    },
+    {
         "merged": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_publish.xml",
         "source": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\layout-land\\fragment_publish.xml"
     }

@@ -1499,20 +1499,20 @@ containing a value of this type.
         public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f060007;
     }
     public static final class color {
-        public static final int abc_background_cache_hint_selector_material_dark=0x7f0a0047;
-        public static final int abc_background_cache_hint_selector_material_light=0x7f0a0048;
-        public static final int abc_color_highlight_material=0x7f0a0049;
+        public static final int abc_background_cache_hint_selector_material_dark=0x7f0a0048;
+        public static final int abc_background_cache_hint_selector_material_light=0x7f0a0049;
+        public static final int abc_color_highlight_material=0x7f0a004a;
         public static final int abc_input_method_navigation_guard=0x7f0a0000;
-        public static final int abc_primary_text_disable_only_material_dark=0x7f0a004a;
-        public static final int abc_primary_text_disable_only_material_light=0x7f0a004b;
-        public static final int abc_primary_text_material_dark=0x7f0a004c;
-        public static final int abc_primary_text_material_light=0x7f0a004d;
-        public static final int abc_search_url_text=0x7f0a004e;
+        public static final int abc_primary_text_disable_only_material_dark=0x7f0a004b;
+        public static final int abc_primary_text_disable_only_material_light=0x7f0a004c;
+        public static final int abc_primary_text_material_dark=0x7f0a004d;
+        public static final int abc_primary_text_material_light=0x7f0a004e;
+        public static final int abc_search_url_text=0x7f0a004f;
         public static final int abc_search_url_text_normal=0x7f0a0001;
         public static final int abc_search_url_text_pressed=0x7f0a0002;
         public static final int abc_search_url_text_selected=0x7f0a0003;
-        public static final int abc_secondary_text_material_dark=0x7f0a004f;
-        public static final int abc_secondary_text_material_light=0x7f0a0050;
+        public static final int abc_secondary_text_material_dark=0x7f0a0050;
+        public static final int abc_secondary_text_material_light=0x7f0a0051;
         public static final int accent_material_dark=0x7f0a0004;
         public static final int accent_material_light=0x7f0a0005;
         public static final int background_floating_material_dark=0x7f0a0006;
@@ -1567,22 +1567,23 @@ containing a value of this type.
         public static final int secondary_text_default_material_light=0x7f0a0037;
         public static final int secondary_text_disabled_material_dark=0x7f0a0038;
         public static final int secondary_text_disabled_material_light=0x7f0a0039;
-        public static final int sharegram_button_default_background=0x7f0a0051;
+        public static final int sharegram_button_default_background=0x7f0a0052;
         public static final int sharegram_button_text=0x7f0a003a;
         public static final int sharegram_cardview_background=0x7f0a003b;
         public static final int sharegram_hint=0x7f0a003c;
-        public static final int sharegram_primary=0x7f0a003d;
-        public static final int sharegram_primary_dark=0x7f0a003e;
-        public static final int sharegram_text_primary=0x7f0a003f;
-        public static final int sharegram_textview=0x7f0a0040;
-        public static final int sharegram_toolbar_background=0x7f0a0041;
-        public static final int sharegram_window_background=0x7f0a0042;
-        public static final int switch_thumb_disabled_material_dark=0x7f0a0043;
-        public static final int switch_thumb_disabled_material_light=0x7f0a0044;
-        public static final int switch_thumb_material_dark=0x7f0a0052;
-        public static final int switch_thumb_material_light=0x7f0a0053;
-        public static final int switch_thumb_normal_material_dark=0x7f0a0045;
-        public static final int switch_thumb_normal_material_light=0x7f0a0046;
+        public static final int sharegram_message=0x7f0a003d;
+        public static final int sharegram_primary=0x7f0a003e;
+        public static final int sharegram_primary_dark=0x7f0a003f;
+        public static final int sharegram_text_primary=0x7f0a0040;
+        public static final int sharegram_textview=0x7f0a0041;
+        public static final int sharegram_toolbar_background=0x7f0a0042;
+        public static final int sharegram_window_background=0x7f0a0043;
+        public static final int switch_thumb_disabled_material_dark=0x7f0a0044;
+        public static final int switch_thumb_disabled_material_light=0x7f0a0045;
+        public static final int switch_thumb_material_dark=0x7f0a0053;
+        public static final int switch_thumb_material_light=0x7f0a0054;
+        public static final int switch_thumb_normal_material_dark=0x7f0a0046;
+        public static final int switch_thumb_normal_material_light=0x7f0a0047;
     }
     public static final class dimen {
         public static final int abc_action_bar_content_inset_material=0x7f07000d;
@@ -1663,12 +1664,14 @@ containing a value of this type.
         public static final int highlight_alpha_material_dark=0x7f07004b;
         public static final int highlight_alpha_material_light=0x7f07004c;
         public static final int inner_paddings=0x7f07004d;
-        public static final int notification_large_icon_height=0x7f07004e;
-        public static final int notification_large_icon_width=0x7f07004f;
-        public static final int notification_subtext_size=0x7f070050;
-        public static final int outer_paddings=0x7f070051;
-        public static final int small_text_size=0x7f070052;
-        public static final int toolbar_text_size=0x7f070053;
+        public static final int message_text_padding=0x7f07004e;
+        public static final int message_text_size=0x7f07004f;
+        public static final int notification_large_icon_height=0x7f070050;
+        public static final int notification_large_icon_width=0x7f070051;
+        public static final int notification_subtext_size=0x7f070052;
+        public static final int outer_paddings=0x7f070053;
+        public static final int small_text_size=0x7f070054;
+        public static final int toolbar_text_size=0x7f070055;
     }
     public static final class drawable {
         public static final int abc_ab_share_pack_mtrl_alpha=0x7f020000;
@@ -1749,18 +1752,17 @@ containing a value of this type.
         public static final int back_bttn=0x7f02004b;
         public static final int check_0_icon=0x7f02004c;
         public static final int check_1_icon=0x7f02004d;
-        public static final int exmaple=0x7f02004e;
-        public static final int ic_launcher=0x7f02004f;
-        public static final int internet_off_icon=0x7f020050;
-        public static final int like_icon=0x7f020051;
-        public static final int locked_media_icon=0x7f020052;
-        public static final int notification_template_icon_bg=0x7f020059;
-        public static final int refresh_icon=0x7f020053;
-        public static final int sharegram_button_default=0x7f020054;
-        public static final int sharegram_button_default_shape=0x7f020055;
-        public static final int sharegram_list_item_post_layout=0x7f020056;
-        public static final int sharegram_toast_parent_layout=0x7f020057;
-        public static final int without_media_icon=0x7f020058;
+        public static final int ic_launcher=0x7f02004e;
+        public static final int internet_off_icon=0x7f02004f;
+        public static final int like_icon=0x7f020050;
+        public static final int locked_media_icon=0x7f020051;
+        public static final int notification_template_icon_bg=0x7f020058;
+        public static final int refresh_icon=0x7f020052;
+        public static final int sharegram_button_default=0x7f020053;
+        public static final int sharegram_button_default_shape=0x7f020054;
+        public static final int sharegram_list_item_post_layout=0x7f020055;
+        public static final int sharegram_toast_parent_layout=0x7f020056;
+        public static final int without_media_icon=0x7f020057;
     }
     public static final class id {
         public static final int action0=0x7f0b006a;
@@ -1965,7 +1967,7 @@ containing a value of this type.
         public static final int api_message_network_gone=0x7f050015;
         public static final int api_message_secure_account=0x7f050016;
         public static final int api_message_without_posts=0x7f050017;
-        public static final int app_name=0x7f05002a;
+        public static final int app_name=0x7f050029;
         public static final int collage_button_text=0x7f050018;
         public static final int counter_of_images=0x7f050019;
         public static final int dialog_loading_text=0x7f05001a;
@@ -1976,15 +1978,14 @@ containing a value of this type.
         public static final int menu_fragment_collage_refresh_posts=0x7f05001f;
         public static final int message_bad=0x7f050020;
         public static final int message_bad_title=0x7f050021;
-        public static final int post_dummy=0x7f050022;
-        public static final int search_button_text=0x7f050023;
-        public static final int share_button_text=0x7f050024;
+        public static final int search_button_text=0x7f050022;
+        public static final int share_button_text=0x7f050023;
         public static final int status_bar_notification_info_overflow=0x7f050013;
-        public static final int toast_bad_nick=0x7f050025;
-        public static final int toast_load=0x7f050026;
-        public static final int toast_network_offline=0x7f050027;
-        public static final int toast_null_nick=0x7f050028;
-        public static final int toast_space_nick=0x7f050029;
+        public static final int toast_bad_nick=0x7f050024;
+        public static final int toast_load=0x7f050025;
+        public static final int toast_network_offline=0x7f050026;
+        public static final int toast_null_nick=0x7f050027;
+        public static final int toast_space_nick=0x7f050028;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080087;
@@ -2319,11 +2320,13 @@ containing a value of this type.
         public static final int Widget_AppCompat_TextView_SpinnerItem=0x7f080143;
         public static final int Widget_AppCompat_Toolbar=0x7f080144;
         public static final int Widget_AppCompat_Toolbar_Button_Navigation=0x7f080145;
-        public static final int sharegram_listview=0x7f080146;
-        public static final int sharegram_listview_item=0x7f080147;
-        public static final int sharegram_listview_item_big=0x7f080148;
-        public static final int sharegram_toolbar=0x7f080149;
-        public static final int sharegram_toolbar_textview=0x7f08014a;
+        public static final int list_posts_empty_text_view=0x7f080146;
+        public static final int list_posts_empty_text_view_big=0x7f080147;
+        public static final int sharegram_listview=0x7f080148;
+        public static final int sharegram_listview_item=0x7f080149;
+        public static final int sharegram_listview_item_big=0x7f08014a;
+        public static final int sharegram_toolbar=0x7f08014b;
+        public static final int sharegram_toolbar_textview=0x7f08014c;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

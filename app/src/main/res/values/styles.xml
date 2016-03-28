@@ -36,5 +36,16 @@
     
     <style name="sharegram_listview_item.big">
 		<item name="android:textSize">@dimen/big_text_size</item>
-    </style>   
+    </style>
+
+    <style name="list_posts_empty_text_view">
+        <item name="android:textColor">@color/sharegram_message</item>
+        <item name="android:textSize">@dimen/message_text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/message_text_padding</item>
+    </style>
+
+    <style name="list_posts_empty_text_view.big">
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

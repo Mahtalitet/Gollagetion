@@ -18,4 +18,10 @@
     <dimen 
         name="inner_paddings"
         >16dp</dimen>
+    <dimen
+        name="message_text_size"
+        >16dp</dimen>
+    <dimen
+        name="message_text_padding"
+        >5dp</dimen>
 </resources>

@@ -20,9 +20,9 @@
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Открыть доступ пользователю %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Свернуть"</string>
     <string name="activity_post_title">Готовый коллаж</string>
-    <string name="api_message_network_gone">001: Проверь Сеть, юный падаван.</string>
-    <string name="api_message_secure_account">400: Сюда доступ закрыт.</string>
-    <string name="api_message_without_posts">100: Пустой аккаунт.</string>
+    <string name="api_message_network_gone">Проверь Сеть, юный падаван.</string>
+    <string name="api_message_secure_account">Сюда доступ закрыт.</string>
+    <string name="api_message_without_posts">Пустой аккаунт.</string>
     <string name="collage_button_text">Давай коллаж</string>
     <string name="counter_of_images"> из 4</string>
     <string name="dialog_loading_text">Погоди секундочку!</string>
@@ -33,7 +33,6 @@
     <string name="menu_fragment_collage_refresh_posts">Обновить посты</string>
     <string name="message_bad">Сорян, что-то сломалось :(</string>
     <string name="message_bad_title">Безымянный</string>
-    <string name="post_dummy">Опа! Заглушечка!</string>
     <string name="search_button_text">Заглянуть</string>
     <string name="share_button_text">Расшарить</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">">999"</string>

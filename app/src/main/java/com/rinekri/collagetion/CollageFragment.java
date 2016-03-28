@@ -29,6 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -44,13 +45,13 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 	private boolean isGetPostsTaskRunning = false;
 
 	private ImageButton mBackImageButton;
-	private TextView mWarningTextView;
 	private TextView mSelectedPostsCounterEditText;
 	private Button mCollageButton;
 	private int checkedPostsCounter = 0;
 	private PostAdapter adapter;
 	private ArrayList<InstagramPost> mPosts;
 	private String mGotIstagramId;
+	private LinearLayout mEmptyLinearLayout;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -177,9 +178,13 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		}
 		adapter.notifyDataSetChanged();
 
-		if(mWarningTextView != null) {
-			mWarningTextView.setText("xaxa");
+		if(adapter.isEmpty()) {
+//			mEmptyLinearLayout.setVisibility(View.VISIBLE);
 		}
+
+//		if(mWarningTextView != null) {
+//			mWarningTextView.setVisibility(View.VISIBLE);
+//		}
 	}
 
 
@@ -229,8 +234,8 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 			}
 		});
 
-		mWarningTextView = (TextView) v.findViewById(android.R.id.empty);
-
+		mEmptyLinearLayout = (LinearLayout) v.findViewById(android.R.id.empty);
+		mEmptyLinearLayout.setVisibility(View.GONE);
 		setCollageButton(4);
 
 		return v;

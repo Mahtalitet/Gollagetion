@@ -78,6 +78,7 @@
     <item name="sharegram_button_text" type="color">#ffffff</item>
     <item name="sharegram_cardview_background" type="color">#FFFFFF</item>
     <item name="sharegram_hint" type="color">#b8b8b8</item>
+    <item name="sharegram_message" type="color">#b8b8b8</item>
     <item name="sharegram_primary" type="color">#4caf50</item>
     <item name="sharegram_primary_dark" type="color">#357a38</item>
     <item name="sharegram_text_primary" type="color">#4caf50</item>
@@ -197,6 +198,8 @@
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
     <dimen name="inner_paddings">16dp</dimen>
+    <dimen name="message_text_padding">5dp</dimen>
+    <dimen name="message_text_size">16dp</dimen>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
@@ -238,9 +241,9 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="activity_post_title">Sharing Collage</string>
-    <string name="api_message_network_gone">001: Network was interrupted.</string>
-    <string name="api_message_secure_account">400: This is closed account.</string>
-    <string name="api_message_without_posts">100: Account doesn\'t have posts.</string>
+    <string name="api_message_network_gone">Network was interrupted.</string>
+    <string name="api_message_secure_account">This is closed account.</string>
+    <string name="api_message_without_posts">Account doesn\'t have posts.</string>
     <string name="app_name">Collagetion</string>
     <string name="collage_button_text">Collage it!</string>
     <string name="counter_of_images"> of 4</string>
@@ -252,7 +255,6 @@
     <string name="menu_fragment_collage_refresh_posts">Refresh posts</string>
     <string name="message_bad">Sorry, happened something bad :(</string>
     <string name="message_bad_title">Title is out</string>
-    <string name="post_dummy">Dummy! Xa-xa-xa!</string>
     <string name="search_button_text">Search</string>
     <string name="share_button_text">Share it!</string>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -1609,6 +1611,15 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
+    <style name="list_posts_empty_text_view">
+        <item name="android:textColor">@color/sharegram_message</item>
+        <item name="android:textSize">@dimen/message_text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/message_text_padding</item>
+    </style>
+    <style name="list_posts_empty_text_view.big">
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="sharegram_listview">
 		<item name="android:clipToPadding">false</item>
 		<item name="android:paddingTop">@dimen/outer_paddings</item>
