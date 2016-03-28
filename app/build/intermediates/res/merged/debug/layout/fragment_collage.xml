@@ -7,7 +7,7 @@
 		   android:id="@+id/fragment_collage_toolbar"
 		   layout="@layout/collage_toolbar_layout"
 		   android:layout_width="match_parent"
-		   android:layout_height="wrap_content"/>
+		   android:layout_height="wrap_content" />
 
 	<RelativeLayout 
 	    android:layout_width="match_parent"
@@ -37,11 +37,8 @@
 		    android:layout_height="wrap_content"
 		    android:gravity="center"
 		    android:id="@android:id/empty"
-		    android:text="@string/message_bad"
 		    android:layout_gravity="center_horizontal"
 		    android:padding="40dp"
-		    android:textColor="@color/sharegram_hint"
-			android:visibility="invisible"/>
-
+		    android:textColor="@color/sharegram_hint" />
 	</RelativeLayout>
 </LinearLayout>

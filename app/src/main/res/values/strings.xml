@@ -10,8 +10,7 @@
 	<string name="activity_post_title">Sharing Collage</string>
 	<string name="image_button_home">Back to the Home</string>
 	<string name="counter_of_images">&#160;of 4</string>
-	<string name="api_message_bad">Sorry, happened something bad :(</string>
-	<string name="api_message_without_posts">100: Account doesn't have posts.</string>
+	<string name="api_message_without_posts">100: Account doesn\'t have posts.</string>
 	<string name="api_message_secure_account">400: This is closed account.</string>
 	<string name="api_message_network_gone">001: Network was interrupted.</string>
 	<string name="message_bad_title">Title is out</string>
@@ -20,7 +19,8 @@
 	<string name="toast_bad_nick">Didn\'t find that nick!</string>
 	<string name="toast_space_nick">Nick shouldn\'t have spaces!</string>
 	<string name="toast_network_offline">You don\'t have connection!</string>
-	<string name="dialog_search_id_title">Searching nick&#8230;</string>
-	<string name="dialog_get_posts_title">Loading posts&#8230;</string>
+	<string name="dialog_loading_title">Loadning&#8230;</string>
+	<string name="dialog_loading_text">Please wait a moment!</string>
 	<string name="impicit_intent_title">Share collage using:</string>
+	<string name="message_bad">Sorry, happened something bad :(</string>
 </resources>

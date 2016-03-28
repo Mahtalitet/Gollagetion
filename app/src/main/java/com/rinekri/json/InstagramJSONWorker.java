@@ -3,6 +3,7 @@ package com.rinekri.json;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.rinekri.model.InstagramPost;
 import com.rinekri.net.NetworkConnector;
@@ -175,75 +176,17 @@ public class InstagramJSONWorker {
 				e.printStackTrace();
 				haveRequest = false;
 				Log.i(TAG, "Didn't find something.");
+			} catch(NullPointerException e) {
+				Log.e(TAG, "Our network was interrupted");
+				haveRequest = false;
+				instaPosts = new ArrayList<InstagramPost>();
 			}
 			pageCounter++;
 		}
 		return instaPosts;
 	}
 
-
-	private class GetInstagramID extends AsyncTask<Void, Void, String> {
-
-		
-		protected String doInBackground(Void... arg0) {
-
-
-			return null;
-		}
+	public class FindSecuredAccountException extends Throwable {
 
 	}
-
-//	public String getId (String nick) {
-//		mInstagramNick = nick;
-//
-//		AsyncTask<Void, Void, String> requestID = new GetInstagramID().execute();
-//
-//		String instagramId = null;
-//
-//		try {
-//			instagramId = requestID.get();
-//		} catch (InterruptedException | ExecutionException e) {
-//			e.printStackTrace();
-//		}
-//
-//		return instagramId;
-//	}
-
-//	public ArrayList<InstagramPost> getPosts (String id) {
-//		mInstagramID = id;
-//
-//		AsyncTask<Void, Void, ArrayList<InstagramPost>> requestPosts = new GetInstagramPosts().execute();
-//
-//		ArrayList<InstagramPost> instagramPostList = null;
-//
-//		try {
-//			instagramPostList = requestPosts.get();
-//		} catch (InterruptedException | ExecutionException e) {
-//			e.printStackTrace();
-//		}
-//
-//		return instagramPostList;
-//	}
-	
-//	private class GetInstagramPosts extends AsyncTask<Void, Void, ArrayList<InstagramPost>> {
-//
-//		private AlertDialog alert;
-//
-//		protected void onPreExecute() {
-//			AlertDialog.Builder alertBuilder = new AlertDialog.Builder(mContext);
-//			alertBuilder.setMessage(R.string.dialog_get_posts_title);
-//			alertBuilder.setCancelable(false);
-//			alert = alertBuilder.create();
-//			alert.show();
-//		}
-//
-//		protected ArrayList<InstagramPost> doInBackground(Void... arg0) {
-//
-//
-//		}
-//
-//		protected void onPostExecute(ArrayList<InstagramPost> result) {
-//			if (alert != null) alert.dismiss();
-//		}
-//	}
 }

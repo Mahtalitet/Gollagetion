@@ -1,6 +1,7 @@
 package com.rinekri.model;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.rinekri.json.InstagramJSONWorker;
 
@@ -31,25 +32,29 @@ public class InstagramPostsFactory {
     }
 
     public ArrayList<InstagramPost> getInstagramPosts(String id) {
-        if ((sUserID == null) || (!sUserID.equals(id))) {
-            sUserID = id;
-            mInstagramPosts = JSONworker.getPosts(sUserID);
-        }
+        mInstagramPosts = JSONworker.getPosts(id);
+        return mInstagramPosts;
+    }
+
+    public ArrayList<InstagramPost> returnInstagramPosts() {
         return mInstagramPosts;
     }
 
     public boolean getInstagramPostsStatus(String id) {
-        if (sUserID == null) {
-            return false;
+        boolean status = false;
+        if (((sUserID == null) && (mInstagramPosts == null)) || ((sUserID != null) && !sUserID.equals(id))) {
+            sUserID = id;
+            status = false;
+        } else if ((sUserID != null) && (mInstagramPosts != null) && (mInstagramPosts.size() == 0) && sUserID.equals(id)) {
+            sUserID = id;
+            status = false;
         }
-
-        if (sUserID.equals(id)) {
-            return true;
+        else if ((sUserID != null) && (mInstagramPosts != null) && sUserID.equals(id)) {
+            status = true;
         }
-
-        return false;
+        Log.d(TAG,"Status"+status);
+        return status;
     }
-
 
     public ArrayList<InstagramPost> getSortedForLikesInstagramPosts(ArrayList<InstagramPost> unsortedPosts) {
         Collections.sort(unsortedPosts);

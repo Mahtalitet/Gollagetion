@@ -19,7 +19,7 @@
 	<string name="toast_bad_nick">Нету такого юзера&#8230;</string>
 	<string name="toast_space_nick">Ники с пробелами запрещены!</string>
 	<string name="toast_network_offline">Ты не в Сети!</string>
-	<string name="dialog_search_id_title">Сканируем ник&#8230;</string>
-	<string name="dialog_get_posts_title">Грузим посты&#8230;</string>
 	<string name="impicit_intent_title">Расшарить коллаж в:</string>
+	<string name="dialog_loading_title">Загрузочка…</string>
+	<string name="dialog_loading_text">Погоди секундочку!</string>
 </resources>

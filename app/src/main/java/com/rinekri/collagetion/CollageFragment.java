@@ -10,7 +10,6 @@ import com.rinekri.model.InstagramPostsFactory;
 import com.rinekri.net.NetworkConnector;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -23,8 +22,6 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -35,10 +32,13 @@ import android.widget.TextView;
 public class CollageFragment extends ListFragment implements GetPostsTaskListener {
 	public static final String EXTRA_INSTAGRAM_ID = "com.rinelri.instagram_id";
 	private static final String KEY_POSTS_COUNTER = "checkedPostsCounter";
+	private static final String KEY_TASK_STATUS = "taskStatus";
+	private static final String KEY_PROGRESS_DIALOG = "mProgressDialog";
 	private static final String TAG = "CollageFragment";
 
 	private GetPostsTask mGetPostsTask;
-	private ProgressDialog progressDialog;
+	private ProgressDialog mProgressDialog;
+	private boolean isGetPostsTaskRunning = false;
 
 	private ImageButton mBackImageButton;
 	private TextView mWarningTextView;
@@ -47,77 +47,123 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 	private int checkedPostsCounter = 0;
 	private PostAdapter adapter;
 	private ArrayList<InstagramPost> mPosts;
+	private String mGotIstagramId;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
 
-		mPosts = new ArrayList<InstagramPost>();
-		String gotIstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
-		if (gotIstagramId != null) {
-			if (!InstagramPostsFactory.getFactory(getContext()).getInstagramPostsStatus(gotIstagramId)) {
-				mGetPostsTask = new GetPostsTask(this);
-				mGetPostsTask.execute(gotIstagramId);
-			} else {
-				mPosts = InstagramPostsFactory.getFactory(getContext()).getInstagramPosts(gotIstagramId);
-			}
-		}
-
 		if (savedInstanceState != null) {
 			checkedPostsCounter = savedInstanceState.getInt(KEY_POSTS_COUNTER);
 		}
 
+		mPosts = new ArrayList<InstagramPost>();
+		mGotIstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
+		if ((mGotIstagramId != null) && !isGetPostsTaskRunning) {
+			if (!InstagramPostsFactory.getFactory(getContext()).getInstagramPostsStatus(mGotIstagramId)) {
+				mGetPostsTask = new GetPostsTask(this);
+				mGetPostsTask.execute(mGotIstagramId);
+			} else {
+				mPosts = InstagramPostsFactory.getFactory(getContext()).returnInstagramPosts();
+			}
+		}
+
 		adapter = new PostAdapter(mPosts);
 		setListAdapter(adapter);
+		adapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		Log.e(TAG, "2. Fragment was started!");
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		Log.e(TAG, "3. Fragment was resumed!");
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		Log.e(TAG, "4. Fragment was paused!");
 	}
 
 
 	@Override
+	public void onStop() {
+		super.onStop();
+		Log.e(TAG, "5. Fragment was stoped!");
+	}
+
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		Log.e(TAG, "6. Fragment was destroyed!");
+
+	}
+
+	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		if ((mGetPostsTask!= null) && (mGetPostsTask.getStatus() == AsyncTask.Status.RUNNING)) {
-			progressDialog = ProgressDialog.show(getActivity(), "Loading", "Please wait a moment!");
+		Log.d(TAG, "Activity of fragment was created...");
+
+		if ((isGetPostsTaskRunning) && ((mProgressDialog == null) || !mProgressDialog.isShowing())) {
+			mProgressDialog = getLoadingDialog();
+			Log.d(TAG, "Dialog at onActivityCreated() was opened!");
 		}
 	}
 
 	@Override
 	public void onDetach() {
-		if (progressDialog != null && progressDialog.isShowing()) {
-			progressDialog.dismiss();
+		if (mProgressDialog != null && mProgressDialog.isShowing()) {
+			mProgressDialog.dismiss();
 		}
 		super.onDetach();
 	}
 
 	@Override
 	public void onGetPostsTaskStarted() {
-		Log.e(TAG, "Error dialog was opened!");
-		progressDialog = ProgressDialog.show(getActivity(), "Loading", "Please wait a moment!");
+		isGetPostsTaskRunning = true;
+		if ((mProgressDialog == null) || (!mProgressDialog.isShowing())) {
+			Log.e(TAG, "Error dialog was opened!");
+
+			mProgressDialog = getLoadingDialog();
+		}
 	}
+
 
 	@Override
 	public void onGetPostsTaskFinished(ArrayList<InstagramPost> result) {
-		if (progressDialog != null) {
-			progressDialog.dismiss();
+		isGetPostsTaskRunning = false;
+		if (mProgressDialog != null && mProgressDialog.isShowing()) {
+			mProgressDialog.dismiss();
+			Log.e(TAG, "Error dialog was disabled!");
 		}
-		Log.e(TAG, "Error dialog was disabled!");
 
 		adapter.clear();
+		mPosts = result;
 		for (InstagramPost post : result) {
 			adapter.add(post);
 		}
 		adapter.notifyDataSetChanged();
 	}
 
+
 	@Override
-	public void onSaveInstanceState (Bundle outState) {
+	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt(KEY_POSTS_COUNTER, checkedPostsCounter);
+//		outState.putBoolean(KEY_TASK_STATUS, isGetPostsTaskRunning);
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		Log.e(TAG, "Fragment view was created!");
 		View v = inflater.inflate(R.layout.fragment_collage, container, false);
 		Toolbar toolbar = (Toolbar) v.findViewById(R.id.fragment_collage_toolbar);
 		toolbar.setTitle("");
@@ -125,7 +171,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		
 		mBackImageButton = (ImageButton) v.findViewById(R.id.back_image_button);
 		mBackImageButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				if (NavUtils.getParentActivityName(getActivity()) != null) {
@@ -140,7 +186,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		final ListView listView = (ListView) v.findViewById(android.R.id.list);
 		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
-		
+
 		mCollageButton = (Button) v.findViewById(R.id.collage_button);
 		mCollageButton.setOnClickListener(new View.OnClickListener() {
 
@@ -155,8 +201,6 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		});
 
 		mWarningTextView = (TextView) v.findViewById(android.R.id.empty);
-		mWarningTextView.setVisibility(View.GONE);
-		mWarningTextView.setText("Xaxa!");
 
 		setCollageButton(4);
 
@@ -308,7 +352,8 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		@Override
 		protected ArrayList<InstagramPost> doInBackground(String... params) {
 			Log.d(TAG, "ID at CollageFragment: " + params[0]);
-			ArrayList<InstagramPost> getPosts = InstagramPostsFactory.getFactory(getContext()).getInstagramPosts(params[0]);
+			ArrayList<InstagramPost> getPosts = null;
+			getPosts = InstagramPostsFactory.getFactory(getContext()).getInstagramPosts(params[0]);
 			ArrayList<InstagramPost> soretedPosts =  InstagramPostsFactory.getFactory(getContext()).getSortedForLikesInstagramPosts(getPosts);
 			return soretedPosts;
 		}
@@ -317,6 +362,12 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		protected void onPostExecute(ArrayList<InstagramPost> result) {
 			listener.onGetPostsTaskFinished(result);
 		}
+	}
+
+	private ProgressDialog getLoadingDialog() {
+		String dialog_title = getActivity().getResources().getString(R.string.dialog_loading_title);
+		String dialog_text = getActivity().getResources().getString(R.string.dialog_loading_text);
+		return ProgressDialog.show(getActivity(), dialog_title, dialog_text);
 	}
 
 }
