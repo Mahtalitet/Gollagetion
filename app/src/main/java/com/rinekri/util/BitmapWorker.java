@@ -40,8 +40,8 @@ public class BitmapWorker {
 		mBitmapName = fullBitmapName.toString();
 
 		DirectoryReturner dirReturner = new DirectoryReturner(c);
-		mBitmapDirectory = dirReturner.outerDirectoryWithFile(bFolder, mBitmapName);
-		mDirectory = dirReturner.outerDirectory(bFolder);
+		mBitmapDirectory = dirReturner.returnDirectoryWIthFile(bFolder, mBitmapName);
+		mDirectory = dirReturner.returnDirectory(bFolder);
 	}
 	
 	
@@ -127,7 +127,7 @@ public class BitmapWorker {
 
 	public static void deleteAllBitmapsFromCacheDirectory(Context c) {
 		DirectoryReturner dirReturner = new DirectoryReturner(c);
-		File cahceDirectory = dirReturner.outerDirectory(DirectoryReturner.IMAGE_CACHE_FOLDER);
+		File cahceDirectory = dirReturner.returnDirectory(DirectoryReturner.IMAGE_CACHE_FOLDER);
 
 		if (cahceDirectory.exists()) {
 			String deleteCmd = "rm -r " + cahceDirectory;
