@@ -23,13 +23,8 @@ import okhttp3.Response;
 public class NetworkConnector {
 	public static final String TAG = "NetworkConnector";
 
-    private Context mContext;
     private static OkHttpClient client = new OkHttpClient();
     private String bitmapURL;
-
-    public NetworkConnector(Context c) {
-        mContext = c;
-    }
 
     public String getStringResponce(String url) {
 

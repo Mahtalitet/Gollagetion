@@ -263,6 +263,7 @@
     <string name="toast_network_offline">You don\'t have connection!</string>
     <string name="toast_null_nick">Enter nick!</string>
     <string name="toast_space_nick">Nick shouldn\'t have spaces!</string>
+    <string name="toast_warning_share">Dind\'t find a good app to share…</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

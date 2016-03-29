@@ -22,4 +22,5 @@
 	<string name="dialog_loading_title">Загрузочка…</string>
 	<string name="dialog_loading_text">Погоди секундочку!</string>
 	<string name="menu_fragment_collage_refresh_posts">Обновить посты</string>
+	<string name="toast_warning_share">Некуда шарить коллаж&#8230;</string>
 </resources>

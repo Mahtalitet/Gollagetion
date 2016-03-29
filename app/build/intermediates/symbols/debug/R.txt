@@ -692,7 +692,7 @@ int string activity_post_title 0x7f050014
 int string api_message_network_gone 0x7f050015
 int string api_message_secure_account 0x7f050016
 int string api_message_without_posts 0x7f050017
-int string app_name 0x7f050029
+int string app_name 0x7f05002a
 int string collage_button_text 0x7f050018
 int string counter_of_images 0x7f050019
 int string dialog_loading_text 0x7f05001a
@@ -711,6 +711,7 @@ int string toast_load 0x7f050025
 int string toast_network_offline 0x7f050026
 int string toast_null_nick 0x7f050027
 int string toast_space_nick 0x7f050028
+int string toast_warning_share 0x7f050029
 int style AlertDialog_AppCompat 0x7f080087
 int style AlertDialog_AppCompat_Light 0x7f080088
 int style Animation_AppCompat_Dialog 0x7f080089

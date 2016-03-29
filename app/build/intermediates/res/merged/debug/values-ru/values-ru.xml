@@ -41,4 +41,5 @@
     <string name="toast_network_offline">Ты не в Сети!</string>
     <string name="toast_null_nick">Ник-то введи!</string>
     <string name="toast_space_nick">Ники с пробелами запрещены!</string>
+    <string name="toast_warning_share">Некуда шарить коллаж…</string>
 </resources>

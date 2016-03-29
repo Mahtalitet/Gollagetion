@@ -780,6 +780,25 @@
                         "endOffset": 1052
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 43,
+                    "startColumn": 4,
+                    "startOffset": 3482,
+                    "endColumn": 69,
+                    "endOffset": 3547
+                },
+                "from": {
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 1,
+                        "startOffset": 1385,
+                        "endColumn": 72,
+                        "endOffset": 1456
+                    }
+                }
             }
         ]
     }

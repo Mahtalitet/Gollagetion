@@ -248,9 +248,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 			InstagramPost instaPost = getItem(position);
 
 			ImageView instaPostImageView = (ImageView) convertView.findViewById(R.id.insta_post_image_imageVIew);
-			NetworkConnector imageReturner = new NetworkConnector(getContext());
-			Bitmap image = imageReturner.getBitmapFromURL(instaPost.getPostImageURL());
-			instaPostImageView.setImageBitmap(image);
+			instaPostImageView.setImageBitmap(instaPost.getPostsImage());
 
 			ImageView instaPostCheckImageView = (ImageView) convertView.findViewById(R.id.insta_post_check_true_image_imageView);
 

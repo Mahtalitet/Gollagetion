@@ -32,7 +32,8 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:padding="5dp"
-			    android:layout_gravity="center">
+			    android:layout_gravity="center"
+				android:background="@color/sharegram_primary">
 			    
 					<ImageView
 					    android:id="@+id/collage_block_three"
@@ -42,7 +43,7 @@
 					    android:layout_alignParentTop="false"
 					    android:layout_marginBottom="5dp"
 					    android:layout_marginRight="5dp"
-					    android:background="#0F000000"
+					    android:background="@color/sharegram_primary_dark"
 					    android:scaleType="centerCrop" />
 			    
 					<ImageView
@@ -53,7 +54,7 @@
 					    android:layout_alignParentTop="false"
 					    android:layout_marginBottom="5dp"
 					    android:layout_toRightOf="@id/collage_block_three"
-					    android:background="#0F000000"
+					    android:background="@color/sharegram_primary_dark"
 					    android:scaleType="centerCrop" />
 					
 					<ImageView
@@ -64,7 +65,7 @@
 					    android:layout_alignParentLeft="true"
 					    android:layout_below="@id/collage_block_three"
 					    android:layout_marginRight="5dp"
-					    android:background="#0F000000"
+					    android:background="@color/sharegram_primary_dark"
 					    android:scaleType="centerCrop" />
 		
 					<ImageView
@@ -76,7 +77,7 @@
 					    android:layout_below="@id/collage_block_one"
 					    
 					    android:layout_toRightOf="@id/collage_block_four"
-					    android:background="#0F000000"
+					    android:background="@color/sharegram_primary_dark"
 					    android:scaleType="centerCrop" />
 				    
 			</RelativeLayout>

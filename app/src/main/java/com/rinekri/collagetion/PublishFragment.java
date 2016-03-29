@@ -24,8 +24,8 @@ import android.widget.Toast;
 import com.rinekri.model.InstagramCollageFactory;
 import com.rinekri.model.InstagramPost;
 import com.rinekri.model.InstagramPostsFactory;
-import com.rinekri.net.NetworkConnector;
-import com.rinekri.util.BitmapCollageWorker;
+import com.rinekri.util.BitmapWorker;
+import com.rinekri.util.DirectoryReturner;
 import com.rinekri.util.ShakeEventListener;
 
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class PublishFragment extends Fragment {
 	private ImageButton mBackImageButton;
 	private Button mPostButton;
 	private RelativeLayout mCommonCollageLayout;
-	private BitmapCollageWorker mBitmapWorker;
+	private BitmapWorker mBitmapWorker;
 
 	private int[] mCombination;
 	private String[] mGetCheckedImagesIDs;
@@ -74,12 +74,12 @@ public class PublishFragment extends Fragment {
 			Log.d(TAG, "Number combination: "+num);
 		}
 
-		final NetworkConnector imageReturner = new NetworkConnector(getContext());
+//		final NetworkConnector imageReturner = new NetworkConnector();
 		mCheckedImagesBitmap = new ArrayList<Bitmap>();
 		for(int i = 0; i < mCombination.length; i++) {
 			String currentID = mGetCheckedImagesIDs[mCombination[i]];
 			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
-			Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
+			Bitmap image = post.getPostsImage();
 			mCheckedImagesBitmap.add(image);
 		}
 
@@ -97,7 +97,7 @@ public class PublishFragment extends Fragment {
 				for(int i = 0; i < mCombination.length; i++) {
 					String currentID = mGetCheckedImagesIDs[mCombination[i]];
 					InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
-					Bitmap image = imageReturner.getBitmapFromURL(post.getPostImageURL());
+					Bitmap image = post.getPostsImage();
 					mCheckedImagesBitmap.add(image);
 
 					int childViewCounter = mCommonCollageLayout.getChildCount();
@@ -168,13 +168,19 @@ public class PublishFragment extends Fragment {
 				Toast loadToast = Toast.makeText(getContext(), R.string.toast_load, Toast.LENGTH_SHORT);
 				loadToast.show();
 				
-				mBitmapWorker = new BitmapCollageWorker(getContext(), BITMAP_NAME, BitmapCollageWorker.JPEG_FORMAT);	
+				mBitmapWorker = new BitmapWorker(getContext(), DirectoryReturner.COLLAGE_FOLDER, BITMAP_NAME, BitmapWorker.JPEG_FORMAT);
 				Bitmap collage = mBitmapWorker.createBitmap(mCommonCollageLayout);
-				boolean saved = mBitmapWorker.saveBitmap(collage, 70);
+				boolean saved = mBitmapWorker.saveBitmapHighQuality(collage);
 				if (saved) {
 					loadToast.cancel();
 					String dialogTitle = getContext().getResources().getString(R.string.impicit_intent_title);
-					startActivity(Intent.createChooser(mBitmapWorker.generateCollageIntent(), dialogTitle));
+					Intent intent = Intent.createChooser(mBitmapWorker.generateCollageIntent(), dialogTitle);
+
+					if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+						startActivity(intent);
+					} else {
+						Toast.makeText(getContext(), R.string.toast_warning_share, Toast.LENGTH_SHORT).show();
+					}
 				}
 			}
 		});

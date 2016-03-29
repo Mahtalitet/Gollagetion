@@ -8,6 +8,8 @@ import android.os.Environment;
 import java.io.File;
 
 public class DirectoryReturner {
+    public static final String COLLAGE_FOLDER = "collage";
+    public static final String IMAGE_CACHE_FOLDER = "image_cache";
 
     private Context mContext;
 

@@ -36,7 +36,6 @@ public class InstagramJSONWorker {
 	private static final String TAG_CAPTION_TEXT = "text";
 	private static final String TAG_ID = "id";
 
-
 	private Context mContext;
 
 	public InstagramJSONWorker(Context c) {
@@ -51,7 +50,7 @@ public class InstagramJSONWorker {
 				.append("&")
 				.append(URL_CLIENT_ID);
 
-		NetworkConnector connector = new NetworkConnector(mContext);
+		NetworkConnector connector = new NetworkConnector();
 
 		String jsonStr = connector.getStringResponce(getIDurl.toString());
 
@@ -89,7 +88,7 @@ public class InstagramJSONWorker {
 		boolean firstRequest = true;
 
 		StringBuilder postsURL = null;
-		NetworkConnector connector = new NetworkConnector(mContext);
+		NetworkConnector connector = new NetworkConnector();
 
 		ArrayList<InstagramPost> instaPosts = new ArrayList<InstagramPost>();
 

@@ -14,6 +14,7 @@
 	<string name="api_message_network_gone">Network was interrupted.</string>
 	<string name="message_bad_title">Title is out</string>
 	<string name="toast_load">Collage is loading&#8230;</string>
+	<string name="toast_warning_share">Dind\'t find a good app to share&#8230;</string>
 	<string name="toast_null_nick">Enter nick!</string>
 	<string name="toast_bad_nick">Didn\'t find that nick!</string>
 	<string name="toast_space_nick">Nick shouldn\'t have spaces!</string>

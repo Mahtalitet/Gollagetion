@@ -73,7 +73,7 @@ public class PermutationsGenerator {
                 String number = temp.get(g);
                 result.add(number);
             }
-//            Log.d(TAG,"Combination:"+result.toString());
+            Log.d(TAG,"Combination:"+result.toString());
             resultSet.add(result);
             generate(temp, k + 1, n, resultSet);
         }

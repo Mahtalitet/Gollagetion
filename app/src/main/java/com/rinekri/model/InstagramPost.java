@@ -1,5 +1,10 @@
 package com.rinekri.model;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+
+import com.rinekri.net.NetworkConnector;
+
 import java.util.Date;
 
 public class InstagramPost implements Comparable<InstagramPost> {
@@ -7,6 +12,7 @@ public class InstagramPost implements Comparable<InstagramPost> {
 	private String mPostTitle;
 	private Date mPostDate;
 	private String mPostImageURL;
+	private Bitmap mPostImageBitmap;
 	private int mPostLikeCounts;
 
 	public InstagramPost(String postID, String postTitle, Date postDate, String postImageURL, int postLikeCounts) {
@@ -48,7 +54,7 @@ public class InstagramPost implements Comparable<InstagramPost> {
 	public void setmPostID(String postID) {
 		mPostID = postID;
 	}
-	
+
 	public void setPostTitle(String postTitle) {
 		mPostTitle = postTitle;
 	}
@@ -63,6 +69,24 @@ public class InstagramPost implements Comparable<InstagramPost> {
 	
 	public void setPostLikeCounts(int postLikeCounts) {
 		mPostLikeCounts = postLikeCounts;
+	}
+
+
+	public Bitmap getPostsImageWithCache(Context c) {
+		if (mPostImageBitmap == null) {
+
+
+		}
+
+		return mPostImageBitmap;
+	}
+
+	public Bitmap getPostsImage() {
+		if (mPostImageBitmap == null) {
+			NetworkConnector getImage = new NetworkConnector();
+			mPostImageBitmap = getImage.getBitmapFromURL(getPostImageURL());
+		}
+		return mPostImageBitmap;
 	}
 
 	@Override

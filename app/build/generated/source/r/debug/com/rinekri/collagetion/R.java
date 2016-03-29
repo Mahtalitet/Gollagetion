@@ -1968,7 +1968,7 @@ containing a value of this type.
         public static final int api_message_network_gone=0x7f050015;
         public static final int api_message_secure_account=0x7f050016;
         public static final int api_message_without_posts=0x7f050017;
-        public static final int app_name=0x7f050029;
+        public static final int app_name=0x7f05002a;
         public static final int collage_button_text=0x7f050018;
         public static final int counter_of_images=0x7f050019;
         public static final int dialog_loading_text=0x7f05001a;
@@ -1987,6 +1987,7 @@ containing a value of this type.
         public static final int toast_network_offline=0x7f050026;
         public static final int toast_null_nick=0x7f050027;
         public static final int toast_space_nick=0x7f050028;
+        public static final int toast_warning_share=0x7f050029;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080087;
