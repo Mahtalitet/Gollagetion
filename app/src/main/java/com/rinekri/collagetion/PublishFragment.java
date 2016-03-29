@@ -69,19 +69,12 @@ public class PublishFragment extends Fragment {
 //			Log.e(TAG, "Got IDs from second activity: " + mCombination.toString());
 		}
 
-		Log.e(TAG, "Current combination:");
-		for(int num: mCombination) {
-			Log.d(TAG, "Number combination: "+num);
-		}
+//		Log.e(TAG, "Current combination:");
+//		for(int num: mCombination) {
+//			Log.d(TAG, "Number combination: "+num);
+//		}
 
-//		final NetworkConnector imageReturner = new NetworkConnector();
-		mCheckedImagesBitmap = new ArrayList<Bitmap>();
-		for(int i = 0; i < mCombination.length; i++) {
-			String currentID = mGetCheckedImagesIDs[mCombination[i]];
-			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
-			Bitmap image = post.getPostsImage();
-			mCheckedImagesBitmap.add(image);
-		}
+		getBitmapCollage();
 
 		mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -92,22 +85,8 @@ public class PublishFragment extends Fragment {
 			@Override
 			public void onShake(int count) {
 				mCombination = InstagramCollageFactory.getFactory(getContext()).getCombinationImages(mGetCheckedImagesIDs.length);
-
-				mCheckedImagesBitmap = new ArrayList<Bitmap>();
-				for(int i = 0; i < mCombination.length; i++) {
-					String currentID = mGetCheckedImagesIDs[mCombination[i]];
-					InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
-					Bitmap image = post.getPostsImage();
-					mCheckedImagesBitmap.add(image);
-				}
-
-				int childViewCounter = mCommonCollageLayout.getChildCount();
-
-				for(int d = 0; d < childViewCounter; d++) {
-					ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(d);
-					partCollage.setImageBitmap(mCheckedImagesBitmap.get(d));
-				}
-
+				getBitmapCollage();
+				updateCollage();
 			}
 		});
 	}
@@ -169,7 +148,7 @@ public class PublishFragment extends Fragment {
 				Toast loadToast = Toast.makeText(getContext(), R.string.toast_load, Toast.LENGTH_SHORT);
 				loadToast.show();
 
-				mBitmapWorker = new BitmapWorker(getContext(), BITMAP_NAME, BitmapWorker.JPEG_FORMAT);
+				mBitmapWorker = new BitmapWorker(getContext(), DirectoryReturner.COLLAGE_FOLDER, BITMAP_NAME, BitmapWorker.JPEG_FORMAT);
 				Bitmap collage = mBitmapWorker.createBitmapFromView(mCommonCollageLayout);
 				boolean saved = mBitmapWorker.saveBitmapHighQuality(collage);
 				if (saved) {
@@ -190,10 +169,23 @@ public class PublishFragment extends Fragment {
 	}
 
 
-	private void updateCollage() {
-
+	private void getBitmapCollage() {
+		mCheckedImagesBitmap = new ArrayList<Bitmap>();
+		for(int i = 0; i < mCombination.length; i++) {
+			String currentID = mGetCheckedImagesIDs[mCombination[i]];
+			InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
+			Bitmap image = post.getPostsImage();
+			mCheckedImagesBitmap.add(image);
+		}
 	}
 
+	private void updateCollage() {
+		int childViewCounter = mCommonCollageLayout.getChildCount();
 
-	
+		for(int d = 0; d < childViewCounter; d++) {
+			ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(d);
+			partCollage.setImageBitmap(mCheckedImagesBitmap.get(d));
+		}
+	}
+
 }

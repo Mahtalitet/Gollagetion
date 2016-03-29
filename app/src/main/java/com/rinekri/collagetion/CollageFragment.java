@@ -8,6 +8,7 @@ import java.util.Locale;
 import com.rinekri.model.InstagramPost;
 import com.rinekri.model.InstagramPostsFactory;
 import com.rinekri.net.NetworkConnector;
+import com.rinekri.util.BitmapWorker;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -248,13 +249,11 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 			InstagramPost instaPost = getItem(position);
 
 			ImageView instaPostImageView = (ImageView) convertView.findViewById(R.id.insta_post_image_imageVIew);
-//			if (position < 20) {
-//				instaPostImageView.setImageBitmap(instaPost.getPostsImageWithCache(getContext()));
-//
-//			} else {
+			if (position < BitmapWorker.CACHE_MAXINUM) {
+				instaPostImageView.setImageBitmap(instaPost.getPostsImageWithCache(getContext()));
+			} else {
 				instaPostImageView.setImageBitmap(instaPost.getPostsImage());
-
-//			}
+			}
 
 			ImageView instaPostCheckImageView = (ImageView) convertView.findViewById(R.id.insta_post_check_true_image_imageView);
 

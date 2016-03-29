@@ -17,15 +17,10 @@ import com.rinekri.collagetion.R;
 
 public class BitmapWorker {
 	public static final String TAG = "BitmapWorker";
-	public static final String IMAGE_CACHE_FOLDER = "Image_cache";
-	public static final String COLLAGE_FOLDER = "Collage";
-
-
+	public  static final int CACHE_MAXINUM = 20;
 	public static final Bitmap.CompressFormat JPEG_FORMAT = Bitmap.CompressFormat.JPEG;
 	public static final Bitmap.CompressFormat PNG_FORMAT = Bitmap.CompressFormat.PNG;
-	@SuppressLint("NewApi")
-	public static final Bitmap.CompressFormat WEBP_FORMAT = Bitmap.CompressFormat.WEBP;
-	
+
 	private Context mContext;
 	private String mBitmapName;
 	private Bitmap.CompressFormat mBitmapFormat;
@@ -33,7 +28,7 @@ public class BitmapWorker {
 	private File mDirectory;
 
 
-	public BitmapWorker(Context c, String bName, Bitmap.CompressFormat bFormat) {
+	public BitmapWorker(Context c, String bFolder, String bName, Bitmap.CompressFormat bFormat) {
 		mContext = c;
 		mBitmapFormat = bFormat;
 	
@@ -44,7 +39,8 @@ public class BitmapWorker {
 		mBitmapName = fullBitmapName.toString();
 
 		DirectoryReturner dirReturner = new DirectoryReturner(c);
-		mBitmapDirectory = dirReturner.returnFileDirectory(COLLAGE_FOLDER, mBitmapName);
+		mBitmapDirectory = dirReturner.outerDirectoryWithFile(bFolder, mBitmapName);
+		mDirectory = dirReturner.outerDirectory(bFolder);
 	}
 	
 	
@@ -92,6 +88,23 @@ public class BitmapWorker {
 		return BitmapFactory.decodeFile(mBitmapDirectory.toString());
 	}
 
+	public boolean checkCacheMaximum(int maxBitmaps) {
+		if (mDirectory.list().length <= maxBitmaps) {
+			return false;
+		}
+
+		return true;
+	}
+
+	public void deleteBitmapsFromDirectory() {
+		if (mDirectory.exists()) {
+			String deleteCmd = "rm -r " + mDirectory;
+			Runtime runtime = Runtime.getRuntime();
+			try {
+				runtime.exec(deleteCmd);
+			} catch (IOException e) { }
+		}
+	}
 
 	public Intent generateCollageIntent() {
 		Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -102,14 +115,4 @@ public class BitmapWorker {
 		return shareIntent;
 	}
 
-	public void deleteFilesFromDirectory() {
-
-		if (mBitmapDirectory.exists()) {
-			String deleteCmd = "rm -r " + mBitmapDirectory;
-			Runtime runtime = Runtime.getRuntime();
-			try {
-				runtime.exec(deleteCmd);
-			} catch (IOException e) { }
-		}
-	}
 }
