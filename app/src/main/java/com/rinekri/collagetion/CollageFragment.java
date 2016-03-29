@@ -178,13 +178,6 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		}
 		adapter.notifyDataSetChanged();
 
-		if(adapter.isEmpty()) {
-//			mEmptyLinearLayout.setVisibility(View.VISIBLE);
-		}
-
-//		if(mWarningTextView != null) {
-//			mWarningTextView.setVisibility(View.VISIBLE);
-//		}
 	}
 
 

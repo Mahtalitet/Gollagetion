@@ -1756,13 +1756,14 @@ containing a value of this type.
         public static final int internet_off_icon=0x7f02004f;
         public static final int like_icon=0x7f020050;
         public static final int locked_media_icon=0x7f020051;
-        public static final int notification_template_icon_bg=0x7f020058;
+        public static final int notification_template_icon_bg=0x7f020059;
         public static final int refresh_icon=0x7f020052;
-        public static final int sharegram_button_default=0x7f020053;
-        public static final int sharegram_button_default_shape=0x7f020054;
-        public static final int sharegram_list_item_post_layout=0x7f020055;
-        public static final int sharegram_toast_parent_layout=0x7f020056;
-        public static final int without_media_icon=0x7f020057;
+        public static final int round_drawable=0x7f020053;
+        public static final int sharegram_button_default=0x7f020054;
+        public static final int sharegram_button_default_shape=0x7f020055;
+        public static final int sharegram_list_item_post_layout=0x7f020056;
+        public static final int sharegram_toast_parent_layout=0x7f020057;
+        public static final int without_media_icon=0x7f020058;
     }
     public static final class id {
         public static final int action0=0x7f0b006a;

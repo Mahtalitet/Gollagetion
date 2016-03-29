@@ -11,7 +11,14 @@
                     "endOffset": 165
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 114,
+                        "endOffset": 165
+                    }
                 }
             },
             {
@@ -23,7 +30,14 @@
                     "endOffset": 273
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 170,
+                        "endColumn": 107,
+                        "endOffset": 273
+                    }
                 }
             },
             {
@@ -35,7 +49,14 @@
                     "endOffset": 396
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 278,
+                        "endColumn": 122,
+                        "endOffset": 396
+                    }
                 }
             },
             {
@@ -47,7 +68,14 @@
                     "endOffset": 498
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 401,
+                        "endColumn": 101,
+                        "endOffset": 498
+                    }
                 }
             },
             {
@@ -59,7 +87,14 @@
                     "endOffset": 610
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 503,
+                        "endColumn": 111,
+                        "endOffset": 610
+                    }
                 }
             },
             {
@@ -71,7 +106,14 @@
                     "endOffset": 696
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 615,
+                        "endColumn": 85,
+                        "endOffset": 696
+                    }
                 }
             },
             {
@@ -83,7 +125,14 @@
                     "endOffset": 801
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 701,
+                        "endColumn": 104,
+                        "endOffset": 801
+                    }
                 }
             },
             {
@@ -95,7 +144,14 @@
                     "endOffset": 921
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 806,
+                        "endColumn": 119,
+                        "endOffset": 921
+                    }
                 }
             },
             {
@@ -107,7 +163,14 @@
                     "endOffset": 1000
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 926,
+                        "endColumn": 78,
+                        "endOffset": 1000
+                    }
                 }
             },
             {
@@ -119,7 +182,14 @@
                     "endOffset": 1078
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1005,
+                        "endColumn": 77,
+                        "endOffset": 1078
+                    }
                 }
             },
             {
@@ -131,7 +201,14 @@
                     "endOffset": 1158
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1083,
+                        "endColumn": 79,
+                        "endOffset": 1158
+                    }
                 }
             },
             {
@@ -143,7 +220,14 @@
                     "endOffset": 1264
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1163,
+                        "endColumn": 105,
+                        "endOffset": 1264
+                    }
                 }
             },
             {
@@ -155,7 +239,14 @@
                     "endOffset": 1372
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1269,
+                        "endColumn": 107,
+                        "endOffset": 1372
+                    }
                 }
             },
             {
@@ -167,7 +258,14 @@
                     "endOffset": 1470
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1377,
+                        "endColumn": 97,
+                        "endOffset": 1470
+                    }
                 }
             },
             {
@@ -179,7 +277,14 @@
                     "endOffset": 1579
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1475,
+                        "endColumn": 108,
+                        "endOffset": 1579
+                    }
                 }
             },
             {
@@ -191,7 +296,14 @@
                     "endOffset": 1685
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1584,
+                        "endColumn": 105,
+                        "endOffset": 1685
+                    }
                 }
             },
             {
@@ -203,7 +315,14 @@
                     "endOffset": 1793
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1690,
+                        "endColumn": 107,
+                        "endOffset": 1793
+                    }
                 }
             },
             {
@@ -215,7 +334,14 @@
                     "endOffset": 1929
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1798,
+                        "endColumn": 135,
+                        "endOffset": 1929
+                    }
                 }
             },
             {
@@ -227,7 +353,14 @@
                     "endOffset": 2029
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1934,
+                        "endColumn": 99,
+                        "endOffset": 2029
+                    }
                 }
             },
             {
@@ -239,7 +372,14 @@
                     "endOffset": 2092
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 1,
+                        "startOffset": 284,
+                        "endColumn": 59,
+                        "endOffset": 342
+                    }
                 }
             },
             {
@@ -308,7 +448,14 @@
                     "endOffset": 2379
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 1,
+                        "startOffset": 171,
+                        "endColumn": 57,
+                        "endOffset": 227
+                    }
                 }
             },
             {
@@ -320,7 +467,14 @@
                     "endOffset": 2431
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 1,
+                        "startOffset": 405,
+                        "endColumn": 53,
+                        "endOffset": 457
+                    }
                 }
             },
             {
@@ -332,7 +486,14 @@
                     "endOffset": 2498
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 1,
+                        "startOffset": 1243,
+                        "endColumn": 63,
+                        "endOffset": 1305
+                    }
                 }
             },
             {
@@ -344,7 +505,14 @@
                     "endOffset": 2559
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 1,
+                        "startOffset": 1184,
+                        "endColumn": 57,
+                        "endOffset": 1240
+                    }
                 }
             },
             {
@@ -356,7 +524,14 @@
                     "endOffset": 2614
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 1,
+                        "startOffset": 118,
+                        "endColumn": 51,
+                        "endOffset": 168
+                    }
                 }
             },
             {
@@ -368,7 +543,14 @@
                     "endOffset": 2676
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 1,
+                        "startOffset": 345,
+                        "endColumn": 58,
+                        "endOffset": 402
+                    }
                 }
             },
             {
@@ -380,7 +562,14 @@
                     "endOffset": 2745
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 1,
+                        "startOffset": 1117,
+                        "endColumn": 65,
+                        "endOffset": 1181
+                    }
                 }
             },
             {
@@ -392,7 +581,14 @@
                     "endOffset": 2824
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 1,
+                        "startOffset": 1308,
+                        "endColumn": 75,
+                        "endOffset": 1382
+                    }
                 }
             },
             {
@@ -404,7 +600,14 @@
                     "endOffset": 2891
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 1,
+                        "startOffset": 460,
+                        "endColumn": 63,
+                        "endOffset": 522
+                    }
                 }
             },
             {
@@ -416,7 +619,14 @@
                     "endOffset": 2948
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 1,
+                        "startOffset": 745,
+                        "endColumn": 53,
+                        "endOffset": 797
+                    }
                 }
             },
             {
@@ -428,7 +638,14 @@
                     "endOffset": 3005
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 63,
+                        "endColumn": 56,
+                        "endOffset": 115
+                    }
                 }
             },
             {
@@ -440,7 +657,14 @@
                     "endOffset": 3061
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 1,
+                        "startOffset": 230,
+                        "endColumn": 52,
+                        "endOffset": 281
+                    }
                 }
             },
             {
@@ -452,7 +676,14 @@
                     "endOffset": 3162
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-ru\\values-ru.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2034,
+                        "endColumn": 100,
+                        "endOffset": 2130
+                    }
                 }
             },
             {
@@ -464,7 +695,14 @@
                     "endOffset": 3224
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 1,
+                        "startOffset": 918,
+                        "endColumn": 64,
+                        "endOffset": 981
+                    }
                 }
             },
             {
@@ -476,7 +714,14 @@
                     "endOffset": 3282
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 1,
+                        "startOffset": 800,
+                        "endColumn": 60,
+                        "endOffset": 859
+                    }
                 }
             },
             {
@@ -488,7 +733,14 @@
                     "endOffset": 3346
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 1,
+                        "startOffset": 1055,
+                        "endColumn": 60,
+                        "endOffset": 1114
+                    }
                 }
             },
             {
@@ -500,7 +752,14 @@
                     "endOffset": 3404
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 1,
+                        "startOffset": 862,
+                        "endColumn": 54,
+                        "endOffset": 915
+                    }
                 }
             },
             {
@@ -512,7 +771,14 @@
                     "endOffset": 3477
                 },
                 "from": {
-                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml"
+                    "file": "C:\\IDE\\AndroidStudioApplications\\collagetion\\app\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 1,
+                        "startOffset": 984,
+                        "endColumn": 69,
+                        "endOffset": 1052
+                    }
                 }
             }
         ]

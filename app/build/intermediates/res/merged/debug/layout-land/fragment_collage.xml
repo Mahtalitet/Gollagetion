@@ -24,7 +24,7 @@
             app:fontCustom="roboto_medium" />
 
         <ListView
-            android:id="@android:id/list"
+            android:id="@id/android:list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/collage_button"
@@ -32,7 +32,7 @@
             android:theme="@style/sharegram_listview" />
 
         <LinearLayout
-            android:id="@android:id/empty"
+            android:id="@id/android:empty"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
