@@ -64,7 +64,7 @@ public class InstagramJSONWorker {
 					JSONObject user = usersData.getJSONObject(i);
 
 					String nick = user.getString(TAG_USERNAME);
-					Log.e(TAG, "nick: "+nick);
+//					Log.e(TAG, "nick: "+nick);
 					if (nick.equals(getNick)) {
 						String id = user.getString(TAG_ID);
 						Log.e(TAG, "ID: "+id);
@@ -129,20 +129,20 @@ public class InstagramJSONWorker {
 					JSONArray postsDataArr = allDataJSONObj.getJSONArray(TAG_DATA);
 
 					for (int i = 0; i < postsDataArr.length(); i++) {
-						Log.d(TAG, "IMAGE "+i);
+//						Log.d(TAG, "IMAGE "+i);
 						JSONObject postJSONObj = postsDataArr.getJSONObject(i);
 
 						JSONObject likesJSONObj = postJSONObj.getJSONObject(TAG_LIKES);
 						String likesCount = likesJSONObj.getString(TAG_LIKES_COUNT);
-						Log.d(TAG, "Likes: "+likesCount);
+//						Log.d(TAG, "Likes: "+likesCount);
 
 						JSONObject imageJSONObj = postJSONObj.getJSONObject(TAG_IMAGES);
 						JSONObject imageLowJSONObj = imageJSONObj.getJSONObject(TAG_IMAGES_RESOLUTION);
 						String imageURL = imageLowJSONObj.getString(TAG_IMAGES_URL);
-						Log.d(TAG, "URL: "+imageURL);
+//						Log.d(TAG, "URL: "+imageURL);
 
 						String id = postJSONObj.getString(TAG_ID);
-						Log.d(TAG, "ID: "+id);
+//						Log.d(TAG, "ID: "+id);
 
 						InstagramPost instaPost;
 						String captionTitle;
@@ -152,8 +152,8 @@ public class InstagramJSONWorker {
 							captionTitle = captionJSONObj.getString(TAG_CAPTION_TEXT);
 							captionTime = captionJSONObj.getString(TAG_CAPTION_DATE);
 							instaPost = new InstagramPost(id,captionTitle, new Date(Long.parseLong(captionTime)*1000), imageURL, Integer.parseInt(likesCount));
-							Log.d(TAG, "Time: "+captionTime);
-							Log.d(TAG, "Title: "+captionTitle);
+//							Log.d(TAG, "Time: "+captionTime);
+//							Log.d(TAG, "Title: "+captionTitle);
 						} catch(JSONException ex) {
 							Log.d(TAG, "Didn't find time and title for the post.");
 							instaPost = new InstagramPost(id, imageURL, Integer.parseInt(likesCount));
@@ -183,9 +183,5 @@ public class InstagramJSONWorker {
 			pageCounter++;
 		}
 		return instaPosts;
-	}
-
-	public class FindSecuredAccountException extends Throwable {
-
 	}
 }

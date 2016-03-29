@@ -24,7 +24,7 @@ public class ShakeEventListener implements SensorEventListener {
     }
 
     public interface OnShakeListener {
-        public void onShake(int count);
+        void onShake(int count);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ShakeEventListener implements SensorEventListener {
 
                 final long now = System.currentTimeMillis();
                 Date date = new Date(now);
-                Log.d(TAG,"Now time: "+date.toString());
+//                Log.d(TAG,"Now time: "+date.toString());
 
                 // Reset the shake count after X seconds of no shakes
                 if ((mShakeCount > 0) && (now > mShakeTimestamp + SHAKE_COUNT_RESET_TIME_MS + SHAKE_TIME_MS)) {
@@ -64,8 +64,8 @@ public class ShakeEventListener implements SensorEventListener {
                     mShakeTimestamp = now;
                     mListener.onShake(mShakeCount);
                     Date shakeDate = new Date(mShakeTimestamp-1);
-                    Log.d(TAG,"Shake time: "+shakeDate.toString());
-                    Log.d(TAG, "Shake: " +(mShakeCount-1));
+//                    Log.d(TAG,"Shake time: "+shakeDate.toString());
+//                    Log.d(TAG, "Shake: " +(mShakeCount-1));
                 }
 
                if (mShakeCount == 0) {

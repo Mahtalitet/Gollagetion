@@ -7,7 +7,6 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 public class SharegramButton extends AppCompatButton {
-	public static final String TAG ="SharegramButton";
 
 	public SharegramButton(Context context) {
 		super(context);

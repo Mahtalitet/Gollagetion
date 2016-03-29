@@ -39,9 +39,9 @@ public class PermutationsGenerator {
         public void execute(Runnable r) {
             if (sThread != null) {
                 sThread.interrupt();
-                Log.e(TAG, "Back generation of mCombinations was interrupted!");
+//                Log.e(TAG, "Back generation of mCombinations was interrupted!");
             }
-            Log.e(TAG, "New generation of mCombinations!");
+//            Log.e(TAG, "New generation of mCombinations!");
             sThread = new Thread(r);
             sThread.start();
         }
@@ -58,7 +58,7 @@ public class PermutationsGenerator {
 //                Log.d(TAG, "Number: "+numbers.get(i).toString());
             }
             generate(numbers, 0, numbers.size(), mCombinations);
-            Log.d(TAG, "Combinations count: " + mCombinations.size());
+//            Log.d(TAG, "Combinations count: " + mCombinations.size());
         }
     }
 
@@ -73,7 +73,7 @@ public class PermutationsGenerator {
                 String number = temp.get(g);
                 result.add(number);
             }
-            Log.d(TAG,"Combination:"+result.toString());
+//            Log.d(TAG,"Combination:"+result.toString());
             resultSet.add(result);
             generate(temp, k + 1, n, resultSet);
         }
@@ -92,8 +92,6 @@ public class PermutationsGenerator {
         for (int i = 0; i < arr.length; i++ ) {
             temp.add(arr[i]);
         }
-
         return temp;
     }
-
 }

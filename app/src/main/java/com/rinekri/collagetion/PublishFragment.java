@@ -54,10 +54,11 @@ public class PublishFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mGetCheckedImagesIDs = (String[]) getActivity().getIntent().getSerializableExtra(EXTRA_IMAGES_IDS);
-		Log.d(TAG, "Got IDs form second activity");
-		for (String s: mGetCheckedImagesIDs) {
-			Log.d(TAG, "ID: "+s);
-		}
+
+//		Log.d(TAG, "Got IDs form second activity");
+//		for (String s: mGetCheckedImagesIDs) {
+//			Log.d(TAG, "ID: "+s);
+//		}
 
 		if (savedInstanceState != null) {
 			mGetCheckedImagesIDs = (String[]) savedInstanceState.getSerializable(KEY_CURRENT_IMAGES_IDS);
@@ -167,7 +168,6 @@ public class PublishFragment extends Fragment {
 		
 		return v;
 	}
-
 
 	private void getBitmapCollage() {
 		mCheckedImagesBitmap = new ArrayList<Bitmap>();

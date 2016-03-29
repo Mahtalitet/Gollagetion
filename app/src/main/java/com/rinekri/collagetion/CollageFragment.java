@@ -103,46 +103,13 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 	}
 
 	@Override
-	public void onStart() {
-		super.onStart();
-		Log.e(TAG, "2. Fragment was started!");
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		Log.e(TAG, "3. Fragment was resumed!");
-	}
-
-	@Override
-	public void onPause() {
-		super.onPause();
-		Log.e(TAG, "4. Fragment was paused!");
-	}
-
-
-	@Override
-	public void onStop() {
-		super.onStop();
-		Log.e(TAG, "5. Fragment was stoped!");
-	}
-
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		Log.e(TAG, "6. Fragment was destroyed!");
-
-	}
-
-	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		Log.d(TAG, "Activity of fragment was created...");
+//		Log.d(TAG, "Activity of fragment was created...");
 
 		if ((isGetPostsTaskRunning) && ((mProgressDialog == null) || !mProgressDialog.isShowing())) {
 			mProgressDialog = getLoadingDialog();
-			Log.d(TAG, "Dialog at onActivityCreated() was opened!");
+//			Log.d(TAG, "Dialog at onActivityCreated() was opened!");
 		}
 	}
 
@@ -158,8 +125,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 	public void onGetPostsTaskStarted() {
 		isGetPostsTaskRunning = true;
 		if ((mProgressDialog == null) || (!mProgressDialog.isShowing())) {
-			Log.e(TAG, "Error dialog was opened!");
-
+//			Log.e(TAG, "Error dialog was opened!");
 			mProgressDialog = getLoadingDialog();
 		}
 	}
@@ -170,7 +136,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		isGetPostsTaskRunning = false;
 		if (mProgressDialog != null && mProgressDialog.isShowing()) {
 			mProgressDialog.dismiss();
-			Log.e(TAG, "Error dialog was disabled!");
+//			Log.e(TAG, "Error dialog was disabled!");
 		}
 
 		adapter.clear();
@@ -179,9 +145,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 			adapter.add(post);
 		}
 		adapter.notifyDataSetChanged();
-
 	}
-
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
@@ -192,12 +156,12 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		Log.e(TAG, "Fragment view was created!");
+//		Log.e(TAG, "Fragment view was created!");
 		View v = inflater.inflate(R.layout.fragment_collage, container, false);
 		Toolbar toolbar = (Toolbar) v.findViewById(R.id.fragment_collage_toolbar);
 		toolbar.setTitle("");
 		((CollageActivity) getActivity()).setSupportActionBar(toolbar);
-		
+
 		mBackImageButton = (ImageButton) v.findViewById(R.id.back_image_button);
 		mBackImageButton.setOnClickListener(new View.OnClickListener() {
 
@@ -294,8 +258,8 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		ImageView checkMark = (ImageView) v.findViewById(R.id.insta_post_check_true_image_imageView);
 		checkMark.setVisibility(View.GONE);
 		Boolean itemIsChecked = l.isItemChecked(position);
-		Log.d(TAG, "Checkstate of " + position + " is " + itemIsChecked);
-		Log.d(TAG, "Raw is " + id);
+//		Log.d(TAG, "Checkstate of " + position + " is " + itemIsChecked);
+//		Log.d(TAG, "Raw is " + id);
 
 		if (itemIsChecked) {
 			checkMark.setVisibility(View.VISIBLE);
@@ -309,7 +273,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 
 		setCollageButton(4);
 
-		Log.e(TAG, "Posts counter: " + checkedPostsCounter);
+//		Log.e(TAG, "Posts counter: " + checkedPostsCounter);
 	}
 
 	private String convertDateToString(Date setdate) {
@@ -329,8 +293,8 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 	}
 
 	private SparseBooleanArray positionsOnlyCheckedItems(SparseBooleanArray checkedItemPositions) {
-		Log.d(TAG, "Positions of checked posts (before): " + checkedItemPositions.toString());
-		Log.d(TAG, "Size: " + checkedItemPositions.size());
+//		Log.d(TAG, "Positions of checked posts (before): " + checkedItemPositions.toString());
+//		Log.d(TAG, "Size: " + checkedItemPositions.size());
 		ArrayList<Integer> uncheckedKey = new ArrayList<Integer>();
 		for (int i = 0; i < checkedItemPositions.size(); i++) {
 			int currentKey = checkedItemPositions.keyAt(i);
@@ -340,14 +304,14 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 			}
 		}
 		if (uncheckedKey.size() > 0) {
-			Log.d(TAG, "Deleting positions :" + uncheckedKey.toString());
+//			Log.d(TAG, "Deleting positions :" + uncheckedKey.toString());
 			for (int i = 0; i < uncheckedKey.size(); i++) {
 				int deletingKey = uncheckedKey.get(i);
 				checkedItemPositions.delete(deletingKey);
 			}
 		}
-		Log.d(TAG, "Positions of checked posts (after): " + checkedItemPositions.toString());
-		Log.d(TAG, "Size: " + checkedItemPositions.size());
+//		Log.d(TAG, "Positions of checked posts (after): " + checkedItemPositions.toString());
+//		Log.d(TAG, "Size: " + checkedItemPositions.size());
 
 		return checkedItemPositions;
 	}
@@ -361,7 +325,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 			InstagramPost currPost = (InstagramPost) getListView().getItemAtPosition(position);
 			String ID = currPost.getPostID();
 			ids[i] = ID;
-			Log.d(TAG, "IDs: " + ID);
+//			Log.d(TAG, "IDs: " + ID);
 		}
 
 		return ids;
@@ -382,7 +346,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 
 		@Override
 		protected ArrayList<InstagramPost> doInBackground(String... params) {
-			Log.d(TAG, "ID at CollageFragment: " + params[0]);
+//			Log.d(TAG, "ID at CollageFragment: " + params[0]);
 			ArrayList<InstagramPost> getPosts = null;
 			getPosts = InstagramPostsFactory.getFactory(getContext()).getInstagramPosts(params[0]);
 			ArrayList<InstagramPost> soretedPosts =  InstagramPostsFactory.getFactory(getContext()).getSortedForLikesInstagramPosts(getPosts);
@@ -400,5 +364,4 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		String dialog_text = getActivity().getResources().getString(R.string.dialog_loading_text);
 		return ProgressDialog.show(getActivity(), dialog_title, dialog_text);
 	}
-
 }

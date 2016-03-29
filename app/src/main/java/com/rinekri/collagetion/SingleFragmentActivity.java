@@ -20,6 +20,7 @@ import com.rinekri.collagetion.R.layout;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public abstract class SingleFragmentActivity extends AppCompatActivity {
 	private static final String TAG = "BaseActivity";
+
 	protected abstract Fragment createFragment();
 	
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -29,10 +30,12 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_fragment);
 		FragmentManager fm = getSupportFragmentManager();
 		Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+
 		if (fragment == null) {
 			fragment = createFragment();
 			fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
 		}
+
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             TypedValue typedValue = new TypedValue();
             Resources.Theme theme = getTheme();
@@ -46,13 +49,6 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
             bm.recycle();
 		}
 		
-	}
-	
-	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
-	@Override
-	public void onResume() {
-		super.onResume();
-
 	}
 }
 

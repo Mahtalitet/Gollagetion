@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 public class ShareFragment extends Fragment {
 	private static final String TAG = "ShareFragment";
-	private static final String STATE_ID_SEARCH_IN_PROGRESS = "com.rinkeri.id_search_in_progress";
 
 	private Button mSearchButton;
 	private EditText mInstaIDEditText;
@@ -48,9 +47,8 @@ public class ShareFragment extends Fragment {
 						if (instaNick.contains(" ")) {
 							mInstaIDEditText.setError(getContext().getResources().getString(R.string.toast_space_nick));
 						} else {
-							Log.d(TAG, "Entered nick: " + instaNick);
+//							Log.d(TAG, "Entered nick: " + instaNick);
 							new getIdTask().execute(instaNick);
-
 						}
 					}
 				} else {
@@ -71,7 +69,7 @@ public class ShareFragment extends Fragment {
 		@Override
 		protected void onPostExecute(String result) {
 			if (result != null) {
-				Log.d(TAG, "Finded ID: " + result);
+//				Log.d(TAG, "Finded ID: " + result);
 				IBinder token = mInstaIDEditText.getWindowToken();
 				((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(token, 0);
 				Intent i = new Intent(getActivity(), CollageActivity.class);

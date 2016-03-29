@@ -52,7 +52,7 @@ public class InstagramPostsFactory {
         else if ((sUserID != null) && (mInstagramPosts != null) && sUserID.equals(id)) {
             status = true;
         }
-        Log.d(TAG,"Status"+status);
+//        Log.d(TAG,"Status"+status);
         return status;
     }
 

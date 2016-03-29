@@ -39,7 +39,7 @@ public class NetworkConnector {
             stringResponce = response.body().string();
 
             if (stringResponce != null) {
-                Log.e(TAG, "Response length: " + stringResponce.length());
+//                Log.e(TAG, "Response length: " + stringResponce.length());
             }
 
         } catch (IOException ex) {

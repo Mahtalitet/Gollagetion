@@ -52,8 +52,7 @@ public class InstagramCollageFactory {
 
         }
 
-        Log.e(TAG, "Current instagram combination " + sCurrentInstagramImgsCombination);
-
+//        Log.e(TAG, "Current instagram combination " + sCurrentInstagramImgsCombination);
 
         return parseCharToNumbers(getCombination());
     }

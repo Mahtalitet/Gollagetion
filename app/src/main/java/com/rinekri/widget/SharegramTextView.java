@@ -7,7 +7,6 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
 public class SharegramTextView extends AppCompatTextView {
-	public static final String TAG ="SharegramTextView";
 
 	public SharegramTextView(Context context) {
 		super(context);

@@ -1,13 +1,11 @@
 package com.rinekri.widget;
 
 import com.rinekri.collagetion.R;
-import com.rinekri.collagetion.R.styleable;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 
 public class FontChooser {
@@ -23,10 +21,10 @@ public class FontChooser {
 	    int typefaceValue = values.getInt(R.styleable.SharegramRobotoView_fontCustom, 1);
 	    values.recycle();
 
-	    return obtaintTypeface(context, typefaceValue);
+	    return obtainTypeface(context, typefaceValue);
 	}
 	
-	public static Typeface obtaintTypeface(Context context, int typefaceValue) throws IllegalArgumentException {
+	public static Typeface obtainTypeface(Context context, int typefaceValue) throws IllegalArgumentException {
 	    Typeface typeface = mTypefaces.get(typefaceValue);
 	    if (typeface == null) {
 	        typeface = createTypeface(context, typefaceValue);

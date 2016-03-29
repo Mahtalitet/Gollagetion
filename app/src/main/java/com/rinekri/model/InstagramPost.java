@@ -54,7 +54,7 @@ public class InstagramPost implements Comparable<InstagramPost> {
 		return mPostLikeCounts;
 	}
 
-	public void setmPostID(String postID) {
+	public void setPostID(String postID) {
 		mPostID = postID;
 	}
 
