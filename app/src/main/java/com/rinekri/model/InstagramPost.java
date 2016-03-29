@@ -4,10 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 
 import com.rinekri.net.NetworkConnector;
+import com.rinekri.util.BitmapWorker;
+import com.rinekri.util.DirectoryReturner;
 
 import java.util.Date;
 
 public class InstagramPost implements Comparable<InstagramPost> {
+
 	private String mPostID;
 	private String mPostTitle;
 	private Date mPostDate;
@@ -72,14 +75,17 @@ public class InstagramPost implements Comparable<InstagramPost> {
 	}
 
 
-	public Bitmap getPostsImageWithCache(Context c) {
-		if (mPostImageBitmap == null) {
-
-
-		}
-
-		return mPostImageBitmap;
-	}
+//	public Bitmap getPostsImageWithCache(Context c) {
+//		if (mPostImageBitmap == null) {
+//			NetworkConnector getImage = new NetworkConnector();
+//			Bitmap bitmap = getImage.getBitmapFromURL(getPostImageURL());
+//			BitmapWorker bitmapWorker = new BitmapWorker(c, BitmapWorker.IMAGE_CACHE_FOLDER, getPostID(), BitmapWorker.JPEG_FORMAT);
+//			bitmapWorker.saveBitmapHighQuality(bitmap);
+//			mPostImageBitmap = bitmapWorker.loadBitmapFromFile();
+//		}
+//
+//		return mPostImageBitmap;
+//	}
 
 	public Bitmap getPostsImage() {
 		if (mPostImageBitmap == null) {

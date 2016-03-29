@@ -99,14 +99,15 @@ public class PublishFragment extends Fragment {
 					InstagramPost post = InstagramPostsFactory.getFactory(getContext()).getInstagramPost(currentID);
 					Bitmap image = post.getPostsImage();
 					mCheckedImagesBitmap.add(image);
-
-					int childViewCounter = mCommonCollageLayout.getChildCount();
-
-					for(int d = 0; d < childViewCounter; d++) {
-						ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(i);
-						partCollage.setImageBitmap(mCheckedImagesBitmap.get(i));
-					}
 				}
+
+				int childViewCounter = mCommonCollageLayout.getChildCount();
+
+				for(int d = 0; d < childViewCounter; d++) {
+					ImageView partCollage = (ImageView) mCommonCollageLayout.getChildAt(d);
+					partCollage.setImageBitmap(mCheckedImagesBitmap.get(d));
+				}
+
 			}
 		});
 	}
@@ -150,7 +151,7 @@ public class PublishFragment extends Fragment {
 
 		mBackImageButton = (ImageButton) v.findViewById(R.id.back_image_button);
 		mBackImageButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				if (NavUtils.getParentActivityName(getActivity()) != null) {
@@ -161,15 +162,15 @@ public class PublishFragment extends Fragment {
 		
 		mPostButton = (Button) v.findViewById(R.id.post_button);
 		mPostButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 			@Override
 			public void onClick(View v) {
 				Toast loadToast = Toast.makeText(getContext(), R.string.toast_load, Toast.LENGTH_SHORT);
 				loadToast.show();
-				
-				mBitmapWorker = new BitmapWorker(getContext(), DirectoryReturner.COLLAGE_FOLDER, BITMAP_NAME, BitmapWorker.JPEG_FORMAT);
-				Bitmap collage = mBitmapWorker.createBitmap(mCommonCollageLayout);
+
+				mBitmapWorker = new BitmapWorker(getContext(), BITMAP_NAME, BitmapWorker.JPEG_FORMAT);
+				Bitmap collage = mBitmapWorker.createBitmapFromView(mCommonCollageLayout);
 				boolean saved = mBitmapWorker.saveBitmapHighQuality(collage);
 				if (saved) {
 					loadToast.cancel();
@@ -186,6 +187,11 @@ public class PublishFragment extends Fragment {
 		});
 		
 		return v;
+	}
+
+
+	private void updateCollage() {
+
 	}
 
 

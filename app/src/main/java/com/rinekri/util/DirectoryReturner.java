@@ -8,8 +8,6 @@ import android.os.Environment;
 import java.io.File;
 
 public class DirectoryReturner {
-    public static final String COLLAGE_FOLDER = "collage";
-    public static final String IMAGE_CACHE_FOLDER = "image_cache";
 
     private Context mContext;
 
@@ -18,7 +16,7 @@ public class DirectoryReturner {
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public File returnFolderDirectory(String folder, String filename) {
+    public File returnFileDirectory(String folder, String filename) {
 
         File directory = null;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
@@ -34,7 +32,7 @@ public class DirectoryReturner {
     }
 
     private File innerDirectory(String folder, String filename) {
-        File f = new File(mContext.getDir(folder,Context.MODE_PRIVATE), filename);
+        File f = new File(mContext.getDir(folder,Context.MODE_WORLD_READABLE), filename);
         f.setReadable(true, false);
         return f;
     }

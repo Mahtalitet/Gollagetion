@@ -117,5 +117,3 @@ ADDED from C:\IDE\AndroidStudioApplications\collagetion\app\src\main\AndroidMani
 		ADDED from C:\IDE\AndroidStudioApplications\collagetion\app\src\main\AndroidManifest.xml:44:13-45
 	android:name
 		ADDED from C:\IDE\AndroidStudioApplications\collagetion\app\src\main\AndroidManifest.xml:43:13-44
-	android:launchMode
-		ADDED from C:\IDE\AndroidStudioApplications\collagetion\app\src\main\AndroidManifest.xml:45:13-43
