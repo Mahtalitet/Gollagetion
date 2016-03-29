@@ -68,6 +68,7 @@ public class CollageFragment extends ListFragment implements GetPostsTaskListene
 		mGotIstagramId = (String) getActivity().getIntent().getSerializableExtra(EXTRA_INSTAGRAM_ID);
 		if ((mGotIstagramId != null) && !isGetPostsTaskRunning) {
 			if (!InstagramPostsFactory.getFactory(getContext()).getInstagramPostsStatus(mGotIstagramId)) {
+				BitmapWorker.deleteAllBitmapsFromCacheDirectory(getContext());
 				mGetPostsTask = new GetPostsTask(this);
 				mGetPostsTask.execute(mGotIstagramId);
 			} else {

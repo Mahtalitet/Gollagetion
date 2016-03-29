@@ -78,13 +78,17 @@ public class InstagramPost implements Comparable<InstagramPost> {
 	public Bitmap getPostsImageWithCache(Context c) {
 		if (mPostImageBitmap == null) {
 			NetworkConnector getImage = new NetworkConnector();
-			Bitmap bitmap = getImage.getBitmapFromURL(getPostImageURL());
 			BitmapWorker bitmapWorker = new BitmapWorker(c, DirectoryReturner.IMAGE_CACHE_FOLDER, getPostID(), BitmapWorker.JPEG_FORMAT);
-			if (bitmapWorker.checkCacheMaximum(BitmapWorker.CACHE_MAXINUM)) {
-				bitmapWorker.deleteBitmapsFromDirectory();
+
+			if (bitmapWorker.isBitmapInCacheDirectory()) {
+				return mPostImageBitmap = bitmapWorker.loadBitmapFromDirectory();
 			}
-			bitmapWorker.saveBitmapHighQuality(bitmap);
-			mPostImageBitmap = bitmapWorker.loadBitmapFromFile();
+
+			Bitmap image = getImage.getBitmapFromURL(getPostImageURL());
+			if ((!bitmapWorker.isCacheMaximumAtDirectory(BitmapWorker.CACHE_MAXINUM)) && !bitmapWorker.isBitmapInCacheDirectory()) {
+				bitmapWorker.saveBitmapHighQuality(image);
+			}
+			mPostImageBitmap = image;
 		}
 
 		return mPostImageBitmap;

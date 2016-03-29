@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.rinekri.collagetion.R;
@@ -58,7 +59,6 @@ public class BitmapWorker {
 	
 
 	public boolean saveBitmap(Bitmap bitmap, int bitmapQuality) {
-		mBitmapDirectory.delete();
 		ByteArrayOutputStream bytesBitmap = new ByteArrayOutputStream();
 		bitmap.compress(mBitmapFormat, bitmapQuality, bytesBitmap);
 		
@@ -84,11 +84,11 @@ public class BitmapWorker {
 		return saveBitmap(bitmap, 100);
 	}
 
-	public Bitmap loadBitmapFromFile() {
+	public Bitmap loadBitmapFromDirectory() {
 		return BitmapFactory.decodeFile(mBitmapDirectory.toString());
 	}
 
-	public boolean checkCacheMaximum(int maxBitmaps) {
+	public boolean isCacheMaximumAtDirectory(int maxBitmaps) {
 		if (mDirectory.list().length <= maxBitmaps) {
 			return false;
 		}
@@ -96,7 +96,17 @@ public class BitmapWorker {
 		return true;
 	}
 
-	public void deleteBitmapsFromDirectory() {
+	public boolean isBitmapInCacheDirectory() {
+		for (String filename : mDirectory.list()) {
+//			Log.e(TAG, "Filename: "+filename);
+			if (filename.equals(mBitmapName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void deleteAllBitmapsFromDirectory() {
 		if (mDirectory.exists()) {
 			String deleteCmd = "rm -r " + mDirectory;
 			Runtime runtime = Runtime.getRuntime();
@@ -113,6 +123,19 @@ public class BitmapWorker {
 		shareIntent.putExtra(Intent.EXTRA_TEXT, "#appkode #zapilika");
 		
 		return shareIntent;
+	}
+
+	public static void deleteAllBitmapsFromCacheDirectory(Context c) {
+		DirectoryReturner dirReturner = new DirectoryReturner(c);
+		File cahceDirectory = dirReturner.outerDirectory(DirectoryReturner.IMAGE_CACHE_FOLDER);
+
+		if (cahceDirectory.exists()) {
+			String deleteCmd = "rm -r " + cahceDirectory;
+			Runtime runtime = Runtime.getRuntime();
+			try {
+				runtime.exec(deleteCmd);
+			} catch (IOException e) { }
+		}
 	}
 
 }
