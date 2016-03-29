@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.rinekri.util.PermutationsGenerator;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class InstagramCollageFactory {
@@ -12,7 +13,7 @@ public class InstagramCollageFactory {
     private static InstagramCollageFactory sInstagramCollageFactory;
 
     private Context mAppContext;
-    private HashSet<String> sInstagramImgsCombinations;
+    private HashSet<ArrayList<String>> sInstagramImgsCombinations;
     private int sCurrentInstagramImgsCombinationSize;
     private int sCurrentInstagramImgsCombination;
 
@@ -54,7 +55,7 @@ public class InstagramCollageFactory {
         Log.e(TAG, "Current instagram combination " + sCurrentInstagramImgsCombination);
 
 
-        return parseCharToNumbers(getCombination().toCharArray());
+        return parseCharToNumbers(getCombination());
     }
 
     public int[] getFirstCombinationImages(int size) {
@@ -72,7 +73,7 @@ public class InstagramCollageFactory {
         resetCurrentCombination();
 
 
-        return parseCharToNumbers(getCombination().toCharArray());
+        return parseCharToNumbers(getCombination());
     }
 
     public void resetCurrentCombination() {
@@ -84,20 +85,20 @@ public class InstagramCollageFactory {
         sInstagramImgsCombinations = permutationsGenerator.getCombinations(size);
     }
 
-    private int[] parseCharToNumbers(char[] character) {
+    private int[] parseCharToNumbers(ArrayList<String> character) {
 
-        int[] numbers = new int[character.length];
+        int[] numbers = new int[character.size()];
 
-        for (int i = 0; i < character.length; i++) {
-            numbers[i] = Character.getNumericValue(character[i]);
+        for (int i = 0; i < character.size(); i++) {
+            numbers[i] = Integer.parseInt(character.get(i));
         }
         return numbers;
     }
 
-    private String getCombination() {
+    private ArrayList<String> getCombination() {
 
         int i = 0;
-        for (String s : sInstagramImgsCombinations) {
+        for (ArrayList<String> s : sInstagramImgsCombinations) {
             if (sCurrentInstagramImgsCombination == i) {
                 return s;
             }

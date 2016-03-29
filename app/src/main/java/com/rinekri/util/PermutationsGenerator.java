@@ -2,6 +2,7 @@ package com.rinekri.util;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.concurrent.Executor;
 
@@ -10,18 +11,18 @@ public class PermutationsGenerator {
     private static final int ELEMENTS = 4;
 
     private static Thread sThread;
-    private HashSet<String> mCombinations;
+    private HashSet<ArrayList<String>> mCombinations;
     private int mCombinationsSize;
 
-    public HashSet<String> getCombinations(int size) {
+    public HashSet<ArrayList<String>> getCombinations(int size) {
         mCombinationsSize = size;
-        mCombinations = new HashSet<String>();
+        mCombinations = new HashSet<ArrayList<String>>();
 
         GenerateExecutor mExecutor = new GenerateExecutor();
         mExecutor.execute(new RunnableForGenerateExecutor());
 
        while (true) {
-            Log.e(TAG, "Size of comnbinations"+mCombinations.size());
+//            Log.e(TAG, "Size of comnbinations"+mCombinations.size());
             if (mCombinations.size() >= 24) {
                 try {
                     Thread.sleep(1000);
@@ -50,41 +51,49 @@ public class PermutationsGenerator {
 
         @Override
         public void run() {
-            StringBuilder numbers = new StringBuilder();
+            ArrayList<String> numbers = new ArrayList<String>();
 
             for (int i = 0; i < mCombinationsSize; i++) {
-                numbers.append(i);
+                numbers.add(Integer.toString(i));
+//                Log.d(TAG, "Number: "+numbers.get(i).toString());
             }
-            generate(numbers.toString(), 0, mCombinationsSize, mCombinations);
+            generate(numbers, 0, numbers.size(), mCombinations);
             Log.d(TAG, "Combinations count: " + mCombinations.size());
         }
     }
 
-    private static void generate(String str, int k, int n, HashSet<String> resultSet){
+    private static void generate(ArrayList<String> str, int k, int n, HashSet<ArrayList<String>> resultSet){
         for(int i = k; i < n; i++){
 
-            String temp = modifyString(str, i, k);
+            ArrayList<String> temp = modifyString(str, i, k);
 
-            char[] arr = temp.toCharArray();
+            ArrayList<String> result = new ArrayList<String>();
 
-            StringBuilder result = new StringBuilder();
             for (int g = 0; g < ELEMENTS; g++) {
-                result.append(arr[g]);
+                String number = temp.get(g);
+                result.add(number);
             }
 //            Log.d(TAG,"Combination:"+result.toString());
-            resultSet.add(result.toString());
+            resultSet.add(result);
             generate(temp, k + 1, n, resultSet);
         }
     }
 
-    private static String modifyString(String str, int x, int y){
-        char[] arr = str.toCharArray();
+    private static ArrayList<String> modifyString(ArrayList<String> str, int x, int y){
+        String[] arr = new String[str.size()];
+        str.toArray(arr);
 
-        char t =  arr[x];
+        String t =  arr[x];
         arr[x] = arr[y];
         arr[y] = t;
 
-        return new String(arr);
+        ArrayList<String> temp = new ArrayList<String>();
+//        Log.e(TAG,"Combinations for parsing:");
+        for (int i = 0; i < arr.length; i++ ) {
+            temp.add(arr[i]);
+        }
+
+        return temp;
     }
 
 }
