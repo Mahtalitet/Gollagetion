@@ -16,7 +16,10 @@ Received collage you can immediately share to social networks or first shake you
 ![Screenshot](http://s50.radikal.ru/i128/1605/20/c114406e3a80.jpg)
 
 ![Screenshot](http://s008.radikal.ru/i305/1605/6f/76e0aaf14dcc.png)
-![Screenshot](http://s008.radikal.ru/i305/1605/6f/76e0aaf14dcc.png)
-![Screenshot](http://s008.radikal.ru/i305/1605/6f/76e0aaf14dcc.png)
-![Screenshot](http://s008.radikal.ru/i305/1605/6f/76e0aaf14dcc.png)
+![Screenshot](http://s011.radikal.ru/i318/1605/04/b0935cfd271e.png)
+![Screenshot](http://s019.radikal.ru/i600/1605/02/b02af67ee742.png)
+![Screenshot](http://s019.radikal.ru/i633/1605/a1/b0717ae6e13a.png)
+![Screenshot](http://s017.radikal.ru/i433/1605/c5/284e5c465e2e.png)
+![Screenshot](http://s018.radikal.ru/i512/1605/a7/a17187cfcc5f.png)
+![Screenshot](http://s017.radikal.ru/i409/1605/6c/835028715177.png)
 
